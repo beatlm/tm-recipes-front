@@ -2,11 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'mr-recipe',
-  template: `
-    <p>
-      recipe works!
-    </p>
-  `,
+  template: 'Receta',
   styles: []
 })
 export class RecipeComponent implements OnInit {

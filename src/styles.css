@@ -7,6 +7,11 @@
     vertical-align: middle;
     font-size: 2em;
 }
+.menu{
+    margin-bottom: 3%;
+    background-color: #009a3d52;
+    color: gray;
+}
 /*
 .btn-main{
     margin-top: 10%;

@@ -8,6 +8,7 @@ import{ ComponentsModule } from './lib/components/components.module';
 import { RecipeModule } from './views/recipe/recipe.module'
 import { AddRecipeModule } from './views/add-recipe/add-recipe.module';
 import { PlanningModule } from './views/planning/planning.module';
+import {  HttpClientModule } from "@angular/common/http";
 
 
 
@@ -21,7 +22,8 @@ import { PlanningModule } from './views/planning/planning.module';
     ComponentsModule,
     RecipeModule,
     AddRecipeModule,
-    PlanningModule
+    PlanningModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

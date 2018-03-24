@@ -41,20 +41,16 @@ this.recipes.push(this.recipe2);
 
   private refreshData() {
     this.message = `Refreshing Data`;
-   // this.numberOfRecipes = this.recipesService.getNumberOfRecipes();
-    //this.recipes = this.recipesService.getRecipesList();
     this.recipesService
     .getRecipesList$()
     .subscribe(this.showRecipes.bind(this), this.catchError.bind(this));
 
-  /*this.recipesService
-    .getNumberOfRecipes$()
-    .subscribe(this.showCount.bind(this), this.catchError.bind(this));
-*/
   }
+
 
   private showRecipes(recipes: RecipeModel[]) {
     this.recipes = recipes;
+    
     this.message = `recipes Ok`;
   }
   private showCount(data: any) {

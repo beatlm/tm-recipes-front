@@ -1,10 +1,11 @@
+
 <div class="container" *ngFor="let recipe of recipes">
-  <h1>{{message}}</h1>
+ 
   <div class="row justify-content-center h4">
       {{ recipe.name }}
   </div>
   <div class="row header">
-      <div class="col-3 h5">N Comensales</div>
+      <div class="col-3 h5">Nº Comensales</div>
       <div class="col-3 h5">Tiempo preparacion</div>
       <div class="col-3 h5">Tiempo total</div>
   </div>
@@ -16,9 +17,3 @@
   </div>
   
 </div>
-
-
-
-  <ng-template #emptyList>
-    <h3>Aún no hay recetas</h3>
-  </ng-template>

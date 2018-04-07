@@ -1,4 +1,5 @@
 export class RecipeModel {
+  public id:string;
     public name: string ="";
     public comensales: number = 0;
     public totalTime: number = 0;

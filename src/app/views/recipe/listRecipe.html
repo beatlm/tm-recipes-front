@@ -13,7 +13,8 @@
       <div class="col-3">{{ recipe.amount }}</div>
       <div class="col-3">{{ recipe.preparation }}</div>
       <div class="col-3">{{ recipe.total }}</div>
-      <button class="col-3"type="button">Ver receta</button>
+      <button class="btn btn-info" type="button">Ver receta</button>
+      <button class="btn btn-secondary" type="button" (click)="deleteRecipe(recipe.id)" >Borrar</button>
   </div>
   
 </div>

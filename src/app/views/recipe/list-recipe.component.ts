@@ -15,8 +15,6 @@ import {HttpErrorResponse} from '@angular/common/http';
 })
 export class ListRecipeComponent implements OnInit {
   public numberOfRecipes = 0;
- // public recipe: RecipeModel = new RecipeModel();
- // public recipe2: RecipeModel = new RecipeModel();
   public recipes: RecipeModel[] ;
   public message: string;
   public fullError:string;
@@ -24,21 +22,6 @@ export class ListRecipeComponent implements OnInit {
 
   ngOnInit() {
     this.refreshData();
-/*this.recipe= new RecipeModel();
-this.recipe.comensales=2;
-this.recipe.name= "Galletas Avena"
-this.recipe.preparingTime=10;
-this.recipe.totalTime=20;
-this.recipe.ingredients=["Avena en copos", "Huevos", "Sal", "Miel", "Azucar Moreno", "Aceite de oliva"]
-this.recipes.push(this.recipe);
-this.recipe2= new RecipeModel();
-this.recipe2.comensales=2;
-this.recipe2.name= "Galletas Avena"
-this.recipe2.preparingTime=10;
-this.recipe2.totalTime=20;
-this.recipe2.ingredients=["Avena en copos", "Huevos", "Sal", "Miel", "Azucar Moreno", "Aceite de oliva"]
-this.recipes.push(this.recipe2);
-  this.numberOfRecipes=this.recipes.length;*/
   }
 
   private refreshData() {
@@ -48,7 +31,15 @@ this.recipes.push(this.recipe2);
     .subscribe(this.showRecipes.bind(this), this.catchError.bind(this));
 
   }
-
+private deleteRecipe(id: string){
+  this.recipesService
+  .deleteRecipe$(id)
+  .subscribe(this.showDelete.bind(this), this.catchError.bind(this));
+}
+private showDelete(){
+  alert("Borrada con éxito");
+  this.refreshData();
+}
 
   private showRecipes(resultado: ResponseModel<RecipeModel>[]) {
     this.recipes = resultado._embedded.result;

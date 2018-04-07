@@ -11,9 +11,6 @@ export class RecipesService {
   //private url="http://localhost:8080/recipes";
   constructor(private http: HttpClient) {}
 
- /* public getNumberOfRecipes$(): number {
-    return this.recipes.length;
-  }*/
   public getRecipesList$(): Observable<ResponseModel<RecipeModel>[]> {
     return this.http.get<ResponseModel<RecipeModel>[]>(this.url);
   }
@@ -21,6 +18,9 @@ export class RecipesService {
  
   public saveRecipe$(recipe:RecipeModel):Observable<any> {
     return this.http.post(this.url,recipe);
+  }
+  public deleteRecipe$(id:string):Observable<any>{
+    return this.http.delete(this.url+"/"+id);
   }
 
 

@@ -1,0 +1,43 @@
+[debug] [2018-04-07T21:26:10.479Z] ----------------------------------------------------------------------
+[debug] [2018-04-07T21:26:10.483Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-04-07T21:26:10.484Z] CLI Version:   3.17.7
+[debug] [2018-04-07T21:26:10.484Z] Platform:      darwin
+[debug] [2018-04-07T21:26:10.484Z] Node Version:  v6.11.3
+[debug] [2018-04-07T21:26:10.485Z] Time:          Sat Apr 07 2018 23:26:10 GMT+0200 (CEST)
+[debug] [2018-04-07T21:26:10.485Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-04-07T21:26:10.498Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-04-07T21:26:10.498Z] > authorizing via signed-in user
+[debug] [2018-04-07T21:26:10.500Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-04-07T21:26:10.500Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/qMgibhccCt41_XpF0PPkwSuTdesNAFNU0bkAojK5lTc',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sat Apr 07 2018 23:26:10 GMT+0200 (CEST)
+[debug] [2018-04-07T21:26:10.661Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-07T21:26:10.682Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/tm-recipes  
+  
+ Sat Apr 07 2018 23:26:10 GMT+0200 (CEST)
+[debug] [2018-04-07T21:26:11.444Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-07T21:26:11.446Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/tm-recipes/tokens  
+  
+ Sat Apr 07 2018 23:26:11 GMT+0200 (CEST)
+[debug] [2018-04-07T21:26:12.416Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'tm-recipes'...
+[info] 
+[info] i  deploying database, hosting
+[debug] [2018-04-07T21:26:13.196Z] TypeError: rulesConfig.forEach is not a function
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/deploy/database/prepare.js:30:15)
+    at _chain (/usr/local/lib/node_modules/firebase-tools/lib/deploy/index.js:23:45)
+    at /usr/local/lib/node_modules/firebase-tools/lib/deploy/index.js:77:12
+    at tryCatch (/usr/local/lib/node_modules/firebase-tools/node_modules/rsvp/dist/rsvp.js:525:12)
+    at invokeCallback (/usr/local/lib/node_modules/firebase-tools/node_modules/rsvp/dist/rsvp.js:538:13)
+    at publish (/usr/local/lib/node_modules/firebase-tools/node_modules/rsvp/dist/rsvp.js:508:7)
+    at flush (/usr/local/lib/node_modules/firebase-tools/node_modules/rsvp/dist/rsvp.js:2415:5)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickDomainCallback (internal/process/next_tick.js:128:9)
+[error] 
+[error] Error: An unexpected error has occurred.

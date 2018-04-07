@@ -1,3 +1,5 @@
+import { EmbeddedList } from './EmbeddedList';
+import { ResponseModel } from './responseModel';
 import { RecipesService } from './recipes.service';
 import { Component, OnInit } from '@angular/core';
 import { RecipeModel } from './recipeModel';
@@ -48,8 +50,8 @@ this.recipes.push(this.recipe2);
   }
 
 
-  private showRecipes(recipes: RecipeModel[]) {
-    this.recipes = recipes;
+  private showRecipes(resultado: ResponseModel<RecipeModel>[]) {
+    this.recipes = resultado._embedded.result;
     
     this.message = `recipes Ok`;
   }

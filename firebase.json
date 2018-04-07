@@ -1,0 +1,15 @@
+{
+    "database": {
+      "rules": {
+        ".read": "false",
+        ".write": "false"
+      }
+    },
+    "hosting": {
+      "public": "dist",
+      "rewrites": [{
+        "source": "**",
+        "destination": "/index.html"
+      }]
+    }
+  }

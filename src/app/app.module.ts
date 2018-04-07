@@ -10,6 +10,11 @@ import { AddRecipeModule } from './views/add-recipe/add-recipe.module';
 import { PlanningModule } from './views/planning/planning.module';
 import {  HttpClientModule } from "@angular/common/http";
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from 'environments/environment';
+
 
 
 @NgModule({
@@ -23,7 +28,10 @@ import {  HttpClientModule } from "@angular/common/http";
     RecipeModule,
     AddRecipeModule,
     PlanningModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent],

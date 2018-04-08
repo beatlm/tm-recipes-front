@@ -42,7 +42,7 @@ private showDelete(){
 }
 
   private showRecipes(resultado: RecipeModel[]) {
-    this.recipes = resultado.content;
+    this.recipes = resultado;
     
     this.message = `recipes Ok`;
   }

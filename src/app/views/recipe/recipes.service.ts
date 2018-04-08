@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from "rxjs/Observable";
 
+
 @Injectable()
 export class RecipesService {
   private url = "https://tm-recipes-api.herokuapp.com/recipes" ;
@@ -12,7 +13,11 @@ export class RecipesService {
   constructor(private http: HttpClient) {}
 
   public getRecipesList$(): Observable<RecipeModel[]> {
-    return this.http.get<RecipeModel[]>(this.url);
+    return this.http.get<RecipeModel[]>(this.url).map((result:any)=>{
+      //console.log(result); //<--it's an object
+      //result={"_embedded": {"categories": [..]..}
+      return result.content; //just return "recipes"
+   });
   }
   
  

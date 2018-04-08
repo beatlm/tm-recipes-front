@@ -1,3 +1,4 @@
+import { TodayModule } from './views/today/today.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -13,7 +14,7 @@ import {  HttpClientModule } from "@angular/common/http";
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { environment } from 'environments/environment';
+
 
 
 
@@ -29,9 +30,7 @@ import { environment } from 'environments/environment';
     AddRecipeModule,
     PlanningModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule
+    TodayModule
   ],
   providers: [],
   bootstrap: [AppComponent],

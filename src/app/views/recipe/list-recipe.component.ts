@@ -1,8 +1,8 @@
+import { RecipeModel } from './RecipeModel';
 import { EmbeddedList } from './EmbeddedList';
 import { ResponseModel } from './responseModel';
 import { RecipesService } from './recipes.service';
 import { Component, OnInit } from '@angular/core';
-import { RecipeModel } from './recipeModel';
 import {Observable} from "rxjs/Observable";
 import {HttpErrorResponse} from '@angular/common/http';
 
@@ -41,8 +41,8 @@ private showDelete(){
   this.refreshData();
 }
 
-  private showRecipes(resultado: ResponseModel<RecipeModel>[]) {
-    this.recipes = resultado._embedded.result;
+  private showRecipes(resultado: RecipeModel[]) {
+    this.recipes = resultado.content;
     
     this.message = `recipes Ok`;
   }

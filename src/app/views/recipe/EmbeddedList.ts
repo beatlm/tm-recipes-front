@@ -1,4 +1,4 @@
 
 export interface EmbeddedList<T> {
-  results: T[];
+  results:T [];
 }

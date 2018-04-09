@@ -30,7 +30,8 @@
     "firebase": "^4.12.1",
     "jquery": "^3.3.1",
     "rxjs": "^5.5.6",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.19",
+    "popper.js": "^1.12.9"
   },
   "devDependencies": {
     "@angular/cli": "~1.7.1",

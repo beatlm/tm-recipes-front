@@ -5,4 +5,9 @@ export class RecipeModel {
     public total: number = 0;
     public preparation: number = 0;
     public ingredients: Array<string>=[];
+    constructor( name:string,amount:number, total:number,preparation:number){
+      this.name=name;
+      this.amount=amount;
+      this.preparation=preparation;
+    };
   }

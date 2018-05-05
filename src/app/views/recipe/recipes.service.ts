@@ -14,8 +14,7 @@ export class RecipesService {
 
   public getRecipesList$(): Observable<RecipeModel[]> {
     return this.http.get<RecipeModel[]>(this.url).map((result:any)=>{
-      //console.log(result); //<--it's an object
-      //result={"_embedded": {"categories": [..]..}
+      console.log(result); //<--it's an object
       return result.content; //just return "recipes"
    });
   }

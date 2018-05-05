@@ -12,22 +12,20 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class AddRecipeComponent implements OnInit {
   addRecipeForm: FormGroup;
 
-//public recipe:RecipeModel= new RecipeModel();
 constructor(private recipesService: RecipesService,private fb: FormBuilder) { }
 
   ngOnInit() {
 
     this.addRecipeForm = this.fb.group({
-      nombre: ['', Validators.required],
+      nombre: ['default', Validators.required],
       comensales: ['1', Validators.required],
-      preparation: ['0', Validators.required],
-      totalTime: ['0', Validators.required],
-      ingredients: ['', Validators.required],
+      preparation: ['5', Validators.required],
+      totalTime: ['5', Validators.required],
+      ingredients: ['leche', Validators.required],
     });
   }
 
-  public saveRecipe(form:FormGroup) {
-    //onSubmit(form: FormGroup) {
+  saveRecipe(form:FormGroup) {
 
    var recipe:RecipeModel= new RecipeModel(form.value.nombre,form.value.comensales,form.value.preparation,form.value.totalTime);//form.value.ingredients)
    this.recipesService

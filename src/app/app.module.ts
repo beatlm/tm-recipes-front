@@ -15,20 +15,20 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import 'rxjs/add/operator/map';
-import { ModalComponent } from './lib/components/modal/modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ModalComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ComponentsModule,
+    ReactiveFormsModule,
     RecipeModule,
     AddRecipeModule,
     PlanningModule,

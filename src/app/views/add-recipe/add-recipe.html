@@ -2,11 +2,17 @@
 <form [formGroup]="addRecipeForm" (ngSubmit)="saveRecipe(addRecipeForm)">
     <div class="row">
         <input formControlName="nombre" placeholder="Nombre de la receta">
-        <p>Your choosen name: {{ addRecipeForm.get('nombre').value }}</p>
+     <!--   <p>Nombre insertado: {{ addRecipeForm.controls.nombre.value }}</p>-->
+        </div>
+        <div class="row">
 
         <div *ngIf="addRecipeForm.controls.nombre.errors.required">
-                Oops, introduce un nombre!
-              </div>
+            El nombre es obligatorio.
+          </div>
+    </div>
+    <div class="row">
+
+    
     <!--<input name="name"
           #inputName
           value="Nombre de la receta"
@@ -58,7 +64,9 @@
             type="text"/>-->
             </div>
             <div class="row">
-    <button type="submit">Guardar</button>
+    <button type="submit" [disabled]="! addRecipeForm.valid">Guardar</button>
+
+   
     </div>
   </form>
 </div>

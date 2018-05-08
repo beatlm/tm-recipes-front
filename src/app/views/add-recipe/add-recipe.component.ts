@@ -17,11 +17,11 @@ constructor(private recipesService: RecipesService,private fb: FormBuilder) { }
   ngOnInit() {
 
     this.addRecipeForm = this.fb.group({
-      nombre: ['default', Validators.required],
+      nombre: ['', Validators.required],
       comensales: ['1', Validators.required],
       preparation: ['5', Validators.required],
       totalTime: ['5', Validators.required],
-      ingredients: ['leche', Validators.required],
+     ingredients: ['', Validators.required],
     });
   }
 
@@ -36,5 +36,8 @@ constructor(private recipesService: RecipesService,private fb: FormBuilder) { }
   }
   private isOk(){
     alert("Receta creada con éxito");
+  }
+   anadirIngrediente(){
+    alert('Nuevo ingrediente');
   }
 }

@@ -1,5 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 /* You can add global styles to this file, and also import other style files */
+
 .main-image{
     padding: 0 0 2% 0;
     width: 20%;
@@ -13,9 +14,7 @@
     background-color: #009a3d52;
     color: gray;
 }
-/*
-.btn-main{
-    margin-top: 10%;
-    width: 100%;
+div.error{
+    color:red;
+    font-style: italic;
 }
-*/

@@ -1,72 +1,47 @@
-<div class="container">
-    <form [formGroup]="addRecipeForm" (ngSubmit)="saveRecipe(addRecipeForm)">
-        <div class="row">
-            <input formControlName="nombre" placeholder="Nombre de la receta">
-            <!--   <p>Nombre insertado: {{ addRecipeForm.controls.nombre.value }}</p>-->
-        </div>
-        <div class="row">
 
-            <div *ngIf="addRecipeForm.controls.nombre.errors.required">
+    <form [formGroup]="addRecipeForm" (ngSubmit)="saveRecipe(addRecipeForm)" class="col s12">
+        <div class="row">
+            <div class="input-field col s6">
+                <input formControlName="nombre" id="nombre" placeholder="Nombre" type="text" class="validate">
+                <label for="nombre">Título</label>
+            </div>
+            <div *ngIf="addRecipeForm.hasError('required', 'nombre')" class="error col s6">
                 El nombre es obligatorio.
             </div>
         </div>
         <div class="row">
-
-
-            <!--<input name="name"
-          #inputName
-          value="Nombre de la receta"
-          (change)="recipe.name=inputName.value"
-          (click)="inputName.value=''"
-          type="text" />-->
-        </div>
-        <div class="row">
-            <input name="imageSelector" #inputImageSelector value="Imagen" type="file" />
-
-        </div>
-        <div class="row">
-            <div class="col-4">
-                <label for="comensales">Comensales</label>
-
-                <input formControlName="comensales" placeholder="Comensales" type="number">
-                <!--<input name="comensales"
-          [(ngModel)]="recipe.amount"
-          type="number"/>-->
+            <div class="col s12">
+                <input name="imageSelector" #inputImageSelector value="Imagen" type="file" />
             </div>
-            <div class="col-4">
+
+        </div>
+        <div class="row">
+            <div class="col s4">
+                <label for="comensales">Comensales</label>
+                <input formControlName="comensales" placeholder="Comensales" type="number">
+            </div>
+            <div class="col s4">
                 <label for="preparation">Tiempo preparacion</label>
                 <input formControlName="preparation" placeholder="minutos" type="number">
-
-                <!-- <input name="preparingTime"
-        [(ngModel)]="recipe.preparation"
-                type="number"/> min-->
             </div>
-            <div class="col-4">
+            <div class="col s4">
                 <label for="totalTime">Tiempo Total</label>
                 <input formControlName="totalTime" placeholder="minutos" type="number">
-
-                <!-- <input name="totalTime"
-        [(ngModel)]="recipe.total"
-        type="number"/> min-->
             </div>
         </div>
 
         <div class="row">
-            <input formControlName="ingredients" placeholder="Ingredientes">
-
-            <!--<input name="ingredients"
-            [(ngModel)]="recipe.ingredients"
-            type="text"/>-->
+            <label for='ingredients' class="col s12">Añadir ingredientes</label>
         </div>
         <div class="row">
-            <button type="submit" [disabled]="! addRecipeForm.valid">Guardar</button>
-
+            <input class='col s4' formControlName="ingredients" placeholder="Ingredientes">
+            <input class='col s4' formControlName="cantidad" placeholder="gramos">
+            <a class="waves-effect waves-light btn col s4">Añadir</a>
+        </div>
+        <div class="row">
+            <button type="submit" [disabled]="addRecipeForm.valid" class="btn waves-effect waves-light col s12">Guardar
+            </button>
 
         </div>
     </form>
-    <div class="row">
-        <label for="ingredients">Ingredientes</label>
-        <a class="waves-effect waves-light btn">Añadir</a>
 
-    </div>
-</div>

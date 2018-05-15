@@ -22,6 +22,7 @@ constructor(private recipesService: RecipesService,private fb: FormBuilder) { }
       preparation: ['5', Validators.required],
       totalTime: ['5', Validators.required],
      ingredients: ['', Validators.required],
+     cantidad: ['', Validators.required]
     });
   }
 

@@ -18,9 +18,9 @@ constructor(private recipesService: RecipesService,private fb: FormBuilder) { }
 
     this.addRecipeForm = this.fb.group({
       nombre: ['', Validators.required],
-      comensales: ['1', Validators.required],
-      preparation: ['5', Validators.required],
-      totalTime: ['5', Validators.required],
+      comensales: ['', Validators.required],
+      preparation: ['', Validators.required],
+      totalTime: ['', Validators.required],
      ingredients: ['', Validators.required],
      cantidad: ['', Validators.required]
     });

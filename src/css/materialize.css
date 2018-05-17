@@ -2247,11 +2247,11 @@ a {
 abbr[title] {
   border-bottom: none;
   /* 1 */
-  text-decoration: underline;
+  text-decoration: none;
   /* 2 */
-  -webkit-text-decoration: underline dotted;
-     -moz-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  -webkit-text-decoration: none;
+     -moz-text-decoration: none;
+          text-decoration: none;
   /* 2 */
 }
 
@@ -4267,9 +4267,9 @@ table span.badge {
 
 nav {
   color: #fff;
-  background-color: #ee6e73;
+  background-color: #39C4AC;
   width: 100%;
-  height: 56px;
+  height: 45px;
   line-height: 56px;
 }
 

@@ -31,12 +31,15 @@
         <label for='ingredients' class="col s12">Añadir ingredientes</label>
     </div>
     <div class="row">
-        <input class='col s4' formControlName="ingredients" placeholder="Ingredientes">
+        <input class='col s4' formControlName="ingredients" placeholder="Ingrediente">
         <input class='col s4' formControlName="cantidad" placeholder="gramos">
-        <a class="waves-effect waves-light btn col s4">Añadir</a>
+        <li class='col s4' formControlName="listaIngredientes" ></li>
     </div>
     <div class="row">
-        <button type="submit" [disabled]="addRecipeForm.valid" class="btn waves-effect waves-light col s12">Guardar
+        <button type="button" class="btn waves-effect waves-light btn-small" (click)="anadirIngrediente()">Añadir</button>
+    </div>
+    <div class="row">
+        <button type="submit" [disabled]="addRecipeForm.valid" class="btn waves-effect waves-light col s6">Guardar
         </button>
 
     </div>

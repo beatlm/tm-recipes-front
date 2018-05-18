@@ -11,6 +11,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class AddRecipeComponent implements OnInit {
   addRecipeForm: FormGroup;
+ 
 
 constructor(private recipesService: RecipesService,private fb: FormBuilder) { }
 
@@ -22,7 +23,8 @@ constructor(private recipesService: RecipesService,private fb: FormBuilder) { }
       preparation: ['', Validators.required],
       totalTime: ['', Validators.required],
      ingredients: ['', Validators.required],
-     cantidad: ['', Validators.required]
+     cantidad: ['', Validators.required],
+     listaIngredientes:['']
     });
   }
 
@@ -32,13 +34,13 @@ constructor(private recipesService: RecipesService,private fb: FormBuilder) { }
    this.recipesService
     .saveRecipe$(recipe)
     .subscribe(this.isOk.bind(this));
-
-
   }
   private isOk(){
     alert("Receta creada con éxito");
   }
    anadirIngrediente(){
-    alert('Nuevo ingrediente');
+    alert('Nuevo ingrediente'+ this.addRecipeForm.controls.ingredients.value);
+     //TODO Añadir validador de campos
+     this.addRecipeForm.controls.listaIngredientes.setValue('prueba');
   }
 }

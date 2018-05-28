@@ -30,7 +30,8 @@ constructor(private recipesService: RecipesService,private fb: FormBuilder) { }
 
   saveRecipe(form:FormGroup) {
 
-   var recipe:RecipeModel= new RecipeModel(form.value.nombre,form.value.comensales,form.value.preparation,form.value.totalTime);//form.value.ingredients)
+   var recipe:RecipeModel= new RecipeModel(form.value.nombre,form.value.comensales,form.value.preparation,form.value.totalTime,this.lista);
+   alert(this.lista);
    this.recipesService
     .saveRecipe$(recipe)
     .subscribe(this.isOk.bind(this));

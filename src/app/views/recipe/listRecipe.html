@@ -10,10 +10,17 @@
       <div class="col-3 h5">Tiempo total</div>
   </div>
   <div class="row">
-      <div class="col-3">{{ recipe.amount }}</div>
-      <div class="col-3">{{ recipe.preparation }}</div>
-      <div class="col-3">{{ recipe.total }}</div>
-      <button class="btn btn-info" type="button">Ver receta</button>
+      <div class="col-4">{{ recipe.amount }}</div>
+      <div class="col-4">{{ recipe.preparation }}</div>
+      <div class="col-4">{{ recipe.total }}</div>
+
+      <tr *ngFor="let data of recipe.ingredients;let i = index">
+        <td>{{data.name}}</td>
+        <td>{{data.amount}}</td>
+    </tr>
+    <a routerLink="addrecipe">
+
+      <button class="btn btn-info" type="button">Ver receta</button></a>
       <button class="btn btn-secondary" type="button" (click)="deleteRecipe(recipe.id)" >Borrar</button>
   </div>
   

@@ -22,7 +22,7 @@
             <input formControlName="preparation" placeholder="minutos" type="number">
         </div>
         <div class="col s4">
-            <label for="totalTime">Tiempo Total</label>
+            <label for="total">Tiempo Total</label>
             <input formControlName="total" placeholder="minutos" type="number">
         </div>
     </div>
@@ -35,14 +35,26 @@
         <input class='col s4' type="number" formControlName="cantidad" placeholder="gramos">
         <table class="col s4" >
             <tr *ngFor="let data of lista;let i = index">
-                <td>{{data.ingrediente}}</td>
-                <td>{{data.cantidad}}</td>
+                <td>{{data.name}}</td>
+                <td>{{data.amount}}</td>
                 <td><a class="btn-small" (click)="deleteIngredient(i)"><i class="material-icons left">delete</i></a></td>
             </tr>
         </table>
     </div>
     <div class="row">
-        <button type="button" class="btn waves-effect waves-light btn-small" (click)="anadirIngrediente()">Añadir</button>
+        <button type="button" class="btn waves-effect waves-light btn-small" (click)="anadirIngrediente()">Añadir Ingrediente</button>
+    </div>
+    <div class="row">
+        <input class='col s4' formControlName="paso" placeholder="Paso">
+        <table class="col s4" >
+            <tr *ngFor="let pasoAdded of pasos;let i = index">
+                <td>{{pasoAdded}}</td>
+                <td><a class="btn-small" (click)="deletePaso(i)"><i class="material-icons left">delete</i></a></td>
+            </tr>
+        </table>
+    </div>
+    <div class="row">
+        <button type="button" class="btn waves-effect waves-light btn-small" (click)="anadirPaso()">Añadir Paso</button>
     </div>
     <div class="row">
         <button type="submit" class="btn waves-effect waves-light col s6">Guardar

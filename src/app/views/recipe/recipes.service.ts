@@ -7,9 +7,9 @@ import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class RecipesService {
-  private url = "https://tm-recipes-api.herokuapp.com/recipes" ;
+  //private url = "https://tm-recipes-api.herokuapp.com/recipes" ;
 
-  //private url="http://localhost:8080/recipes";
+  private url="http://localhost:8080/recipes";
   constructor(private http: HttpClient) {}
 
   public getRecipesList$(): Observable<RecipeModel[]> {

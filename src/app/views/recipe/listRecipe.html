@@ -18,7 +18,7 @@
         <td>{{data.name}}</td>
         <td>{{data.amount}}</td>
     </tr>
-    <a routerLink="addrecipe">
+    <a [routerLink]="['recipe',recipe.id]">
 
       <button class="btn btn-info" type="button">Ver receta</button></a>
       <button class="btn btn-secondary" type="button" (click)="deleteRecipe(recipe.id)" >Borrar</button>

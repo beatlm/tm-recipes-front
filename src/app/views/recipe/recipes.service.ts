@@ -26,6 +26,12 @@ export class RecipesService {
   public deleteRecipe$(id:string):Observable<any>{
     return this.http.delete(this.url+"/"+id);
   }
+  public getRecipeDetail$(id:string): Observable<RecipeModel> {
+    return this.http.get<RecipeModel>(this.url+"/"+id).map((result:any)=>{
+      console.log(result); //<--it's an object
+      return result;//.content; //just return "recipes"
+   });
+  }
 
 
 }

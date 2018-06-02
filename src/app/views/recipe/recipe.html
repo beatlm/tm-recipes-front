@@ -1,0 +1,33 @@
+<div class="container">
+
+    <div class="row justify-content-center h4">
+        {{recipe.name }}
+    </div>
+    <div class="row header">
+        <div class="col-3 h5">Nº Comensales</div>
+        <div class="col-3 h5">Tiempo preparacion</div>
+        <div class="col-3 h5">Tiempo total</div>
+    </div>
+    <div class="row">
+        <div class="col-4">{{ recipe.amount }}</div>
+        <div class="col-4">{{ recipe.preparation }}</div>
+        <div class="col-4">{{ recipe.total }}</div>
+    </div>
+    <div class="row h4">Ingredientes</div>
+    <div class="row">
+        <tr *ngFor="let ingrediente of recipe.ingredients;">
+            <td>{{ingrediente.name}}</td>
+            <td>{{ingrediente.amount}}</td>
+        </tr>
+    </div>
+    <div class="row  h4">Pasos</div>
+    <div class="row">
+        <tr *ngFor="let paso of recipe.pasos;">
+            <td>{{paso}}</td>
+
+        </tr>
+    </div>
+    <button class="btn btn-secondary" type="button" (click)="deleteRecipe(recipe.id)">Borrar</button>
+
+
+</div>

@@ -2,7 +2,7 @@
 import { RecipesService } from '../../services/recipes.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RecipeComponent } from './recipe.component';
+import { ListRecipeComponent } from './list-recipe.component';
 import { AppRoutingModule } from '../../app-routing.module';
 
 
@@ -11,8 +11,8 @@ import { AppRoutingModule } from '../../app-routing.module';
   imports: [
     CommonModule, AppRoutingModule
   ],
-  declarations: [RecipeComponent],
-  exports: [RecipeComponent],
+  declarations: [ListRecipeComponent],
+  exports: [ListRecipeComponent],
   providers:[RecipesService]
 })
-export class RecipeModule { }
+export class ListRecipeModule { }

@@ -1,7 +1,7 @@
+import { RecipeModel } from './../../services/RecipeModel';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { RecipesService } from './recipes.service';
-import { RecipeModel } from './RecipeModel';
+import { RecipesService } from '../../services/recipes.service';
 import {HttpErrorResponse} from '@angular/common/http';
 
 

@@ -1,7 +1,7 @@
-import { IngredienteModel } from "./IngredienteModel";
-import { RecipeModel } from "./../recipe/RecipeModel";
+import { IngredienteModel } from "../../services/IngredienteModel";
+import { RecipeModel } from '../../services/RecipeModel';
 import { Component, OnInit } from "@angular/core";
-import { RecipesService } from "../recipe/recipes.service";
+import { RecipesService } from '../../services/recipes.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({

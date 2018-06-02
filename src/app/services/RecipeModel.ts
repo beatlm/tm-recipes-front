@@ -1,4 +1,4 @@
-import { IngredienteModel } from "../add-recipe/IngredienteModel";
+import { IngredienteModel } from "./IngredienteModel";
 
 export class RecipeModel {
   public id:string;

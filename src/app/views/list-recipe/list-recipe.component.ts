@@ -1,7 +1,7 @@
-import { RecipeModel } from './RecipeModel';
-import { EmbeddedList } from './EmbeddedList';
-import { ResponseModel } from './responseModel';
-import { RecipesService } from './recipes.service';
+import { RecipeModel } from '../../services/RecipeModel';
+import { EmbeddedList } from '../../services/EmbeddedList';
+import { ResponseModel } from '../../services/responseModel';
+import { RecipesService } from '../../services/recipes.service';
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {HttpErrorResponse} from '@angular/common/http';

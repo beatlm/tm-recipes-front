@@ -1,3 +1,4 @@
+import { LoaderService } from './../../services/loader.service';
 
 import { RecipesService } from '../../services/recipes.service';
 import { NgModule } from '@angular/core';
@@ -13,6 +14,6 @@ import { AppRoutingModule } from '../../app-routing.module';
   ],
   declarations: [ListRecipeComponent],
   exports: [ListRecipeComponent],
-  providers:[RecipesService]
+  providers:[RecipesService,LoaderService]
 })
 export class ListRecipeModule { }

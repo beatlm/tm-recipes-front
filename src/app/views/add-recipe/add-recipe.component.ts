@@ -54,11 +54,19 @@ export class AddRecipeComponent implements OnInit {
         this.addRecipeForm.controls.cantidad.value
       )
     );
+    this.addRecipeForm.controls.ingrediente.reset();
+    this.addRecipeForm.controls.cantidad.reset();
+
   }
   deleteIngredient(index) {
     this.lista.splice(index, 1);
   }
   anadirPaso() {
     this.pasos.push(this.addRecipeForm.controls.paso.value);
+    this.addRecipeForm.controls.paso.reset();
+
+  }
+  deletePaso(index) {
+    this.pasos.splice(index, 1);
   }
 }

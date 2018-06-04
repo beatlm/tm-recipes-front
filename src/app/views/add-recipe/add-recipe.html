@@ -46,9 +46,9 @@
     </div>
     <div class="row">
         <input class='col s4' formControlName="paso" placeholder="Paso">
-        <table class="col s4" >
+        <table class="collection" >
             <tr *ngFor="let pasoAdded of pasos;let i = index">
-                <td>{{pasoAdded}}</td>
+                <td class="collection-item">{{pasoAdded}}</td>
                 <td><a class="btn-small" (click)="deletePaso(i)"><i class="material-icons left">delete</i></a></td>
             </tr>
         </table>
@@ -57,7 +57,7 @@
         <button type="button" class="btn waves-effect waves-light btn-small" (click)="anadirPaso()">Añadir Paso</button>
     </div>
     <div class="row">
-        <button type="submit" class="btn waves-effect waves-light col s6">Guardar
+        <button type="submit" class="btn waves-effect waves-light col s6"><i class="material-icons right">send</i>Guardar
         </button>
 
     </div>

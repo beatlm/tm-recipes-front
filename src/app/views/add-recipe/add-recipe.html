@@ -7,7 +7,7 @@
                 El nombre es obligatorio.
             </div>-->
         <div class="col s6">
-            <input class="waves-effect waves-light btn" name="imageSelector" #inputImageSelector value="Imagen" type="file" />
+            <input  (change)="onFileChanged($event)" class="waves-effect waves-light btn" name="imageSelector" #inputImageSelector value="Imagen" type="file" />
         </div>
     </div>
 

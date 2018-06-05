@@ -4867,7 +4867,9 @@ small {
   right: 0;
   top: 0;
   bottom: 0;
-  width: 100%;
+  width: 25%;
+  height: 25%;
+  margin: 10px;
 }
 
 .card .card-image .card-title {
@@ -4880,7 +4882,7 @@ small {
 }
 
 .card .card-content {
-  padding: 24px;
+  padding: 10px;
   border-radius: 0 0 2px 2px;
 }
 

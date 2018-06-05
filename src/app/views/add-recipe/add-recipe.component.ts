@@ -13,6 +13,7 @@ export class AddRecipeComponent implements OnInit {
   addRecipeForm: FormGroup;
   lista: Array<IngredienteModel>;
   pasos: Array<String>;
+  selectedFile: File;
 
   constructor(
     private recipesService: RecipesService,
@@ -40,7 +41,8 @@ export class AddRecipeComponent implements OnInit {
       form.value.total,
       form.value.preparation,
       this.lista,
-      this.pasos
+      this.pasos,
+      this.selectedFile
     );
     this.recipesService.saveRecipe$(recipe).subscribe(this.isOk.bind(this));
   }
@@ -69,4 +71,15 @@ export class AddRecipeComponent implements OnInit {
   deletePaso(index) {
     this.pasos.splice(index, 1);
   }
+  onFileChanged(event){
+    alert("Ha cambiado el fichero");
+    this.selectedFile = event.target.files[0];
+  }
+  uploadDocument(file) {
+    let fileReader = new FileReader();
+    fileReader.onload = (e) => {
+      console.log(fileReader.result);
+    }
+    fileReader.readAsText(file);
+}
 }

@@ -5,12 +5,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListRecipeComponent } from './list-recipe.component';
 import { AppRoutingModule } from '../../app-routing.module';
+import { ComponentsModule } from '../../lib/components/components.module';
 
 
 
 @NgModule({
   imports: [
-    CommonModule, AppRoutingModule
+    CommonModule, AppRoutingModule, ComponentsModule
   ],
   declarations: [ListRecipeComponent],
   exports: [ListRecipeComponent],

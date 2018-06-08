@@ -4,11 +4,11 @@
 
 <div *ngIf="(loaderService.loading$ | async) == false" class="container">
 
-    <div class="row" *ngFor="let recipe of recipes">
+    <div [ngClass]="i%3==0 ? 'row':''"  *ngFor="let recipe of recipes;let i=index">
         <div class="col s12 m7">
             <div class="card">
                 <div class="card-image">
-                    <img [src]="recipe.imagen"  max-width='50%'>
+                    <img [src]="recipe.imagen" max-width='50%'>
                     <span class="card-title"> {{ recipe.name }}</span>
                 </div>
                 <div class="card-content">
@@ -29,37 +29,12 @@
                 <div class="card-action">
                     <a href="#">Ver receta</a>
                     <button class="btn waves-effect waves-light btn-small" type="button" (click)="deleteRecipe(recipe.id)">
-                            <i class="material-icons left">delete</i>Borrar</button>
+                        <i class="material-icons left">delete</i>Borrar</button>
                 </div>
             </div>
         </div>
+
     </div>
 
 
-    <!--<div class="container" *ngFor="let recipe of recipes">
-        <ul class="collection">
-            <li class="collection-item">
-                {{ recipe.name }}
-            </li>
-            <li class="collection-item">
-                <div class="row">
-                    <div class="col-3 h5">Nº Comensales</div>
-                    <div class="col-3 h5">Tiempo preparacion</div>
-                    <div class="col-3 h5">Tiempo total</div>
-                </div>
-
-                <div class="row">
-                    <div class="col-4">{{ recipe.amount }}</div>
-                    <div class="col-4">{{ recipe.preparation }}</div>
-                    <div class="col-4">{{ recipe.total }}</div>
-                </div>
-            </li>
-            <a [routerLink]="['recipe',recipe.id]">
-                <button class="btn waves-effect waves-light btn-small" type="button">Ver receta</button>
-            </a>
-            <button class="btn waves-effect waves-light btn-small" type="button" (click)="deleteRecipe(recipe.id)">
-                <i class="material-icons left">delete</i>Borrar</button>
-        </ul>
-
-    </div>-->
 </div>

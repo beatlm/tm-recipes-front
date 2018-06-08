@@ -1,7 +1,7 @@
 import { IngredienteModel } from "../../services/IngredienteModel";
-import { RecipeModel } from '../../services/RecipeModel';
+import { RecipeModel } from "../../services/RecipeModel";
 import { Component, OnInit } from "@angular/core";
-import { RecipesService } from '../../services/recipes.service';
+import { RecipesService } from "../../services/recipes.service";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
@@ -13,7 +13,8 @@ export class AddRecipeComponent implements OnInit {
   addRecipeForm: FormGroup;
   lista: Array<IngredienteModel>;
   pasos: Array<String>;
-  selectedFile: File;
+  files = [];
+  filestring: String;
 
   constructor(
     private recipesService: RecipesService,
@@ -42,7 +43,7 @@ export class AddRecipeComponent implements OnInit {
       form.value.preparation,
       this.lista,
       this.pasos,
-      this.selectedFile
+      "data:image/jpeg;base64,"+this.filestring
     );
     this.recipesService.saveRecipe$(recipe).subscribe(this.isOk.bind(this));
   }
@@ -58,7 +59,6 @@ export class AddRecipeComponent implements OnInit {
     );
     this.addRecipeForm.controls.ingrediente.reset();
     this.addRecipeForm.controls.cantidad.reset();
-
   }
   deleteIngredient(index) {
     this.lista.splice(index, 1);
@@ -66,20 +66,20 @@ export class AddRecipeComponent implements OnInit {
   anadirPaso() {
     this.pasos.push(this.addRecipeForm.controls.paso.value);
     this.addRecipeForm.controls.paso.reset();
-
   }
   deletePaso(index) {
     this.pasos.splice(index, 1);
   }
-  onFileChanged(event){
-    alert("Ha cambiado el fichero");
-    this.selectedFile = event.target.files[0];
+
+  getFiles(event) {
+    this.files = event.target.files;
+    var reader = new FileReader();
+    reader.onload = this._handleReaderLoaded.bind(this);
+    reader.readAsBinaryString(this.files[0]);
   }
-  uploadDocument(file) {
-    let fileReader = new FileReader();
-    fileReader.onload = (e) => {
-      console.log(fileReader.result);
-    }
-    fileReader.readAsText(file);
-}
+
+  _handleReaderLoaded(readerEvt) {
+    var binaryString = readerEvt.target.result;
+    this.filestring = btoa(binaryString); // Converting binary string data.
+  }
 }

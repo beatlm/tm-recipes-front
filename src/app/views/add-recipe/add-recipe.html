@@ -7,8 +7,11 @@
                 El nombre es obligatorio.
             </div>-->
         <div class="col s6">
-            <input  (change)="onFileChanged($event)" class="waves-effect waves-light btn" name="imageSelector" #inputImageSelector value="Imagen" type="file" />
+                <!--<input type="file" class="form-control browse" ngModel (change)="getFiles($event)">-->
+            <input  (change)="getFiles($event)" class="waves-effect waves-light btn" name="imageSelector" #inputImageSelector value="Imagen" type="file" />
         </div>
+
+        <div><p>{{filestring}}</p></div>
     </div>
 
 

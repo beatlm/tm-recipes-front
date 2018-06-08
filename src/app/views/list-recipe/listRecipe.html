@@ -8,7 +8,7 @@
         <div class="col s12 m7">
             <div class="card">
                 <div class="card-image">
-                    <img src="../../../assets/images/sample-1.jpg" max-width='50%'>
+                    <img [src]="recipe.imagen"  max-width='50%'>
                     <span class="card-title"> {{ recipe.name }}</span>
                 </div>
                 <div class="card-content">
@@ -28,6 +28,8 @@
                 </div>
                 <div class="card-action">
                     <a href="#">Ver receta</a>
+                    <button class="btn waves-effect waves-light btn-small" type="button" (click)="deleteRecipe(recipe.id)">
+                            <i class="material-icons left">delete</i>Borrar</button>
                 </div>
             </div>
         </div>

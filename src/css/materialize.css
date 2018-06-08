@@ -4741,7 +4741,7 @@ small {
 .card {
   position: relative;
   margin: 0.5rem 0 1rem 0;
-  background-color: #fff;
+  background-color: #f5f5f5;
   -webkit-transition: -webkit-box-shadow .25s;
   transition: -webkit-box-shadow .25s;
   transition: box-shadow .25s;
@@ -4750,8 +4750,8 @@ small {
 }
 
 .card .card-title {
-  font-size: 24px;
-  font-weight: 300;
+  font-size: 19px;
+  font-weight: 500;
 }
 
 .card .card-title.activator {
@@ -4867,18 +4867,19 @@ small {
   right: 0;
   top: 0;
   bottom: 0;
-  width: 25%;
-  height: 25%;
+  width: 200px;
+  height: 200px;
   margin: 10px;
 }
 
 .card .card-image .card-title {
-  color: #fff;
+  color: white;
+  background-color: #39c4ac;
   position: absolute;
   bottom: 0;
-  left: 0;
-  max-width: 100%;
-  padding: 24px;
+  left: 10px;
+  width: 200px;
+  padding: 7px;
 }
 
 .card .card-content {

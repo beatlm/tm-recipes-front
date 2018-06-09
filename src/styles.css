@@ -1,23 +1,45 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 /* You can add global styles to this file, and also import other style files */
 
-.main-image{
-    padding: 0 0 2% 0;
-    width: 20%;
+.main-image {
+  padding: 0 0 2% 0;
+  width: 20%;
 }
-.title{
-    vertical-align: middle;
-    font-size: 2em;
+.title {
+  vertical-align: middle;
+  font-size: 2em;
 }
-.menu{
-    margin-bottom: 3%;
-    background-color: #009a3d52;
-    color: gray;
+.menu {
+  margin-bottom: 3%;
+  background-color: #009a3d52;
+  color: gray;
 }
-div.error{
-    color:red;
-    font-style: italic;
+div.error {
+  color: red;
+  font-style: italic;
 }
-.menu{
-    text-decoration: none;
+.menu {
+  text-decoration: none;
 }
+.title-icon {
+  background-color: #39c4ac;
+  color: white;
+  text-align: center;
+  margin-bottom: 1px;
+}
+.title-text {
+    background-color: #d0cccc;
+    color: white;
+    text-align: center;
+    margin-bottom: 1px;
+  }
+
+  div.spinner{
+    margin-left: 46%;
+    margin-top: 10%;
+  }
+
+  div.grid{
+    display: flex;
+    flex-wrap: wrap;
+  }

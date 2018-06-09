@@ -6,6 +6,7 @@ import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { HttpErrorResponse } from "@angular/common/http";
 import { LoaderService } from "./../../services/loader.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "mr-list-recipe",
@@ -20,7 +21,8 @@ export class ListRecipeComponent implements OnInit {
 
   constructor(
     private recipesService: RecipesService,
-    public loaderService: LoaderService
+    public loaderService: LoaderService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -61,5 +63,8 @@ export class ListRecipeComponent implements OnInit {
       this.message = `Unknown error, text: ${err.message}`;
     }
     this.fullError = err;
+  }
+  private seeRecipe(id): void {
+    this.router.navigate(["recipe/"+id]);
   }
 }

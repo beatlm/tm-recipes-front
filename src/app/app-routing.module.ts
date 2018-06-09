@@ -8,7 +8,7 @@ import {ListRecipeComponent}  from './views/list-recipe/list-recipe.component';
 
 
 const routes: Routes = [
- { path: "listrecipe/recipe/:id",
+ { path: "recipe/:id",
   component: RecipeComponent
 },
 { path: "addrecipe",

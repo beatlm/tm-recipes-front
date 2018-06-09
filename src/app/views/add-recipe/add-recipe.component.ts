@@ -43,11 +43,14 @@ export class AddRecipeComponent implements OnInit {
       form.value.preparation,
       this.lista,
       this.pasos,
-      "data:image/jpeg;base64,"+this.filestring
+      this.filestring==undefined?null:"data:image/jpeg;base64,"+this.filestring
     );
     this.recipesService.saveRecipe$(recipe).subscribe(this.isOk.bind(this));
   }
   private isOk() {
+    this.addRecipeForm.reset();
+    this.lista=[];
+    this.pasos=[];
     alert("Receta creada con éxito");
   }
   anadirIngrediente() {

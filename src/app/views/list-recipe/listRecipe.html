@@ -1,38 +1,43 @@
-<div class="container" *ngIf="loaderService.loading$ | async">
+<div class="spinner" *ngIf="loaderService.loading$ | async">
     <mr-loader></mr-loader>
 </div>
 
-<div *ngIf="(loaderService.loading$ | async) == false" class="container">
+<div *ngIf="(loaderService.loading$ | async) == false" class="grid">
 
-    <div [ngClass]="i%3==0 ? 'row':''"  *ngFor="let recipe of recipes;let i=index">
-        <div class="col s12 m7">
-            <div class="card">
-                <div class="card-image">
-                    <img [src]="recipe.imagen" max-width='50%'>
-                    <span class="card-title"> {{ recipe.name }}</span>
-                </div>
-                <div class="card-content">
+    <div *ngFor="let recipe of recipes;let i=index" class="card" (click)="seeRecipe(recipe.id)">
 
-                    <div class="row">
-                        <div class="col-3 h5">Nº Comensales</div>
-                        <div class="col-3 h5">Tiempo preparacion</div>
-                        <div class="col-3 h5">Tiempo total</div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-4">{{ recipe.amount }}</div>
-                        <div class="col-4">{{ recipe.preparation }}</div>
-                        <div class="col-4">{{ recipe.total }}</div>
-                    </div>
-
-                </div>
-                <div class="card-action">
-                    <a href="#">Ver receta</a>
-                    <button class="btn waves-effect waves-light btn-small" type="button" (click)="deleteRecipe(recipe.id)">
-                        <i class="material-icons left">delete</i>Borrar</button>
-                </div>
+            <div class="card-image">
+                <img [src]="recipe.imagen || '../../assets/images/default.png'" max-width='50%'>
+                <span class="card-title"> {{ recipe.name }}</span>
             </div>
-        </div>
+            <div class="card-content">
+
+                <div class="title-icon row">
+                    <div class="col-4 h5">
+                        <i class="material-icons small center">accessibility</i>
+                    </div>
+                    <div class="col-4 h5">
+                        <i class="material-icons small center">av_timer</i>
+                    </div>
+                    <div class="col-4 h5">
+                        <i class="material-icons small center">access_time</i>
+                    </div>
+                </div>
+
+                <div class="title-text row">
+                    <div class="col-4">{{ recipe.amount }}</div>
+                    <div class="col-4">{{ recipe.preparation }}</div>
+                    <div class="col-4">{{ recipe.total }}</div>
+                </div>
+
+            </div>
+            <div class="card-action">
+
+                <button class="btn waves-effect waves-light btn-small right" type="button" (click)="deleteRecipe(recipe.id)">
+                    <i class="material-icons left">delete</i>
+                </button>
+            </div>
+
 
     </div>
 

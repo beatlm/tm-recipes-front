@@ -4857,6 +4857,7 @@ small {
 
 .card .card-image {
   position: relative;
+  background-color: #f7f4f4;
 }
 
 .card .card-image img {
@@ -4873,8 +4874,8 @@ small {
 }
 
 .card .card-image .card-title {
-  color: white;
-  background-color: #39c4ac;
+  color: orange;
+  background-color: white;
   position: absolute;
   bottom: 0;
   left: 10px;
@@ -4905,7 +4906,7 @@ small {
   background-color: inherit;
   border-top: 1px solid rgba(160, 160, 160, 0.2);
   position: relative;
-  padding: 16px 24px;
+  padding: 3px 24px;
 }
 
 .card .card-action:last-child {

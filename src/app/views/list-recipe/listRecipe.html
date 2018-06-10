@@ -4,27 +4,27 @@
 
 <div *ngIf="(loaderService.loading$ | async) == false" class="grid">
 
-    <div *ngFor="let recipe of recipes;let i=index" class="card" (click)="seeRecipe(recipe.id)">
+    <div *ngFor="let recipe of recipes;let i=index" class="card" >
 
-            <div class="card-image">
+            <div class="card-image" (click)="seeRecipe(recipe.id)">
                 <img [src]="recipe.imagen || '../../assets/images/default.png'" max-width='50%'>
                 <span class="card-title"> {{ recipe.name }}</span>
             </div>
-            <div class="card-content">
+            <div class="card-content" (click)="seeRecipe(recipe.id)">
 
                 <div class="title-icon row">
                     <div class="col-4 h5">
-                        <i class="material-icons small center">accessibility</i>
+                        <i class="material-icons center">accessibility</i>
                     </div>
                     <div class="col-4 h5">
-                        <i class="material-icons small center">av_timer</i>
+                        <i class="material-icons center">av_timer</i>
                     </div>
                     <div class="col-4 h5">
-                        <i class="material-icons small center">access_time</i>
+                        <i class="material-icons center">access_time</i>
                     </div>
                 </div>
 
-                <div class="title-text row">
+                <div class="title-text row" (click)="seeRecipe(recipe.id)">
                     <div class="col-4">{{ recipe.amount }}</div>
                     <div class="col-4">{{ recipe.preparation }}</div>
                     <div class="col-4">{{ recipe.total }}</div>
@@ -33,8 +33,8 @@
             </div>
             <div class="card-action">
 
-                <button class="btn waves-effect waves-light btn-small right" type="button" (click)="deleteRecipe(recipe.id)">
-                    <i class="material-icons left">delete</i>
+                <button class="btn waves-effect waves-light  right" type="button" (click)="deleteRecipe(recipe.id)">
+                    <i class="material-icons">delete</i>
                 </button>
             </div>
 

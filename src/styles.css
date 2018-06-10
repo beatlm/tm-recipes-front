@@ -22,7 +22,8 @@ div.error {
   text-decoration: none;
 }
 .title-icon {
-  background-color: #39c4ac;
+  padding-top: 7px;
+  background-color: #91c7ba;
   color: white;
   text-align: center;
   margin-bottom: 1px;

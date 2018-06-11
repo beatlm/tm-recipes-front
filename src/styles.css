@@ -44,3 +44,7 @@ div.error {
     display: flex;
     flex-wrap: wrap;
   }
+  img.preview{
+    width: 150px;
+    height: 150px;
+  }

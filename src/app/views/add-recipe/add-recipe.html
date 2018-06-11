@@ -1,17 +1,19 @@
 <form [formGroup]="addRecipeForm" (ngSubmit)="saveRecipe(addRecipeForm)" class="col s12">
     <div class="row">
-        <div class="input-field col s6">
+        <div class="col s9 input-field">
             <input formControlName="nombre" id="nombre" placeholder="Título de la receta" type="text" class="validate">
         </div>
-        <!--  <div *ngIf="addRecipeForm.hasError('required', 'nombre')" class="error col s6">
-                El nombre es obligatorio.
-            </div>-->
-        <div class="col s6">
-                <!--<input type="file" class="form-control browse" ngModel (change)="getFiles($event)">-->
-            <input  (change)="getFiles($event)" class="waves-effect waves-light btn" name="imageSelector" #inputImageSelector value="Imagen" type="file" />
+        <div class="col s3">
+
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>Imagen</span>
+                    <input type="file" (change)="getFiles($event)" name="imageSelector" value="Imagen">
+                </div>
+                <img class="preview" [src]="this.filestring  || '../../assets/images/default.png'">
+            </div>
         </div>
 
-        <div><p>{{filestring}}</p></div>
     </div>
 
 
@@ -36,11 +38,15 @@
     <div class="row">
         <input class='col s4' formControlName="ingrediente" placeholder="Ingrediente">
         <input class='col s4' type="number" formControlName="cantidad" placeholder="gramos">
-        <table class="col s4" >
+        <table class="col s4">
             <tr *ngFor="let data of lista;let i = index">
                 <td>{{data.name}}</td>
                 <td>{{data.amount}}</td>
-                <td><a class="btn-small" (click)="deleteIngredient(i)"><i class="material-icons left">delete</i></a></td>
+                <td>
+                    <a class="btn-small" (click)="deleteIngredient(i)">
+                        <i class="material-icons left">delete</i>
+                    </a>
+                </td>
             </tr>
         </table>
     </div>
@@ -49,10 +55,14 @@
     </div>
     <div class="row">
         <input class='col s4' formControlName="paso" placeholder="Paso">
-        <table class="collection" >
+        <table class="collection">
             <tr *ngFor="let pasoAdded of pasos;let i = index">
                 <td class="collection-item">{{pasoAdded}}</td>
-                <td><a class="btn-small" (click)="deletePaso(i)"><i class="material-icons left">delete</i></a></td>
+                <td>
+                    <a class="btn-small" (click)="deletePaso(i)">
+                        <i class="material-icons left">delete</i>
+                    </a>
+                </td>
             </tr>
         </table>
     </div>
@@ -60,7 +70,8 @@
         <button type="button" class="btn waves-effect waves-light btn-small" (click)="anadirPaso()">Añadir Paso</button>
     </div>
     <div class="row">
-        <button type="submit" class="btn waves-effect waves-light col s6"><i class="material-icons right">send</i>Guardar
+        <button type="submit" class="btn waves-effect waves-light col s6">
+            <i class="material-icons right">send</i>Guardar
         </button>
 
     </div>

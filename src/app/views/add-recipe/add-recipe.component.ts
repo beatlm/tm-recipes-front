@@ -83,6 +83,6 @@ export class AddRecipeComponent implements OnInit {
 
   _handleReaderLoaded(readerEvt) {
     var binaryString = readerEvt.target.result;
-    this.filestring = btoa(binaryString); // Converting binary string data.
+    this.filestring = 'data:image/jpeg;base64,'+btoa(binaryString); // Converting binary string data.
   }
 }

@@ -29,7 +29,8 @@ export class AddRecipeComponent implements OnInit {
       total: ["", Validators.required],
       ingrediente: ["", Validators.required],
       cantidad: ["", Validators.required],
-      paso: ["", Validators.required]
+      paso: ["", Validators.required],
+      imagen:[""]
     });
     this.lista = [];
     this.pasos = [];
@@ -43,7 +44,7 @@ export class AddRecipeComponent implements OnInit {
       form.value.preparation,
       this.lista,
       this.pasos,
-      this.filestring==undefined?null:"data:image/jpeg;base64,"+this.filestring
+      this.filestring==undefined?null:this.filestring
     );
     this.recipesService.saveRecipe$(recipe).subscribe(this.isOk.bind(this));
   }
@@ -51,6 +52,8 @@ export class AddRecipeComponent implements OnInit {
     this.addRecipeForm.reset();
     this.lista=[];
     this.pasos=[];
+    this.files=[];
+    this.filestring='';
     alert("Receta creada con éxito");
   }
   anadirIngrediente() {
@@ -62,6 +65,7 @@ export class AddRecipeComponent implements OnInit {
     );
     this.addRecipeForm.controls.ingrediente.reset();
     this.addRecipeForm.controls.cantidad.reset();
+    this.addRecipeForm.controls.imagen.reset();
   }
   deleteIngredient(index) {
     this.lista.splice(index, 1);
@@ -83,6 +87,6 @@ export class AddRecipeComponent implements OnInit {
 
   _handleReaderLoaded(readerEvt) {
     var binaryString = readerEvt.target.result;
-    this.filestring = 'data:image/jpeg;base64,'+btoa(binaryString); // Converting binary string data.
+    this.filestring = 'data:'+this.files[0].type+';base64,'+btoa(binaryString); // Converting binary string data.
   }
 }

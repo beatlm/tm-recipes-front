@@ -1,31 +1,54 @@
 <div class="container">
 
-    <div class="row justify-content-center h4">
-        {{recipe.name }}
+    <div class="row justify-content-center recipe-title">
+        <p>{{recipe.name }}</p>
     </div>
-    <div class="row header">
-        <div class="col-3 h5">Nº Comensales</div>
-        <div class="col-3 h5">Tiempo preparacion</div>
-        <div class="col-3 h5">Tiempo total</div>
-    </div>
-    <div class="row">
-        <div class="col-4">{{ recipe.amount }}</div>
-        <div class="col-4">{{ recipe.preparation }}</div>
-        <div class="col-4">{{ recipe.total }}</div>
-    </div>
-    <div class="row h4">Ingredientes</div>
-    <div class="row">
-        <tr *ngFor="let ingrediente of recipe.ingredients;">
-            <td>{{ingrediente.name}}</td>
-            <td>{{ingrediente.amount}}</td>
-        </tr>
-    </div>
-    <div class="row  h4">Pasos</div>
-    <div class="row">
-        <tr *ngFor="let paso of recipe.pasos;">
-            <td>{{paso}}</td>
+    <div class="title-icon row">
+        <div class="col-4 h5">
+            <i class="material-icons center">accessibility</i>
+        </div>
+        <div class="col-4 h5">
+            <i class="material-icons center">av_timer</i>
+        </div>
+        <div class="col-4 h5">
+            <i class="material-icons center">access_time</i>
+        </div>
 
-        </tr>
+    </div>
+    <div class="row ">
+        <div class="col-4 center">{{ recipe.amount }}</div>
+        <div class="col-4 center">{{ recipe.preparation }}</div>
+        <div class="col-4 center">{{ recipe.total }}</div>
+    </div>
+    <div class="divider"></div>
+    <div class="row recipe-subtitle">
+        <div class="col-9">
+            Ingredientes
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-9 center">
+            <table class="centered ingredientes striped">
+                <tr *ngFor="let ingrediente of recipe.ingredients;">
+                    <td> {{ingrediente.amount}} gr de {{ingrediente.name}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-3">
+            <img class="imagen" [src]="recipe.imagen || '../../assets/images/default.png'">
+        </div>
+
+    </div>
+    <div class="divider"></div>
+    <div class="row  recipe-subtitle">Pasos</div>
+    <div class="row">
+        <table class=" ingredientes striped">
+            <tr *ngFor="let paso of recipe.pasos;">
+                <td>{{paso}}</td>
+            </tr>
+        </table>
     </div>
     <button class="btn btn-secondary" type="button" (click)="deleteRecipe(recipe.id)">Borrar</button>
 

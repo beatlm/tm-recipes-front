@@ -48,3 +48,34 @@ div.error {
     width: 150px;
     height: 150px;
   }
+
+  div.recipe-title{
+    color: #57988d;
+    font-family: monospace;
+    font-weight: bold;
+    padding-top: 10px;
+    font-size: xx-large;
+    margin-bottom: 0px;
+    background-color: #d4d3d269;
+    border: 0px solid darkgray;
+  }
+
+
+  div.recipe-subtitle{
+    color: #57988d;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: xx-large;
+    margin-bottom: 0px;
+ 
+  }
+  img.imagen{
+    width:250px;
+ 
+  }
+  table.ingredientes{
+    padding: 32px;
+    margin: 0px 16px;
+    border: solid 1px lightgray;
+  }
+

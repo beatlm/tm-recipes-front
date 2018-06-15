@@ -8,7 +8,7 @@
             <div class="file-field input-field">
                 <div class="btn">
                     <span>Imagen</span>
-                    <input type="file" (change)="getFiles($event)" name="imageSelector" value="Imagen">
+                    <input formControlName="imagen"  type="file" (change)="getFiles($event)" name="imageSelector" value="Imagen">
                 </div>
                 <img class="preview" [src]="this.filestring  || '../../assets/images/default.png'">
             </div>

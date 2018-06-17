@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
 import { AppRoutingModule } from '../../app-routing.module';
 import { LoaderComponent } from './loader/loader.component';
+import { AlertComponent } from './alert/alert.component';
 
 
 
@@ -13,7 +14,7 @@ import { LoaderComponent } from './loader/loader.component';
   imports: [
     CommonModule, AppRoutingModule
   ],
-  declarations: [InfoComponent, StepComponent, HeaderComponent, MenuComponent, LoaderComponent],
+  declarations: [InfoComponent, StepComponent, HeaderComponent, MenuComponent, LoaderComponent, AlertComponent],
   exports: [InfoComponent, HeaderComponent, MenuComponent, LoaderComponent]
 })
 export class ComponentsModule { }

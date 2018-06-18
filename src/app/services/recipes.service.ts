@@ -1,37 +1,35 @@
-import { RecipeModel } from './RecipeModel';
-import { ResponseModel } from './responseModel';
-import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from "rxjs/Observable";
-
+import { RecipeModel } from "./RecipeModel";
+import { ResponseModel } from "./responseModel";
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class RecipesService {
-  private url = "https://tm-recipes-api.herokuapp.com/recipes" ;
+  private url = "https://tm-recipes-api.herokuapp.com/recipes";
 
   //private url="http://localhost:8080/recipes";
   constructor(private http: HttpClient) {}
 
   public getRecipesList$(): Observable<RecipeModel[]> {
-    return this.http.get<RecipeModel[]>(this.url).map((result:any)=>{
+    return this.http.get<RecipeModel[]>(this.url).map((result: any) => {
       console.log(result); //<--it's an object
       return result.content; //just return "recipes"
-   });
-  }
-  
- 
-  public saveRecipe$(recipe:RecipeModel):Observable<any> {
-    return this.http.post(this.url,recipe);
-  }
-  public deleteRecipe$(id:string):Observable<any>{
-    return this.http.delete(this.url+"/"+id);
-  }
-  public getRecipeDetail$(id:string): Observable<RecipeModel> {
-    return this.http.get<RecipeModel>(this.url+"/"+id).map((result:any)=>{
-      console.log(result); //<--it's an object
-      return result;//.content; //just return "recipes"
-   });
+    });
   }
 
-
+  public saveRecipe$(recipe: RecipeModel): Observable<any> {
+    return this.http.post(this.url, recipe);
+  }
+  public deleteRecipe$(id: string): Observable<any> {
+    return this.http.delete(this.url + "/" + id);
+  }
+  public getRecipeDetail$(id: string): Observable<RecipeModel> {
+    return this.http
+      .get<RecipeModel>(this.url + "/" + id)
+      .map((result: any) => {
+        console.log(result); //<--it's an object
+        return result; //.content; //just return "recipes"
+      });
+  }
 }

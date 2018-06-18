@@ -1,10 +1,10 @@
-import { AlertComponent } from './../../lib/components/alert/alert.component';
+import { AlertConfigModel } from './../../lib/components/alert/alert.model';
+import { AlertService } from './../../services/alert.service';
 import { IngredienteModel } from "../../services/IngredienteModel";
 import { RecipeModel } from "../../services/RecipeModel";
 import { Component, OnInit } from "@angular/core";
 import { RecipesService } from "../../services/recipes.service";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { MatSnackBar } from "@angular/material";
 
 @Component({
   selector: "mr-add-recipe",
@@ -17,12 +17,12 @@ export class AddRecipeComponent implements OnInit {
   pasos: Array<String>;
   files = [];
   filestring: String;
+  alert: AlertConfigModel;
 
   constructor(
     private recipesService: RecipesService,
-    private fb: FormBuilder,
-    private alertComponent: AlertComponent
-  ) {}
+    private alertService: AlertService,
+    private fb: FormBuilder  ) {}
 
   ngOnInit() {
     this.addRecipeForm = this.fb.group({
@@ -37,6 +37,9 @@ export class AddRecipeComponent implements OnInit {
     });
     this.lista = [];
     this.pasos = [];
+    this.alert= new AlertConfigModel();
+    this.alert.title="Mi alert";
+    this.alert.button="VAle";
   }
 
   saveRecipe(form: FormGroup) {
@@ -57,8 +60,8 @@ export class AddRecipeComponent implements OnInit {
     this.pasos=[];
     this.files=[];
     this.filestring='';
-    this.alertComponent.openSnackBar("Receta creada con éxito", "ok")
    // alert("Receta creada con éxito");
+   this.alertService.showAlert(this.alert);
   }
   anadirIngrediente() {
     

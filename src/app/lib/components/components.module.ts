@@ -15,6 +15,6 @@ import { AlertComponent } from './alert/alert.component';
     CommonModule, AppRoutingModule
   ],
   declarations: [InfoComponent, StepComponent, HeaderComponent, MenuComponent, LoaderComponent, AlertComponent],
-  exports: [InfoComponent, HeaderComponent, MenuComponent, LoaderComponent]
+  exports: [InfoComponent, HeaderComponent, MenuComponent, LoaderComponent,AlertComponent]
 })
 export class ComponentsModule { }

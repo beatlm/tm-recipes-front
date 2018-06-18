@@ -1,0 +1,11 @@
+<section attr.aria-label=" Aviso" class="text-center">
+    <dialog [(visible)]="display" modal="modal" [closable]= "false">
+        <header>
+          <span aria-hidden="true" class="{{config.icon}}"></span>
+        </header>
+        <p>{{config.title}}</p>
+        <footer class="text-center">
+            <button id="button-alert" type="button" class="nwe_btn-primary" *ngIf="config.button" pButton (click)="onCloseAlert()" label={{config.button}}></button>
+        </footer>
+    </dialog>
+</section>

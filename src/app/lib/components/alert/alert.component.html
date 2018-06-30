@@ -1,11 +1,23 @@
-<section attr.aria-label=" Aviso" class="text-center">
-    <dialog [(visible)]="display" modal="modal" [closable]= "false">
-        <header>
-          <span aria-hidden="true" class="{{config.icon}}"></span>
-        </header>
-        <p>{{config.title}}</p>
-        <footer class="text-center">
-            <button id="button-alert" type="button" class="nwe_btn-primary" *ngIf="config.button" pButton (click)="onCloseAlert()" label={{config.button}}></button>
-        </footer>
-    </dialog>
-</section>
+<span style="font-size: 10pt;"><!-- The Modal -->
+ 
+      <!-- Modal content -->
+      <div class="modal-content" [@dialog] *ngIf="modalStatus" >
+        <div class="header" [style.background-color]="backColor">
+            <h3 >{{title}}</h3>
+          <span class="close" (click)="resolve()">&times;</span>
+        </div>
+        <div class="body">
+          <p>{{body}}</p>
+          <hr>
+        </div>
+        <div class="footer">
+          
+          <span class="footer-btn">
+            
+            <button class="btn btn-default" (click)="resolve()">OK</button>
+          </span>
+        </div>
+    
+      
+    </div></span>
+<!--  http://angularpluslaravel.com/how-to-create-alerts-in-angular/  -->

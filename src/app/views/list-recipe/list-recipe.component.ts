@@ -1,3 +1,4 @@
+import { Alert } from './../../lib/components/alert/alert';
 import { RecipeModel } from "../../services/RecipeModel";
 import { EmbeddedList } from "../../services/EmbeddedList";
 import { ResponseModel } from "../../services/responseModel";
@@ -7,6 +8,7 @@ import { Observable } from "rxjs/Observable";
 import { HttpErrorResponse } from "@angular/common/http";
 import { LoaderService } from "./../../services/loader.service";
 import { Router } from "@angular/router";
+import { AlertService } from "./../../services/alert.service";
 
 @Component({
   selector: "mr-list-recipe",
@@ -18,15 +20,19 @@ export class ListRecipeComponent implements OnInit {
   public recipes: RecipeModel[];
   public message: string;
   public fullError: string;
+  alert: Alert;
+
 
   constructor(
     private recipesService: RecipesService,
     public loaderService: LoaderService,
-    private router: Router
+    private router: Router,
+    private alertService: AlertService
   ) {}
 
   ngOnInit() {
     this.refreshData();
+   
   }
 
   private refreshData() {
@@ -42,7 +48,13 @@ export class ListRecipeComponent implements OnInit {
       .subscribe(this.showDelete.bind(this), this.catchError.bind(this));
   }
   private showDelete() {
-    alert("Borrada con éxito");
+    this.alertService.create(
+      "Enhorabuena", //title
+      "success", //type
+      2500, // time
+      "La receta se ha borrado correctamente." //body
+    );
+
     this.refreshData();
   }
 

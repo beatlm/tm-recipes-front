@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 
+
+
 @Component({
   selector: 'mr-root',
-  templateUrl: './index.html',
+  templateUrl: './app.component.html',
   styles: []
 })
 export class AppComponent {

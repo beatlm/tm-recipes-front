@@ -8,48 +8,79 @@ import {
   EventEmitter,
   ViewChild,
   TemplateRef,
-  AfterViewChecked
+  AfterViewChecked,
+  NgZone
 } from "@angular/core";
-import { AlertConfigModel, AlertServiceConfigModel } from "./alert.model";
 import { Subscription } from "rxjs/Subscription";
-
+import {
+  trigger,
+  transition,
+  style,
+  state,
+  animate
+} from "@angular/animations";
 @Component({
   selector: "mr-alert",
-  templateUrl: "./alert.component.html"
+  templateUrl: "./alert.component.html",
+  animations: [
+    trigger("dialog", [
+      transition("void => *", [
+        style({ transform: "scale3d(.3, .3, .3)" }),
+        animate(100)
+      ]),
+      transition(
+        "void => *",
+        animate(100, style({ transform: "scale3d(.3, .3, .3)" }))
+      )
+    ])
+  ]
 })
-export class AlertComponent implements OnInit, OnDestroy, AfterViewChecked {
-  public config: AlertConfigModel;
-
-  public display: boolean;
+export class AlertComponent implements OnInit {
+  //hide and show alert
+  modalStatus: boolean;
+  //custom settings
+  title: string;
+  type: string;
+  time: number;
+  body: string;
+  //default settings
+  color: string;
+  backColor: string;
 
   private alertSubscription: Subscription;
 
-  constructor(private alertService: AlertService) {}
+  constructor(private alertService: AlertService, private _ngZone: NgZone) {}
 
   ngOnInit() {
-    this.alertSubscription = this.alertService.alertStatus$.subscribe(
-      (alertServiceConfig: AlertServiceConfigModel) => {
-        this.config = alertServiceConfig.config;
-        this.display = alertServiceConfig.display;
+    console.log("alert comopnent oninit")
+    this.alertService.alertSettings$.subscribe(data => {
+      this.title = data.title;
+      this.type = data.type;
+      this.time = data.time;
+      this.body = data.body;
+      if (this.type == "danger") {
+        this.backColor = "#dc3545";
       }
-    );
+      if (this.type == "infor") {
+        this.backColor = "#117a8b";
+      }
+      if (this.type == "success") {
+        this.backColor = "#28a745";
+      }
+      //show alert
+      this.modalStatus = true;
+      // hide alert after given time
+      this._ngZone.runOutsideAngular(() =>
+        setTimeout(
+          () => this._ngZone.run(() => (this.modalStatus = false)),
+          this.time
+        )
+      );
+    });
   }
 
-  ngAfterViewChecked() {
-    const button = document.getElementById("button-alert");
-    if (button) {
-      button.blur();
-    }
-  }
-
-  onCloseAlert() {
-    if (this.config.onClose) {
-      this.config.onClose();
-    }
-    this.alertService.closeAlert();
-  }
-
-  ngOnDestroy() {
-    this.alertSubscription.unsubscribe();
+  //close alert afert click on ok and cross
+  resolve(){
+    this.modalStatus = false;
   }
 }

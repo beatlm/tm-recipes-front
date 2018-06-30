@@ -1,10 +1,11 @@
-import { AlertConfigModel } from './../../lib/components/alert/alert.model';
-import { AlertService } from './../../services/alert.service';
+import { Alert } from './../../lib/components/alert/alert';
+import { AlertService } from "./../../services/alert.service";
 import { IngredienteModel } from "../../services/IngredienteModel";
 import { RecipeModel } from "../../services/RecipeModel";
 import { Component, OnInit } from "@angular/core";
 import { RecipesService } from "../../services/recipes.service";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+
 
 @Component({
   selector: "mr-add-recipe",
@@ -17,12 +18,13 @@ export class AddRecipeComponent implements OnInit {
   pasos: Array<String>;
   files = [];
   filestring: String;
-  alert: AlertConfigModel;
+  alert: Alert;
 
   constructor(
     private recipesService: RecipesService,
     private alertService: AlertService,
-    private fb: FormBuilder  ) {}
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit() {
     this.addRecipeForm = this.fb.group({
@@ -33,13 +35,11 @@ export class AddRecipeComponent implements OnInit {
       ingrediente: ["", Validators.required],
       cantidad: ["", Validators.required],
       paso: ["", Validators.required],
-      imagen:[""]
+      imagen: [""]
     });
     this.lista = [];
     this.pasos = [];
-    this.alert= new AlertConfigModel();
-    this.alert.title="Mi alert";
-    this.alert.button="VAle";
+
   }
 
   saveRecipe(form: FormGroup) {
@@ -50,21 +50,19 @@ export class AddRecipeComponent implements OnInit {
       form.value.preparation,
       this.lista,
       this.pasos,
-      this.filestring==undefined?null:this.filestring
+      this.filestring == undefined ? null : this.filestring
     );
     this.recipesService.saveRecipe$(recipe).subscribe(this.isOk.bind(this));
   }
   private isOk() {
     this.addRecipeForm.reset();
-    this.lista=[];
-    this.pasos=[];
-    this.files=[];
-    this.filestring='';
-   // alert("Receta creada con éxito");
-   this.alertService.showAlert(this.alert);
+    this.lista = [];
+    this.pasos = [];
+    this.files = [];
+    this.filestring = "";
+    this.alertService.create("Enhorabuena","success",10000,"La receta se ha añadido correctamente.");
   }
   anadirIngrediente() {
-    
     this.lista.push(
       new IngredienteModel(
         this.addRecipeForm.controls.ingrediente.value,
@@ -95,6 +93,7 @@ export class AddRecipeComponent implements OnInit {
 
   _handleReaderLoaded(readerEvt) {
     var binaryString = readerEvt.target.result;
-    this.filestring = 'data:'+this.files[0].type+';base64,'+btoa(binaryString); // Converting binary string data.
+    this.filestring =
+      "data:" + this.files[0].type + ";base64," + btoa(binaryString); // Converting binary string data.
   }
 }

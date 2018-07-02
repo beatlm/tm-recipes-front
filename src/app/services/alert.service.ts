@@ -10,13 +10,12 @@ import { Alert } from "../lib/components/alert/alert";
 export class AlertService {
   alertSettings$ = new Subject<Alert>();
   constructor() {}
-  create(title: string, type: string, time: number, body: string) {
-    console.log("alert.service create "+title)
+  create(text: string, type: string, time: number) {
+    console.log("alert.service create "+text)
     this.alertSettings$.next({
-      title,
+      text,
       type,
-      time,
-      body
+      time
     });
     console.log("alert service create end")
   }

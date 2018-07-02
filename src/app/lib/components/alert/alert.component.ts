@@ -39,10 +39,9 @@ export class AlertComponent implements OnInit {
   //hide and show alert
   modalStatus: boolean;
   //custom settings
-  title: string;
+  text: string;
   type: string;
   time: number;
-  body: string;
   //default settings
   color: string;
   backColor: string;
@@ -54,10 +53,9 @@ export class AlertComponent implements OnInit {
   ngOnInit() {
     console.log("alert comopnent oninit")
     this.alertService.alertSettings$.subscribe(data => {
-      this.title = data.title;
+      this.text = data.text;
       this.type = data.type;
       this.time = data.time;
-      this.body = data.body;
       if (this.type == "danger") {
         this.backColor = "#dc3545";
       }
@@ -65,7 +63,7 @@ export class AlertComponent implements OnInit {
         this.backColor = "#117a8b";
       }
       if (this.type == "success") {
-        this.backColor = "#28a745";
+        this.backColor = "#39c4ac";
       }
       //show alert
       this.modalStatus = true;

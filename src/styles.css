@@ -79,14 +79,6 @@ div.error {
     border: solid 1px lightgray;
   }
 
-div.alert{
-  
-background-color: whitesmoke;
-  position:absolute;
-  top:30%;
-  left:40%;
-}
-
 
 /* Modal Content/Box */
 .modal-content {
@@ -95,45 +87,30 @@ background-color: whitesmoke;
   z-index: 1031; /* Sit on top */
   left: 0;
   top: 0;
-  width: 30%; /* Full width */
-  height: 30%; /* Full height */
+  width: 28%; /* Full width */
+  height: 11%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: #fefefe;
-  margin: 20% 20%; /* 15% from the top and centered */
+  margin: 5px 0 0px 66%; /* 15% from the top and centered */
   padding: 0px;
   border: 1px solid #888;
   /*width: 30%; *//* Could be more or less, depending on screen size */
 }
-/* The Close Button */
+
+
+
 .close {
-  color: #aaa;
-  float: right;
+  background-color: gray;
+  color: white;
+  text-align: right;
   font-size: 28px;
   font-weight: bold;
-  padding-top: 0.5rem;
-  padding-right: 0.5rem;   
+  padding-right: 0.5rem;  
 }
-.header{
-  background-color: #bd2130;
-}
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-.body{
+div.header{
+  color: white;
+  padding: 10px;
   text-align: center;
-  padding-top: 2.2rem;
 }
-.footer-btn{
-  float: right;
-  padding-bottom: 20px;
-  padding-right: 20px;
-}
-h3 {
-  float: left;
-  padding-top: 0.5rem;
-  padding-left: 0.5rem;
-  color: #fff;   
-}
+
+

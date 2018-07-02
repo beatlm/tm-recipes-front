@@ -18,8 +18,6 @@ import { AlertService } from "./../../services/alert.service";
 export class ListRecipeComponent implements OnInit {
   public numberOfRecipes = 0;
   public recipes: RecipeModel[];
-  public message: string;
-  public fullError: string;
   alert: Alert;
 
 
@@ -37,7 +35,6 @@ export class ListRecipeComponent implements OnInit {
 
   private refreshData() {
     this.loaderService.fireLoader();
-    this.message = `Refreshing Data`;
     this.recipesService
       .getRecipesList$()
       .subscribe(this.showRecipes.bind(this), this.catchError.bind(this));
@@ -49,10 +46,9 @@ export class ListRecipeComponent implements OnInit {
   }
   private showDelete() {
     this.alertService.create(
-      "Enhorabuena", //title
+      "La receta se ha borrado correctamente." , //title
       "success", //type
-      2500, // time
-      "La receta se ha borrado correctamente." //body
+      2500 // time
     );
 
     this.refreshData();
@@ -61,20 +57,18 @@ export class ListRecipeComponent implements OnInit {
   private showRecipes(resultado: RecipeModel[]) {
     this.loaderService.stopLoader();
     this.recipes = resultado;
-    this.message = `recipes Ok`;
   }
   private showCount(data: any) {
     this.numberOfRecipes = data.count;
-    this.message = `count Ok`;
   }
 
   private catchError(err) {
-    if (err instanceof HttpErrorResponse) {
-      this.message = `Http Error: ${err.status}, text: ${err.statusText}`;
-    } else {
-      this.message = `Unknown error, text: ${err.message}`;
-    }
-    this.fullError = err;
+
+    this.alertService.create(
+      "Ha ocurrido un error" , //title
+      "danger", //type
+      2500 // time
+    );
   }
   private seeRecipe(id): void {
     this.router.navigate(["recipe/"+id]);

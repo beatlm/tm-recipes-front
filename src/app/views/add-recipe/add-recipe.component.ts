@@ -60,7 +60,7 @@ export class AddRecipeComponent implements OnInit {
     this.pasos = [];
     this.files = [];
     this.filestring = "";
-    this.alertService.create("Enhorabuena","success",10000,"La receta se ha añadido correctamente.");
+    this.alertService.create("La receta se ha añadido correctamente.","success",2500);
   }
   anadirIngrediente() {
     this.lista.push(

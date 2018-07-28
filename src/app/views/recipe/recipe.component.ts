@@ -14,8 +14,10 @@ import { LoaderService } from '../../services/loader.service';
 export class RecipeComponent implements OnInit {
   public recipe: RecipeModel ;
   public message:String;
+
   constructor( private route: ActivatedRoute,
     public loaderService: LoaderService,
+    private router: Router,
     private recipesService: RecipesService) {
     
    }
@@ -47,5 +49,12 @@ export class RecipeComponent implements OnInit {
     }
    // this.fullError = err;
   }
-
+  private deleteRecipe(id: string) {
+    this.recipesService
+      .deleteRecipe$(id)
+      .subscribe(this.gotoInit, this.catchError.bind(this));
+  }
+  private gotoInit(){
+    this.router.navigate(['/listrecipe']);//TODO router es undefined
+  }
 }

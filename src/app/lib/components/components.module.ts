@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InfoComponent } from './info/info.component';
-import { StepComponent } from './step/step.component';
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
 import { AppRoutingModule } from '../../app-routing.module';
@@ -15,8 +13,8 @@ import { AlertService } from '../../services/alert.service';
   imports: [
     CommonModule, AppRoutingModule
   ],
-  declarations: [InfoComponent, StepComponent, HeaderComponent, MenuComponent, LoaderComponent, AlertComponent],
-  exports: [InfoComponent, HeaderComponent, MenuComponent, LoaderComponent,AlertComponent],
+  declarations: [ HeaderComponent, MenuComponent, LoaderComponent, AlertComponent],
+  exports: [HeaderComponent, MenuComponent, LoaderComponent,AlertComponent],
   providers: [AlertService]
 })
 export class ComponentsModule { }

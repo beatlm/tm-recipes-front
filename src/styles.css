@@ -113,4 +113,17 @@ div.header{
   text-align: center;
 }
 
+.day{
+  border: solid 1px;
+  width: 14%;
+  padding: 3px;
+  margin: 1px;
+   
+    background-color: lightgrey;
+}
+#week{
+
+  margin: 10px 0px 0px 1px;
+}
+
 

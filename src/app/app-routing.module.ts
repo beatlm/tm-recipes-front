@@ -5,6 +5,7 @@ import { AddRecipeComponent } from './views/add-recipe/add-recipe.component';
 import { PlanningComponent } from './views/planning/planning.component';
 import { TodayComponent } from './views/today/today.component';
 import {ListRecipeComponent}  from './views/list-recipe/list-recipe.component';
+import { LoginComponent } from './views/login/login.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,10 @@ component: TodayComponent
 {
   path:"listrecipe",
   component: ListRecipeComponent
+},
+{
+  path:"login",
+  component: LoginComponent
 }
 ];
 

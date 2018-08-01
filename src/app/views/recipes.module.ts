@@ -11,14 +11,16 @@ import { ListRecipeComponent } from './list-recipe/list-recipe.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { AlertService } from '../services/alert.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from '../services/login.service';
 
 
 @NgModule({
   imports: [
     CommonModule, AppRoutingModule, ComponentsModule, ReactiveFormsModule
   ],
-  declarations: [TodayComponent,RecipeComponent,PlanningComponent,ListRecipeComponent,AddRecipeComponent],
+  declarations: [TodayComponent,RecipeComponent,PlanningComponent,ListRecipeComponent,AddRecipeComponent, LoginComponent],
   exports: [TodayComponent,PlanningComponent,RecipeComponent,ListRecipeComponent,AddRecipeComponent],
-  providers:[RecipesService,LoaderService, AlertService], 
+  providers:[RecipesService,LoaderService, AlertService,LoginService], 
 })
 export class RecipesModule { }

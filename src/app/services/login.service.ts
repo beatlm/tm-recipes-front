@@ -4,10 +4,10 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class LoginService {
-  //private url = "https://tm-recipes-api.herokuapp.com/recipes";
+  private url = "https://tm-recipes-api.herokuapp.com/createFacebookAuthorization";
   private options = {responseType: 'text' as 'text'};//Para no leer un json
 
-  private url="http://localhost:8080/createFacebookAuthorization";
+  //private url="http://localhost:8080/createFacebookAuthorization";
   constructor(private http: HttpClient) {}
 
   public getLogin$(): Observable<String> {

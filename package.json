@@ -4,13 +4,11 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --aot -o",
-    "build": "ng build --prod",
+    "start": "npm start",
+    "build": "npm build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "predeploy": "firebase use --token $FIREBASE_DEPLOY_KEY develop",
-    "deploy": "firebase deploy --non-interactive --token $FIREBASE_DEPLOY_KEY"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {

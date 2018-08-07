@@ -5,18 +5,20 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "build": "npm build",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --prod"
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^5.2.0",
     "@angular/cdk": "^6.2.1",
+    "@angular/cli": "~1.7.1",
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
+    "@angular/compiler-cli": "^5.2.0",
     "@angular/core": "^5.2.0",
     "@angular/forms": "^5.2.0",
     "@angular/http": "^5.2.0",
@@ -26,16 +28,24 @@
     "@ng-bootstrap/ng-bootstrap": "^1.0.2",
     "bootstrap": "^4.0.0-beta.3",
     "core-js": "^2.4.1",
+    "express": "^4.16.3",
     "jquery": "^3.3.1",
     "normalize.css": "^8.0.0",
+    "path": "^0.12.7",
     "popper.js": "^1.14.3",
     "rxjs": "^5.5.11",
-    "zone.js": "^0.8.19",
-    "@angular/cli": "~1.7.1",
-    "@angular/compiler-cli": "^5.2.0"
+    "typescript": "~2.5.3",
+    "zone.js": "^0.8.19"
   },
   "devDependencies": {
+    "@angular/cli": "~1.7.1",
+    "@angular/compiler-cli": "^5.2.0",
     "@angular/language-service": "^5.2.0",
+    "enhanced-resolve": "^3.3.0",
     "typescript": "~2.5.3"
+  },
+  "engines": {
+    "node": "6.11.3",
+    "npm": "3.10.10"
   }
 }

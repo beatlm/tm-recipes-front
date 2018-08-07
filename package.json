@@ -4,11 +4,12 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "npm start",
+    "start": "node server.js",
     "build": "npm build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -30,11 +31,12 @@
     "normalize.css": "^8.0.0",
     "popper.js": "^1.14.3",
     "rxjs": "^5.5.11",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.19",
+    "@angular/cli": "~1.7.1",
+    "@angular/compiler-cli": "^5.2.0"
   },
   "devDependencies": {
-    "@angular/cli": "~1.7.1",
-    "@angular/compiler-cli": "^5.2.0",
+
     "@angular/language-service": "^5.2.0",
     "firebase-tools": "^3.18.2",
     "typescript": "~2.5.3"

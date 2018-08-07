@@ -1,5 +1,5 @@
 import { RecipeModel } from "./RecipeModel";
-import { ResponseModel } from "./responseModel";
+import { ResponseModel } from "./ResponseModel";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";

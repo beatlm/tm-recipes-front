@@ -1,7 +1,0 @@
-{
-  "projects": {
-    "default": "tm-recipes",
-    "develop": "tm-recipes",
-    "production": "tm-recipes"
-  }
-}

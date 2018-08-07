@@ -36,9 +36,7 @@
     "@angular/compiler-cli": "^5.2.0"
   },
   "devDependencies": {
-
     "@angular/language-service": "^5.2.0",
-    "firebase-tools": "^3.18.2",
     "typescript": "~2.5.3"
   }
 }

@@ -52,7 +52,7 @@ export class RecipeComponent implements OnInit {
   private deleteRecipe(id: string) {
     this.recipesService
       .deleteRecipe$(id)
-      .subscribe(this.gotoInit, this.catchError.bind(this));
+      .subscribe(() => this.gotoInit(), this.catchError.bind(this));
   }
   private gotoInit(){
     this.router.navigate(['/listrecipe']);//TODO router es undefined

@@ -1,7 +1,7 @@
 import { Alert } from './../../lib/components/alert/alert';
 import { RecipeModel } from "../../services/RecipeModel";
 import { EmbeddedList } from "../../services/EmbeddedList";
-import { ResponseModel } from "../../services/responseModel";
+import { ResponseModel } from "../../services/ResponseModel";
 import { RecipesService } from "../../services/recipes.service";
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs/Observable";

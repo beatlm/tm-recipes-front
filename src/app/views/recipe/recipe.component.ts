@@ -57,4 +57,9 @@ export class RecipeComponent implements OnInit {
   private gotoInit(){
     this.router.navigate(['/listrecipe']);//TODO router es undefined
   }
+  private addPlanner(id: string) {
+    this.recipesService
+      .deleteRecipe$(id)
+      .subscribe(() => this.gotoInit(), this.catchError.bind(this));
+  }
 }

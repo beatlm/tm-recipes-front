@@ -1,20 +1,14 @@
 export class DayModel {
-  public dayOfWeek: string;
-  public isToday: boolean;
-  public isEmpty: boolean;
+  public user: string;
+  public day: Date;
   public recipeId: string;
-  public recipeTitle:string;
   constructor(
-    dayOfWeek: string,
-    isToday: boolean,
-    isEmpty: boolean,
-    recipeId: string,
-    recipeTitle:string
+    user: string,
+    day: Date,
+    recipeId: string
   ) {
-    this.dayOfWeek = dayOfWeek;
-    this.isEmpty = isEmpty;
-    this.isToday = isToday;
+    this.user = user;
+    this.day = day;
     this.recipeId = recipeId;
-    this.recipeTitle=recipeTitle
   }
 }

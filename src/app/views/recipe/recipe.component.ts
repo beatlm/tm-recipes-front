@@ -1,5 +1,5 @@
 import { PlannerModel } from './../../services/model/plannerModel';
-import { PlannerService, PlannerService } from './../../services/planner.service';
+import { PlannerService } from './../../services/planner.service';
 import { RecipeModel } from './../../services/RecipeModel';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';

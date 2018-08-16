@@ -1,3 +1,5 @@
+import { PlannerModel } from './../../services/model/plannerModel';
+import { PlannerService, PlannerService } from './../../services/planner.service';
 import { RecipeModel } from './../../services/RecipeModel';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
@@ -13,12 +15,14 @@ import { LoaderService } from '../../services/loader.service';
 })
 export class RecipeComponent implements OnInit {
   public recipe: RecipeModel ;
+  public planner: PlannerModel;
   public message:String;
 
   constructor( private route: ActivatedRoute,
     public loaderService: LoaderService,
     private router: Router,
-    private recipesService: RecipesService) {
+    private recipesService: RecipesService,
+  private plannerService:PlannerService) {
     
    }
 
@@ -49,7 +53,7 @@ export class RecipeComponent implements OnInit {
     }
    // this.fullError = err;
   }
-  private deleteRecipe(id: string) {
+  public deleteRecipe(id: string) {
     this.recipesService
       .deleteRecipe$(id)
       .subscribe(() => this.gotoInit(), this.catchError.bind(this));
@@ -57,9 +61,13 @@ export class RecipeComponent implements OnInit {
   private gotoInit(){
     this.router.navigate(['/listrecipe']);//TODO router es undefined
   }
-  private addPlanner(id: string) {
-    this.recipesService
-      .deleteRecipe$(id)
-      .subscribe(() => this.gotoInit(), this.catchError.bind(this));
+  public addPlanner(recipeId: string) {
+    this.planner= new PlannerModel("bea",new Date(),recipeId);
+    this.plannerService
+      .savePlanner$(this.planner)
+      .subscribe(() => this.okPlanner(), this.catchError.bind(this));
+  }
+  private okPlanner(){
+    alert("ok planner");
   }
 }

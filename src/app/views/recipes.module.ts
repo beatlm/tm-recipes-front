@@ -13,6 +13,7 @@ import { AlertService } from '../services/alert.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from '../services/login.service';
+import { PlannerService } from '../services/planner.service';
 
 
 @NgModule({
@@ -21,6 +22,6 @@ import { LoginService } from '../services/login.service';
   ],
   declarations: [TodayComponent,RecipeComponent,PlanningComponent,ListRecipeComponent,AddRecipeComponent, LoginComponent],
   exports: [TodayComponent,PlanningComponent,RecipeComponent,ListRecipeComponent,AddRecipeComponent],
-  providers:[RecipesService,LoaderService, AlertService,LoginService], 
+  providers:[RecipesService,LoaderService, AlertService,LoginService, PlannerService], 
 })
 export class RecipesModule { }

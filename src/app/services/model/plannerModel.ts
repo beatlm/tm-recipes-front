@@ -1,14 +1,14 @@
 export class PlannerModel {
-    public user: string;
-    public day: Date;
+    public userId: string;
+    public date: Date;
     public recipeId: string;
     constructor(
-      user: string,
-      day: Date,
+      userId: string,
+      date: Date,
       recipeId: string
     ) {
-      this.user = user;
-      this.day = day;
+      this.userId = userId;
+      this.date = date;
       this.recipeId = recipeId;
     }
   }

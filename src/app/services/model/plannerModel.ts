@@ -1,10 +1,10 @@
 export class PlannerModel {
     public userId: string;
-    public date: Date;
+    public date: string;
     public recipeId: string;
     constructor(
       userId: string,
-      date: Date,
+      date: string,
       recipeId: string
     ) {
       this.userId = userId;

@@ -6,6 +6,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { RecipesService } from '../../services/recipes.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import { LoaderService } from '../../services/loader.service';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class RecipeComponent implements OnInit {
     public loaderService: LoaderService,
     private router: Router,
     private recipesService: RecipesService,
-  private plannerService:PlannerService) {
+  private plannerService:PlannerService,
+  public datepipe: DatePipe) {
     
    }
 
@@ -62,7 +64,7 @@ export class RecipeComponent implements OnInit {
     this.router.navigate(['/listrecipe']);//TODO router es undefined
   }
   public addPlanner(recipeId: string) {
-    this.planner= new PlannerModel("bea",new Date(),recipeId);
+    this.planner= new PlannerModel("bea",this.datepipe.transform(Date.now(), 'yyyy-MM-dd'),recipeId);
     this.plannerService
       .savePlanner$(this.planner)
       .subscribe(() => this.okPlanner(), this.catchError.bind(this));

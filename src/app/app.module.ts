@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecipesModule } from './views/recipes.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -24,7 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RecipesModule,
     HttpClientModule,
     BrowserAnimationsModule  ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
   exports: []
 })

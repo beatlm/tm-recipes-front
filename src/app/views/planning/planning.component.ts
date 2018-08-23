@@ -45,7 +45,7 @@ public alertService:AlertService) {
   }
 
   private catchError(err) {
-
+    this.loaderService.stopLoader();
     this.alertService.create(
       "Ha ocurrido un error" , //title
       "danger", //type

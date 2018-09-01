@@ -14,10 +14,10 @@ export class RecipesService {
   public getRecipesList$(): Observable<RecipeModel[]> {
     return this.http.get<RecipeModel[]>(this.url).map((result: any) => {
       console.log(result.content); //<--it's an object
-      if(result.page.totalElements>0){
-      return result.content; //just return "recipes"
-      }else{
-        return null;//TODO ¿Como hacer que no devuelva nada si no hay hnada?
+      if (result.page.totalElements > 0) {
+        return result.content; //just return "recipes"
+      } else {
+        return null; //TODO ¿Como hacer que no devuelva nada si no hay hnada?
       }
     });
   }

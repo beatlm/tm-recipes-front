@@ -21,7 +21,7 @@ export class TodayComponent implements OnInit {
     this.recipes=new RecipeModel[0];
   }
 
-  private buscarTag(tag:String){
+  public buscarTag(tag:String){
     this.recipesService
     .getRecipesListByTag$(tag)
     .subscribe(this.showRecipes.bind(this), this.catchError.bind(this));

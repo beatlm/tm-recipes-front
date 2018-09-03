@@ -2,13 +2,21 @@
 
 <p>Tags más frecuentes</p>
 
+<form [formGroup]="searchTagForm" (ngSubmit)="buscarTag('search')">
 
-<div class="row">
-    <button type="button" class="btn waves-effect waves-light btn-small" (click)="buscarTag('verduras')">Verduras</button>
-    <button type="button" class="btn waves-effect waves-light btn-small" (click)="buscarTag('pescado')">Pescado</button>
-    <button type="button" class="btn waves-effect waves-light btn-small" (click)="buscarTag('cena')">Cena</button>
 
-</div>
+    <label class='inputButton' for="verdura">Verdura</label>
+    <input class="with-gap" type="radio" id="verdura" name="verdura" value="verdura" formControlName="verdura" />
+    <label class='inputButton' for="pescado">Pescado</label>
+    <input class="with-gap" type="radio" id="pescado" name="pescado" value="pescado" formControlName="pescado" />
+
+
+    <div class="row">
+        <input class="with-gap" id="search" placeholder="Buscar" formControlName="tagId">
+        <button type="submit" class="btn waves-effect waves-light "><i class="material-icons">search</i></button>
+    </div>
+</form>
+
 <div *ngIf="(loaderService.loading$ | async) == false" class="grid">
 
     <div *ngFor="let recipe of recipes;let i=index" class="card">

@@ -7,6 +7,7 @@ import { Observable } from "rxjs/Observable";
 @Injectable()
 export class RecipesService {
   private url = "https://tm-recipes-api.herokuapp.com/recipes";
+  private find="/search/findByTag?tags="
 
   //private url="http://localhost:8080/recipes";
   constructor(private http: HttpClient) {}
@@ -14,10 +15,21 @@ export class RecipesService {
   public getRecipesList$(): Observable<RecipeModel[]> {
     return this.http.get<RecipeModel[]>(this.url).map((result: any) => {
       console.log(result.content); //<--it's an object
-      if(result.page.totalElements>0){
-      return result.content; //just return "recipes"
-      }else{
-        return null;//TODO ¿Como hacer que no devuelva nada si no hay hnada?
+      if (result.page.totalElements > 0) {
+        return result.content; //just return "recipes"
+      } else {
+        return null; //TODO ¿Como hacer que no devuelva nada si no hay hnada?
+      }
+    });
+  }
+
+  public getRecipesListByTag$(tag:String): Observable<RecipeModel[]> {
+    return this.http.get<RecipeModel[]>(this.url+this.find+tag).map((result: any) => {
+      console.log(result.content); //<--it's an object
+      if (result.content[0].id!=null) {//TODO corregir back kpara que devuelva 204
+        return result.content; //just return "recipes"
+      } else {
+        return null; //TODO ¿Como hacer que no devuelva nada si no hay hnada?
       }
     });
   }

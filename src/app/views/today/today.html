@@ -1,0 +1,32 @@
+<p>¿No sabes qué cocinar hoy?, ¡¡Deja que te ayude!!</p>
+
+<p>Tags más frecuentes</p>
+
+<form [formGroup]="searchTagForm" (ngSubmit)="buscarTag('search')">
+
+
+    <label class='inputButton' for="verdura">Verdura</label>
+    <input class="with-gap" type="radio" id="verdura" name="verdura" value="verdura" formControlName="verdura" />
+    <label class='inputButton' for="pescado">Pescado</label>
+    <input class="with-gap" type="radio" id="pescado" name="pescado" value="pescado" formControlName="pescado" />
+
+
+    <div class="row">
+        <input class="with-gap" id="search" placeholder="Buscar" formControlName="tagId">
+        <button type="submit" class="btn waves-effect waves-light "><i class="material-icons">search</i></button>
+    </div>
+</form>
+
+<div *ngIf="(loaderService.loading$ | async) == false" class="grid">
+
+    <div *ngFor="let recipe of recipes;let i=index" class="card">
+
+        <div class="card-image" (click)="seeRecipe(recipe.id)">
+            <img [src]="recipe.imagen || '../../assets/images/default.png'" max-width='50%'>
+            <span class="card-title"> {{ recipe.name }}</span>
+        </div>
+    </div>
+</div>
+<div *ngIf="recipes == null">
+    Lo sentimos, no se han encontrado recetas con ese tag
+</div>

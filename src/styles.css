@@ -29,60 +29,56 @@ div.error {
   margin-bottom: 1px;
 }
 .title-text {
-    background-color: #d0cccc;
-    color: white;
-    text-align: center;
-    margin-bottom: 1px;
-  }
+  background-color: #d0cccc;
+  color: white;
+  text-align: center;
+  margin-bottom: 1px;
+}
 
-  div.spinner{
-    margin-left: 46%;
-    margin-top: 10%;
-  }
+div.spinner {
+  margin-left: 46%;
+  margin-top: 10%;
+}
 
-  div.grid{
-    display: flex;
-    flex-wrap: wrap;
-  }
-  img.preview{
-    width: 150px;
-    height: 150px;
-  }
+div.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+img.preview {
+  width: 150px;
+  height: 150px;
+}
 
-  div.recipe-title{
-    color: #57988d;
-    font-family: monospace;
-    font-weight: bold;
-    padding-top: 10px;
-    font-size: xx-large;
-    margin-bottom: 0px;
-    background-color: #d4d3d269;
-    border: 0px solid darkgray;
-  }
+div.recipe-title {
+  color: #57988d;
+  font-family: monospace;
+  font-weight: bold;
+  padding-top: 10px;
+  font-size: xx-large;
+  margin-bottom: 0px;
+  background-color: #d4d3d269;
+  border: 0px solid darkgray;
+}
 
-
-  div.recipe-subtitle{
-    color: #57988d;
-    font-family: monospace;
-    font-weight: bold;
-    font-size: xx-large;
-    margin-bottom: 0px;
- 
-  }
-  img.imagen{
-    width:250px;
- 
-  }
-  table.ingredientes{
-    padding: 32px;
-    margin: 0px 16px;
-    border: solid 1px lightgray;
-  }
-
+div.recipe-subtitle {
+  color: #57988d;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: xx-large;
+  margin-bottom: 0px;
+}
+img.imagen {
+  width: 250px;
+}
+table.ingredientes {
+  padding: 32px;
+  margin: 0px 16px;
+  border: solid 1px lightgray;
+}
 
 /* Modal Content/Box */
 .modal-content {
- /* display: block;*/
+  /* display: block;*/
   position: fixed; /* Stay in place */
   z-index: 1031; /* Sit on top */
   left: 0;
@@ -94,10 +90,8 @@ div.error {
   margin: 5px 0 0px 66%; /* 15% from the top and centered */
   padding: 0px;
   border: 1px solid #888;
-  /*width: 30%; *//* Could be more or less, depending on screen size */
+  /*width: 30%; */ /* Could be more or less, depending on screen size */
 }
-
-
 
 .close {
   background-color: gray;
@@ -105,25 +99,30 @@ div.error {
   text-align: right;
   font-size: 28px;
   font-weight: bold;
-  padding-right: 0.5rem;  
+  padding-right: 0.5rem;
 }
-div.header{
+div.header {
   color: white;
   padding: 10px;
   text-align: center;
 }
 
-.day{
+.day {
   border: solid 1px;
   width: 14%;
   padding: 3px;
   margin: 1px;
-   
-    background-color: lightgrey;
-}
-#week{
 
+  background-color: lightgrey;
+}
+#week {
   margin: 10px 0px 0px 1px;
 }
 
-
+.inputButton {
+  background-color: #39c4ac;
+  font-size: large;
+  width: 92px;
+  height: 30px;
+  text-align: center;
+}

@@ -8,6 +8,7 @@ export class RecipeModel {
   public preparation: number = 0;
   public ingredients: Array<IngredienteModel> = [];
   public pasos: Array<String> = [];
+  public tags: Array<String> = [];
   public imagen: String;
 
   constructor(
@@ -17,6 +18,7 @@ export class RecipeModel {
     preparation: number,
     ingredients: Array<IngredienteModel>,
     pasos: Array<String>,
+    tags: Array<String>,
     imagen: String
   ) {
     this.name = name;
@@ -25,6 +27,7 @@ export class RecipeModel {
     this.preparation = preparation;
     this.ingredients = ingredients;
     this.pasos = pasos;
+    this.tags=tags;
     this.imagen = imagen;
   }
 }

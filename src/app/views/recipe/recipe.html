@@ -22,6 +22,12 @@
     </div>
     <div class="divider"></div>
     <div class="row recipe-subtitle">
+        <a *ngFor="let tag of recipe?.tags;" class=" tags striped">
+                #{{tag}}&nbsp;
+        </a>
+    </div>
+
+    <div class="row recipe-subtitle">
         <div class="col-9">
             Ingredientes
         </div>
@@ -32,7 +38,10 @@
         <div class="col-9 center">
             <table class="centered ingredientes striped">
                 <tr *ngFor="let ingrediente of recipe?.ingredients;">
-                    <td> {{ingrediente.amount}} gr de {{ingrediente.name}}</td>
+                    <td *ngIf="ingrediente.amount!=null;else elseBlock">{{ingrediente.amount}} gr de {{ingrediente.name}}</td>
+                    <ng-template #elseBlock>
+                        <td>{{ingrediente.name}}</td>
+                    </ng-template>
                 </tr>
             </table>
         </div>
@@ -45,12 +54,12 @@
     <div class="row  recipe-subtitle">Pasos</div>
     <div class="row">
         <table class=" ingredientes striped">
-            <tr *ngFor="let paso of recipe?.pasos;">
-                <td>{{paso}}</td>
+            <tr *ngFor="let paso of recipe?.pasos;index as i;">
+                <td>{{i}}. {{paso}}</td>
             </tr>
         </table>
     </div>
     <button class="btn btn-secondary" type="button" (click)="deleteRecipe(recipe.id)">Borrar</button>
-
+    <button class="btn btn-secondary" type="button" (click)="addPlanner(recipe.id)">Añadir al planificador</button>
 
 </div>

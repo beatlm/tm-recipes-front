@@ -2,6 +2,8 @@
     <div class="row">
         <div class="col s9 input-field">
             <input formControlName="nombre" id="nombre" placeholder="Título de la receta" type="text" class="validate">
+            <input formControlName="tags" id="tags" placeholder="Etiquetas" type="text" class="validate">
+   
         </div>
         <div class="col s3">
 
@@ -55,6 +57,9 @@
     </div>
     <div class="row">
         <input class='col s4' formControlName="paso" placeholder="Paso">
+        <div class="row">
+            <button type="button" class="btn waves-effect waves-light btn-small" (click)="anadirPaso()">Añadir Paso</button>
+        </div>
         <table class="collection">
             <tr *ngFor="let pasoAdded of pasos;let i = index">
                 <td class="collection-item">{{pasoAdded}}</td>
@@ -66,9 +71,7 @@
             </tr>
         </table>
     </div>
-    <div class="row">
-        <button type="button" class="btn waves-effect waves-light btn-small" (click)="anadirPaso()">Añadir Paso</button>
-    </div>
+
     <div class="row">
         <button type="submit" class="btn waves-effect waves-light col s6">
             <i class="material-icons right">send</i>Guardar

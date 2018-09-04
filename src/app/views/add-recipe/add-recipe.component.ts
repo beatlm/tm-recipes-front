@@ -16,6 +16,7 @@ export class AddRecipeComponent implements OnInit {
   addRecipeForm: FormGroup;
   lista: Array<IngredienteModel>;
   pasos: Array<String>;
+  tags: Array<String>;
   files = [];
   filestring: String;
   alert: Alert;
@@ -35,14 +36,19 @@ export class AddRecipeComponent implements OnInit {
       ingrediente: ["", Validators.required],
       cantidad: ["", Validators.required],
       paso: ["", Validators.required],
+      tags: ["",Validators.required],
       imagen: [""]
     });
     this.lista = [];
     this.pasos = [];
+    this.tags = [];
 
   }
 
   saveRecipe(form: FormGroup) {
+ 
+    this.tags=form.value.tags.split(",");
+
     var recipe: RecipeModel = new RecipeModel(
       form.value.nombre,
       form.value.comensales,
@@ -50,6 +56,7 @@ export class AddRecipeComponent implements OnInit {
       form.value.preparation,
       this.lista,
       this.pasos,
+      this.tags,
       this.filestring == undefined ? null : this.filestring
     );
     this.recipesService.saveRecipe$(recipe).subscribe(this.isOk.bind(this));
@@ -58,6 +65,7 @@ export class AddRecipeComponent implements OnInit {
     this.addRecipeForm.reset();
     this.lista = [];
     this.pasos = [];
+    this.tags = [];
     this.files = [];
     this.filestring = "";
     this.alertService.create("La receta se ha añadido correctamente.","success",2500);

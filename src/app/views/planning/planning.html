@@ -1,8 +1,8 @@
 <div class="grid" id="week" >
-<div class= "day" *ngFor="let day of week" (click)="selectDay(day.recipeTitle)">
-  <h4>  {{day.dayOfWeek}} <i *ngIf="!day.isEmpty"class="material-icons left">kitchen</i></h4>
-  <h5>  {{day.recipeTitle}}</h5>
-  <h5>  {{day.isToday}}</h5>
+<div class= "day" *ngFor="let day of planner" (click)="selectDay(day.recipeTitle)">
+  <h4>  {{day.userId}} <i *ngIf="!day.isEmpty"class="material-icons left">kitchen</i></h4>
+  <h5>  {{day.date}}</h5>
+  <!--<h5>  {{day.isToday}}</h5>-->
   <div></div>
 </div>
 

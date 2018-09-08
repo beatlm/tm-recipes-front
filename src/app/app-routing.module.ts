@@ -1,3 +1,4 @@
+import { EditRecipeComponent } from './views/edit-recipe/edit-recipe.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RecipeComponent } from './views/recipe/recipe.component';
@@ -11,6 +12,9 @@ import { LoginComponent } from './views/login/login.component';
 const routes: Routes = [
  { path: "recipe/:id",
   component: RecipeComponent
+},
+{ path: "editrecipe/:id",
+component: EditRecipeComponent
 },
 { path: "addrecipe",
 component: AddRecipeComponent

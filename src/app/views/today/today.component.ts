@@ -26,34 +26,20 @@ export class TodayComponent implements OnInit {
   ngOnInit() {
     this.recipes = undefined;
     this.searchTagForm = this.fb.group({
-      tagId: "",
-      verdura: "",
-      pescado: ""
+      tagId: ""
     });
-    this.onChanges();
-  }
-  onChanges(): void {
-    this.searchTagForm.get("verdura").valueChanges.subscribe(val => {
-      this.buscarTag("verdura");
+
+    this.searchTagForm.get("tagId").valueChanges.subscribe(val => {
+      this.buscarTag();
     });
-    this.searchTagForm.get("pescado").valueChanges.subscribe(val => {
-      this.buscarTag("pescado");
-    });
-    this.searchTagForm.reset();
+
   }
 
-  public buscarTag(tag: String) {
-    console.log("tag " + tag);
-    console.log("form:" + this.searchTagForm.value.tagId);
-    if (tag === "search") {
-      tag = this.searchTagForm.value.tagId;
-    }
-    if (tag != "") {
-      console.log("buscarTag :" + tag);
-      this.recipesService
-        .getRecipesListByTag$(tag)
-        .subscribe(this.showRecipes.bind(this), this.catchError.bind(this));
-    }
+  public buscarTag() {
+    console.log("buscarTag :" + this.searchTagForm.value.tagId);
+    this.recipesService
+      .getRecipesListByTag$(this.searchTagForm.controls.tagId.value)
+      .subscribe(this.showRecipes.bind(this), this.catchError.bind(this));
   }
   private showRecipes(resultado: RecipeModel[]) {
     this.loaderService.stopLoader();

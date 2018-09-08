@@ -14,13 +14,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from '../services/login.service';
 import { PlannerService } from '../services/planner.service';
+import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 
 
 @NgModule({
   imports: [
     CommonModule, AppRoutingModule, ComponentsModule, ReactiveFormsModule
   ],
-  declarations: [TodayComponent,RecipeComponent,PlanningComponent,ListRecipeComponent,AddRecipeComponent, LoginComponent],
+  declarations: [TodayComponent,RecipeComponent,PlanningComponent,ListRecipeComponent,AddRecipeComponent, LoginComponent, EditRecipeComponent],
   exports: [TodayComponent,PlanningComponent,RecipeComponent,ListRecipeComponent,AddRecipeComponent],
   providers:[RecipesService,LoaderService, AlertService,LoginService, PlannerService], 
 })

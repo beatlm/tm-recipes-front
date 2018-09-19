@@ -2,13 +2,13 @@
 
 <p>Tags más frecuentes</p>
 
-<form [formGroup]="searchTagForm" (ngSubmit)="buscarTag('search')">
+<form [formGroup]="searchTagForm" (ngSubmit)="buscarTag(searchTagForm.value.tagId)">
 
 
     <label class='inputButton' for="verdura">Verdura</label>
-    <input class="with-gap" type="radio" id="verdura" name="verdura" value="verdura" formControlName="verdura" />
+    <input class="with-gap" type="radio" id="verdura" value="verdura" formControlName="tagOption" />
     <label class='inputButton' for="pescado">Pescado</label>
-    <input class="with-gap" type="radio" id="pescado" name="pescado" value="pescado" formControlName="pescado" />
+    <input class="with-gap" type="radio" id="pescado" value="pescado" formControlName="tagOption" />
 
 
     <div class="row">

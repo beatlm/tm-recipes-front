@@ -27,33 +27,24 @@ export class TodayComponent implements OnInit {
     this.recipes = undefined;
     this.searchTagForm = this.fb.group({
       tagId: "",
-      verdura: "",
-      pescado: ""
+      tagOption: ""    });
+
+    this.searchTagForm.get("tagOption").valueChanges.subscribe(val => {
+      this.searchTagForm.value.tagOption = val;
+      console.log("FORM MIO");      
+      console.log(this.searchTagForm);
+      this.buscarTag(this.searchTagForm.value.tagOption);
     });
-    this.onChanges();
-  }
-  onChanges(): void {
-    this.searchTagForm.get("verdura").valueChanges.subscribe(val => {
-      this.buscarTag("verdura");
-    });
-    this.searchTagForm.get("pescado").valueChanges.subscribe(val => {
-      this.buscarTag("pescado");
-    });
-    this.searchTagForm.reset();
   }
 
+
   public buscarTag(tag: String) {
-    console.log("tag " + tag);
-    console.log("form:" + this.searchTagForm.value.tagId);
-    if (tag === "search") {
-      tag = this.searchTagForm.value.tagId;
-    }
-    if (tag != "") {
+
       console.log("buscarTag :" + tag);
       this.recipesService
         .getRecipesListByTag$(tag)
         .subscribe(this.showRecipes.bind(this), this.catchError.bind(this));
-    }
+    
   }
   private showRecipes(resultado: RecipeModel[]) {
     this.loaderService.stopLoader();

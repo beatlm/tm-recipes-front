@@ -2,18 +2,18 @@
 
 <p>Tags más frecuentes</p>
 
-<form [formGroup]="searchTagForm" (ngSubmit)="buscarTag(searchTagForm.value.tagId)">
+<form [formGroup]="searchTagForm" >
 
 
     <label class='inputButton' for="verdura">Verdura</label>
-    <input class="with-gap" type="radio" id="verdura" value="verdura" formControlName="tagOption" />
+   <!-- <input class="with-gap" type="radio" id="verdura" value="verdura" formControlName="tagId" />-->
+    <input type="checkbox" formControlName="tagId" id="verdura" value="verdura"/> 
     <label class='inputButton' for="pescado">Pescado</label>
-    <input class="with-gap" type="radio" id="pescado" value="pescado" formControlName="tagOption" />
-
-
+   <!-- <input class="with-gap" type="radio" id="pescado" value="pescado" formControlName="tagId" />-->
+    <input type="checkbox" formControlName="tagId" id="pescado" value="pescado"/> 
     <div class="row">
         <input class="with-gap" id="search" placeholder="Buscar" formControlName="tagId">
-        <button type="submit" class="btn waves-effect waves-light "><i class="material-icons">search</i></button>
+       <!-- <button type="submit" class="btn waves-effect waves-light "><i class="material-icons">search</i></button>-->
     </div>
 </form>
 

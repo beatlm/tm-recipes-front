@@ -26,25 +26,21 @@ export class TodayComponent implements OnInit {
   ngOnInit() {
     this.recipes = undefined;
     this.searchTagForm = this.fb.group({
-      tagId: "",
-      tagOption: ""    });
-
-    this.searchTagForm.get("tagOption").valueChanges.subscribe(val => {
-      this.searchTagForm.value.tagOption = val;
-      console.log("FORM MIO");      
-      console.log(this.searchTagForm);
-      this.buscarTag(this.searchTagForm.value.tagOption);
+      tagId: ""
     });
+
+    this.searchTagForm.get("tagId").valueChanges.subscribe(val => {
+      this.buscarTag();
+    });
+
   }
 
-
-  public buscarTag(tag: String) {
-
-      console.log("buscarTag :" + tag);
-      this.recipesService
-        .getRecipesListByTag$(tag)
-        .subscribe(this.showRecipes.bind(this), this.catchError.bind(this));
-    
+  public buscarTag() {
+    console.log("buscarTag :" + this.searchTagForm.value.tagId);
+    this.recipesService
+      .getRecipesListByTag$(this.searchTagForm.controls.tagId.value)
+      .subscribe(this.showRecipes.bind(this), this.catchError.bind(this));
+    //  this.searchTagForm.controls['tagId'].reset();
   }
   private showRecipes(resultado: RecipeModel[]) {
     this.loaderService.stopLoader();
@@ -58,5 +54,9 @@ export class TodayComponent implements OnInit {
       "danger", //type
       2500 // time
     );
+  }
+
+  private seeRecipe(id): void {
+    this.router.navigate(["recipe/"+id]);
   }
 }

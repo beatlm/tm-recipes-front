@@ -44,6 +44,10 @@ export class ListRecipeComponent implements OnInit {
       .deleteRecipe$(id)
       .subscribe(this.showDelete.bind(this), this.catchError.bind(this));
   }
+  private editRecipe(id: string){
+    this.router.navigate(["editrecipe/"+id]);
+
+  }
   private showDelete() {
     this.alertService.create(
       "La receta se ha borrado correctamente." , //title

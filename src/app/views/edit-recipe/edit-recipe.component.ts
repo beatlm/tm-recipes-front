@@ -6,6 +6,8 @@ import { RecipeModel } from '../../services/RecipeModel';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { IngredienteModel } from '../../services/IngredienteModel';
+import { AlertService } from '../../services/alert.service';
+import { Alert } from '../../lib/components/alert/alert';
 
 @Component({
   selector: 'mr-edit-recipe',
@@ -19,10 +21,14 @@ export class EditRecipeComponent implements OnInit {
   public ingredientes: Array<IngredienteModel>;
   public pasos: Array<String>;
   public tags: Array<String>;
+  public filestring: String;
+  public files = [];
+  public alert: Alert;
 
   constructor(   public loaderService: LoaderService,
     private route: ActivatedRoute,
     private recipesService: RecipesService,
+    private alertService: AlertService,
     private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -100,6 +106,45 @@ export class EditRecipeComponent implements OnInit {
       this.message = `Unknown error, text: ${err.message}`;
     }
    // this.fullError = err;
+  }
+  getFiles(event) {
+    this.files = event.target.files;
+    var reader = new FileReader();
+    reader.onload = this._handleReaderLoaded.bind(this);
+    reader.readAsBinaryString(this.files[0]);
+  }
+
+  _handleReaderLoaded(readerEvt) {
+    var binaryString = readerEvt.target.result;
+    this.filestring =
+      "data:" + this.files[0].type + ";base64," + btoa(binaryString); // Converting binary string data.
+  }
+
+
+  saveRecipe(form: FormGroup) {
+ 
+    this.tags=form.value.tags.split(",");
+
+    var recipe: RecipeModel = new RecipeModel(
+      form.value.nombre,
+      form.value.comensales,
+      form.value.total,
+      form.value.preparation,
+      this.ingredientes,
+      this.pasos,
+      this.tags,
+      this.filestring == undefined ? null : this.filestring
+    );
+    this.recipesService.saveRecipe$(recipe).subscribe(this.isOk.bind(this));
+  }
+  private isOk() {
+    this.editRecipeForm.reset();
+    this.ingredientes = [];
+    this.pasos = [];
+    this.tags = [];
+    this.files = [];
+    this.filestring = "";
+    this.alertService.create("La receta se ha añadido correctamente.","success",2500);
   }
 
 }

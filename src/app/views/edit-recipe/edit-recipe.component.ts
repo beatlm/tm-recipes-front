@@ -69,6 +69,28 @@ export class EditRecipeComponent implements OnInit {
     });
 
   }
+
+  anadirIngrediente() {
+    this.ingredientes.push(
+      new IngredienteModel(
+        this.editRecipeForm.controls.ingrediente.value,
+        this.editRecipeForm.controls.cantidad.value
+      )
+    );
+    this.editRecipeForm.controls.ingrediente.reset();
+    this.editRecipeForm.controls.cantidad.reset();
+    this.editRecipeForm.controls.imagen.reset();
+  }
+  deleteIngredient(index) {
+    this.ingredientes.splice(index, 1);
+  }
+  anadirPaso() {
+    this.pasos.push(this.editRecipeForm.controls.paso.value);
+    this.editRecipeForm.controls.paso.reset();
+  }
+  deletePaso(index) {
+    this.pasos.splice(index, 1);
+  }
   private catchError(err) {
     this.loaderService.stopLoader();
     alert("error");

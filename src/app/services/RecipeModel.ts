@@ -19,7 +19,7 @@ export class RecipeModel {
     ingredients: Array<IngredienteModel>,
     pasos: Array<String>,
     tags: Array<String>,
-    imagen: String
+    imagen?: String
   ) {
     this.name = name;
     this.amount = amount;

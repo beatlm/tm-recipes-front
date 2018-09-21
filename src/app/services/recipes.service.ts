@@ -37,6 +37,9 @@ export class RecipesService {
   public saveRecipe$(recipe: RecipeModel): Observable<any> {
     return this.http.post(this.url, recipe);
   }
+  public editRecipe$(recipe: RecipeModel, id:string): Observable<any> {
+    return this.http.patch(this.url+ "/" + id, recipe);
+  }
   public deleteRecipe$(id: string): Observable<any> {
     return this.http.delete(this.url + "/" + id);
   }

@@ -72,8 +72,8 @@ export class EditRecipeComponent implements OnInit {
       ingrediente: ["", Validators.required],
       cantidad: ["", Validators.required],
       paso: ["", Validators.required],
-      tags: ["", Validators.required]
-      //imagen: [this.recipe.imagen]
+      tags: ["", Validators.required],
+      imagen: [""]
     });
   }
 
@@ -101,7 +101,13 @@ export class EditRecipeComponent implements OnInit {
   
   private catchError(err) {
     this.loaderService.stopLoader();
-    alert("error");
+
+    this.alertService.create(
+      "La receta no se ha modificado correctamente."+err.message,
+      "danger",
+      2500
+    );
+
     if (err instanceof HttpErrorResponse) {
       this.message = `Http Error: ${err.status}, text: ${err.statusText}`;
     } else {
@@ -121,17 +127,15 @@ export class EditRecipeComponent implements OnInit {
     this.filestring =
       "data:" + this.files[0].type + ";base64," + btoa(binaryString); // Converting binary string data.
   }
-  prueba(texto:string){
-    alert(texto);
-  }
-  editRecipe(form: FormGroup) {
-    this.tags = form.value.tags.split(",");
+
+  editRecipe() {
+    this.tags = this.editRecipeForm.value.tags.split(",");
 
     var recipe: RecipeModel = new RecipeModel(
-      form.value.nombre,
-      form.value.comensales,
-      form.value.total,
-      form.value.preparation,
+      this.editRecipeForm.value.nombre,
+      this.editRecipeForm.value.comensales,
+      this.editRecipeForm.value.total,
+      this.editRecipeForm.value.preparation,
       this.ingredientes,
       this.pasos,
       this.tags,

@@ -121,15 +121,15 @@ export class EditRecipeComponent implements OnInit {
   }
 
 
-  saveRecipe(form: FormGroup) {
+  editRecipe() {
  
-    this.tags=form.value.tags.split(",");
+    this.tags=this.editRecipeForm.value.tags.split(",");
 
     var recipe: RecipeModel = new RecipeModel(
-      form.value.nombre,
-      form.value.comensales,
-      form.value.total,
-      form.value.preparation,
+      this.editRecipeForm.value.nombre,
+      this.editRecipeForm.value.comensales,
+      this.editRecipeForm.value.total,
+      this.editRecipeForm.value.preparation,
       this.ingredientes,
       this.pasos,
       this.tags,

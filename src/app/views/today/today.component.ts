@@ -14,6 +14,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 export class TodayComponent implements OnInit {
   public recipes: RecipeModel[];
   public searchTagForm: FormGroup;
+  public tagsStatus: boolean[];
 
   constructor(
     private recipesService: RecipesService,
@@ -24,23 +25,35 @@ export class TodayComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.tagsStatus = [false, false];
     this.recipes = undefined;
     this.searchTagForm = this.fb.group({
-      tagId: ""
+      textTag: "",
+      verduraTag: false,
+      pescadoTag: false
     });
 
-    this.searchTagForm.get("tagId").valueChanges.subscribe(val => {
+    this.searchTagForm.valueChanges.subscribe(val => {
       this.buscarTag();
     });
-
   }
 
   public buscarTag() {
-    console.log("buscarTag :" + this.searchTagForm.value.tagId);
+    let searchTag = this.searchTagForm.value.textTag;
+
+    if (this.tagsStatus[0] != this.searchTagForm.controls.verduraTag.value) {
+      searchTag = "verdura";
+      this.tagsStatus[0] = this.searchTagForm.controls.verduraTag.value;
+    } else if (
+      this.tagsStatus[1] != this.searchTagForm.controls.pescadoTag.value
+    ) {
+      this.tagsStatus[1] = this.searchTagForm.controls.pescadoTag.value;
+      searchTag = "pescado";
+    }
+
     this.recipesService
-      .getRecipesListByTag$(this.searchTagForm.controls.tagId.value)
+      .getRecipesListByTag$(searchTag)
       .subscribe(this.showRecipes.bind(this), this.catchError.bind(this));
-    //  this.searchTagForm.controls['tagId'].reset();
   }
   private showRecipes(resultado: RecipeModel[]) {
     this.loaderService.stopLoader();
@@ -57,6 +70,6 @@ export class TodayComponent implements OnInit {
   }
 
   private seeRecipe(id): void {
-    this.router.navigate(["recipe/"+id]);
+    this.router.navigate(["recipe/" + id]);
   }
 }

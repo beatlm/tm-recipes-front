@@ -42,43 +42,55 @@ export class AlertComponent implements OnInit {
   text: string;
   type: string;
   time: number;
+  firstButtonText: string;
+  secondButtonText: string;
   //default settings
   color: string;
   backColor: string;
+  showCloseButton:boolean;
 
   private alertSubscription: Subscription;
 
   constructor(private alertService: AlertService, private _ngZone: NgZone) {}
 
   ngOnInit() {
-    console.log("alert comopnent oninit")
+    console.log("alert component oninit");
     this.alertService.alertSettings$.subscribe(data => {
       this.text = data.text;
       this.type = data.type;
       this.time = data.time;
+      this.firstButtonText = data.firstButtonText;
+      this.secondButtonText = data.secondButtonText;
       if (this.type == "danger") {
         this.backColor = "#dc3545";
       }
-      if (this.type == "infor") {
+      if (this.type == "info") {
         this.backColor = "#117a8b";
       }
       if (this.type == "success") {
         this.backColor = "#39c4ac";
       }
+      if(data.showCloseButton==false){
+        this.showCloseButton=false;
+      }else{
+        this.showCloseButton=true;
+      }
       //show alert
       this.modalStatus = true;
       // hide alert after given time
-      this._ngZone.runOutsideAngular(() =>
-        setTimeout(
-          () => this._ngZone.run(() => (this.modalStatus = false)),
-          this.time
-        )
-      );
+      if (this.time > 0) {
+        this._ngZone.runOutsideAngular(() =>
+          setTimeout(
+            () => this._ngZone.run(() => (this.modalStatus = false)),
+            this.time
+          )
+        );
+      }
     });
   }
 
   //close alert afert click on ok and cross
-  resolve(){
+  resolve() {
     this.modalStatus = false;
   }
 }

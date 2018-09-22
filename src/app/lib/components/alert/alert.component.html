@@ -1,15 +1,20 @@
-<span ><!-- The Modal -->
- 
-      <!-- Modal content -->
-      <div class="modal-content" [@dialog] *ngIf="modalStatus" >
-          <span class="close" (click)="resolve()">&times;</span>
+<span>
+    <!-- The Modal -->
+
+    <!-- Modal content -->
+    <div class="modal-content" [@dialog] *ngIf="modalStatus">
+        
+        <span  *ngIf="showCloseButton==true" class="close" (click)="resolve()">&times;</span>
 
         <div class="header" [style.background-color]="backColor">
-            <p >{{text}}</p>
+            <p>{{text}}</p>
         </div>
-       
+        <div class="row">
+            <button *ngIf="firstButtonText!=null" class="alertBtn col s2 ">{{firstButtonText}}</button>
+            <button *ngIf="secondButtonText!=null" class=" col s2 alertBtn">{{secondButtonText}}</button>
+        </div>
 
-    
-      
-    </div></span>
+
+    </div>
+</span>
 <!--  http://angularpluslaravel.com/how-to-create-alerts-in-angular/  -->

@@ -36,7 +36,7 @@ export class EditRecipeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.loaderService.fireLoader();
+    //this.loaderService.fireLoader();
     this.recipeId = this.route.snapshot.paramMap.get("id");
     this.refreshData(this.recipeId);
     this.editRecipeForm = this.fb.group({

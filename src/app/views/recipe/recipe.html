@@ -55,7 +55,7 @@
     <div class="row">
         <table class=" ingredientes striped">
             <tr *ngFor="let paso of recipe?.pasos;index as i;">
-                <td>{{i+1}}. {{paso}}</td>
+                <td>{{i+1}}. {{paso | tmFormat}}</td>
             </tr>
         </table>
     </div>

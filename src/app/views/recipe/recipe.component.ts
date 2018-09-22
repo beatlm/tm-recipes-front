@@ -7,6 +7,7 @@ import { RecipesService } from '../../services/recipes.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import { LoaderService } from '../../services/loader.service';
 import { DatePipe } from '@angular/common';
+import { TmFormatPipe } from '../../lib/components/pipes/tm.format.pipe';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class RecipeComponent implements OnInit {
     private router: Router,
     private recipesService: RecipesService,
   private plannerService:PlannerService,
-  public datepipe: DatePipe) {
+  public datepipe: DatePipe,
+  public tmFormat: TmFormatPipe) {
     
    }
 

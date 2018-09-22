@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { LoginService } from '../services/login.service';
 import { PlannerService } from '../services/planner.service';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
+import { TmFormatPipe } from '../lib/components/pipes/tm.format.pipe';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
     CommonModule, AppRoutingModule, ComponentsModule, ReactiveFormsModule
   ],
   declarations: [TodayComponent,RecipeComponent,PlanningComponent,ListRecipeComponent,AddRecipeComponent, LoginComponent, EditRecipeComponent],
-  exports: [TodayComponent,PlanningComponent,RecipeComponent,ListRecipeComponent,AddRecipeComponent],
-  providers:[RecipesService,LoaderService, AlertService,LoginService, PlannerService], 
+  exports: [TodayComponent,PlanningComponent,RecipeComponent,ListRecipeComponent,AddRecipeComponent,TmFormatPipe],
+  providers:[RecipesService,LoaderService, AlertService,LoginService, PlannerService, TmFormatPipe], 
 })
 export class RecipesModule { }

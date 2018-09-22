@@ -1,4 +1,4 @@
-import { Alert } from './../../lib/components/alert/alert';
+import { Alert } from "./../../lib/components/alert/alert";
 import { RecipeModel } from "../../services/RecipeModel";
 import { EmbeddedList } from "../../services/EmbeddedList";
 import { ResponseModel } from "../../services/ResponseModel";
@@ -20,7 +20,6 @@ export class ListRecipeComponent implements OnInit {
   public recipes: RecipeModel[];
   alert: Alert;
 
-
   constructor(
     private recipesService: RecipesService,
     public loaderService: LoaderService,
@@ -30,7 +29,6 @@ export class ListRecipeComponent implements OnInit {
 
   ngOnInit() {
     this.refreshData();
-   
   }
 
   private refreshData() {
@@ -40,17 +38,25 @@ export class ListRecipeComponent implements OnInit {
       .subscribe(this.showRecipes.bind(this), this.catchError.bind(this));
   }
   private deleteRecipe(id: string) {
-    this.recipesService
-      .deleteRecipe$(id)
-      .subscribe(this.showDelete.bind(this), this.catchError.bind(this));
-  }
-  private editRecipe(id: string){
-    this.router.navigate(["editrecipe/"+id]);
+    this.alertService.create(
+      "¿Estás seguro de que quieres borrar la receta?",
+      "info",
+      0,
+      false,
+      "Aceptar",
+      "Cancelar"
+    );
 
+    /* this.recipesService
+      .deleteRecipe$(id)
+      .subscribe(this.showDelete.bind(this), this.catchError.bind(this));*/
+  }
+  private editRecipe(id: string) {
+    this.router.navigate(["editrecipe/" + id]);
   }
   private showDelete() {
     this.alertService.create(
-      "La receta se ha borrado correctamente." , //title
+      "La receta se ha borrado correctamente.", //title
       "success", //type
       2500 // time
     );
@@ -69,12 +75,12 @@ export class ListRecipeComponent implements OnInit {
   private catchError(err) {
     this.loaderService.stopLoader();
     this.alertService.create(
-      "Ha ocurrido un error" , //title
+      "Ha ocurrido un error", //title
       "danger", //type
       2500 // time
     );
   }
   private seeRecipe(id): void {
-    this.router.navigate(["recipe/"+id]);
+    this.router.navigate(["recipe/" + id]);
   }
 }

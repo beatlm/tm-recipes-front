@@ -6,6 +6,8 @@ import { AppRoutingModule } from '../../app-routing.module';
 import { LoaderComponent } from './loader/loader.component';
 import { AlertComponent } from './alert/alert.component';
 import { AlertService } from '../../services/alert.service';
+import { TmFormatPipe } from './pipes/tm.format.pipe';
+
 
 
 
@@ -13,8 +15,8 @@ import { AlertService } from '../../services/alert.service';
   imports: [
     CommonModule, AppRoutingModule
   ],
-  declarations: [ HeaderComponent, MenuComponent, LoaderComponent, AlertComponent],
-  exports: [HeaderComponent, MenuComponent, LoaderComponent,AlertComponent],
+  declarations: [ HeaderComponent, MenuComponent, LoaderComponent, AlertComponent, TmFormatPipe],
+  exports: [HeaderComponent, MenuComponent, LoaderComponent,AlertComponent, TmFormatPipe],
   providers: [AlertService]
 })
 export class ComponentsModule { }

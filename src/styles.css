@@ -83,13 +83,13 @@ table.ingredientes {
   z-index: 1031; /* Sit on top */
   left: 0;
   top: 0;
-  width: 28%; /* Full width */
-  height: 11%; /* Full height */
+  width: 25%; /* Full width */
+ /* height: 21%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: #fefefe;
   margin: 5px 0 0px 66%; /* 15% from the top and centered */
   padding: 0px;
-  border: 1px solid #888;
+
   /*width: 30%; */ /* Could be more or less, depending on screen size */
 }
 
@@ -126,4 +126,10 @@ div.header {
   width: 92px;
   height: 30px;
   text-align: center;
+}
+
+a.alertBtn {
+  color:white;
+  text-align: center;
+  background-color: lightslategray;
 }

@@ -4751,8 +4751,9 @@ small {
 }
 
 .card .card-title {
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 500;
+  text-shadow: 1px 1px lightgrey;
 }
 
 .card .card-title.activator {
@@ -4875,15 +4876,14 @@ small {
 }
 
 .card .card-image .card-title {
-  border-radius: 12px 12px;
-  border: solid 1px #cecbcb;
   color: orange;
   background-color: white;
   position: absolute;
   bottom: -7px;
   left: 10px;
   width: 200px;
-  padding: 7px;
+  padding: 2px;
+  text-align: center;
 }
 
 .card .card-content {

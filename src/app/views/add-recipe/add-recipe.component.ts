@@ -1,7 +1,7 @@
 import { Alert } from './../../lib/components/alert/alert';
 import { AlertService } from "./../../services/alert.service";
-import { IngredienteModel } from "../../services/IngredienteModel";
-import { RecipeModel } from "../../services/RecipeModel";
+import { IngredienteModel } from "../../services/model/IngredienteModel";
+import { RecipeModel } from "../../services/model/RecipeModel";
 import { Component, OnInit } from "@angular/core";
 import { RecipesService } from "../../services/recipes.service";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";

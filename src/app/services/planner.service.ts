@@ -1,5 +1,4 @@
 import { PlannerModel } from './model/plannerModel';
-import { ResponseModel } from "./ResponseModel";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";

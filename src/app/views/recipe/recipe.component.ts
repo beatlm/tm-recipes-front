@@ -1,6 +1,6 @@
 import { PlannerModel } from './../../services/model/plannerModel';
 import { PlannerService } from './../../services/planner.service';
-import { RecipeModel } from './../../services/RecipeModel';
+
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { RecipesService } from '../../services/recipes.service';
@@ -8,6 +8,7 @@ import {HttpErrorResponse} from '@angular/common/http';
 import { LoaderService } from '../../services/loader.service';
 import { DatePipe } from '@angular/common';
 import { TmFormatPipe } from '../../lib/components/pipes/tm.format.pipe';
+import { RecipeModel } from '../../services/model/RecipeModel';
 
 
 @Component({

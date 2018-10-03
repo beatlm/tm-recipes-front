@@ -3,8 +3,8 @@ import { RecipesService } from "../../services/recipes.service";
 import { AlertService } from "../../services/alert.service";
 import { Router } from "@angular/router";
 import { LoaderService } from "../../services/loader.service";
-import { RecipeModel } from "../../services/RecipeModel";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { RecipeModel } from "../../services/model/RecipeModel";
 
 @Component({
   selector: "mr-today",

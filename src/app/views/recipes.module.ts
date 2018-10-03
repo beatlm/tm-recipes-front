@@ -1,3 +1,4 @@
+import { RecipeResolverService } from '../services/recipe-resolver.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TodayComponent } from './today/today.component';
@@ -24,6 +25,6 @@ import { TmFormatPipe } from '../lib/components/pipes/tm.format.pipe';
   ],
   declarations: [TodayComponent,RecipeComponent,PlanningComponent,ListRecipeComponent,AddRecipeComponent, LoginComponent, EditRecipeComponent],
   exports: [TodayComponent,PlanningComponent,RecipeComponent,ListRecipeComponent,AddRecipeComponent,TmFormatPipe],
-  providers:[RecipesService,LoaderService, AlertService,LoginService, PlannerService, TmFormatPipe], 
+  providers:[RecipesService,LoaderService, AlertService,LoginService, PlannerService, TmFormatPipe, RecipeResolverService], 
 })
 export class RecipesModule { }

@@ -30,4 +30,5 @@ export class RecipeModel {
     this.tags=tags;
     this.imagen = imagen;
   }
+
 }

@@ -2,10 +2,10 @@ import { Component, OnInit } from "@angular/core";
 import { LoaderService } from "../../services/loader.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { RecipesService } from "../../services/recipes.service";
-import { RecipeModel } from "../../services/RecipeModel";
+import { RecipeModel } from "../../services/model/RecipeModel";
 import { HttpErrorResponse } from "@angular/common/http";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { IngredienteModel } from "../../services/IngredienteModel";
+import { IngredienteModel } from "../../services/model/IngredienteModel";
 import { AlertService } from "../../services/alert.service";
 import { Alert } from "../../lib/components/alert/alert";
 
@@ -36,44 +36,39 @@ export class EditRecipeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    //this.loaderService.fireLoader();
-    this.recipeId = this.route.snapshot.paramMap.get("id");
-    this.refreshData(this.recipeId);
-    this.editRecipeForm = this.fb.group({
-      nombre: ["", Validators.required],
-      amount: ["", Validators.required],
-      preparation: ["", Validators.required],
-      total: ["", Validators.required],
-      ingrediente: ["", Validators.required],
-      cantidad: ["", Validators.required],
-      paso: ["", Validators.required],
-      tags: ["", Validators.required],
-      imagen: [""]
-    });
-  }
-
-  private refreshData(id) {
-    this.recipesService
-      .getRecipeDetail$(id)
-      .subscribe(this.showRecipe.bind(this), this.catchError.bind(this));
-  }
-  private showRecipe(resultado: RecipeModel) {
-    this.loaderService.stopLoader();
-    this.recipe = resultado;
-    this.ingredientes = resultado.ingredients;
-    this.pasos = resultado.pasos;
-    this.tags = resultado.tags;
-
-    this.editRecipeForm = this.fb.group({
-      nombre: [this.recipe.name, Validators.required],
-      amount: [this.recipe.amount, Validators.required],
-      preparation: [this.recipe.preparation, Validators.required],
-      total: [this.recipe.total, Validators.required],
-      ingrediente: ["", Validators.required],
-      cantidad: ["", Validators.required],
-      paso: ["", Validators.required],
-      tags: ["", Validators.required],
-      imagen: [""]
+    this.route.data.subscribe((data: { recipe: RecipeModel }) => {
+      if (data.recipe) {
+        this.editRecipeForm = this.fb.group({
+          nombre: [data.recipe.name, Validators.required],
+          amount: [data.recipe.amount, Validators.required],
+          preparation: [data.recipe.preparation, Validators.required],
+          total: [data.recipe.total, Validators.required],
+          ingrediente: ["", Validators.required],
+          cantidad: ["", Validators.required],
+          paso: ["", Validators.required],
+          tags: ["", Validators.required],
+          imagen: [""]
+        });
+        this.pasos = data.recipe.pasos;
+        this.ingredientes = data.recipe.ingredients;
+        this.tags = data.recipe.tags;
+      }else{
+        this.editRecipeForm = this.fb.group({
+          nombre: ["", Validators.required],
+          amount: ["", Validators.required],
+          preparation: ["", Validators.required],
+          total: ["", Validators.required],
+          ingrediente: ["", Validators.required],
+          cantidad: ["", Validators.required],
+          paso: ["", Validators.required],
+          tags: ["", Validators.required],
+          imagen: [""]
+        });
+        this.editRecipeForm.
+        this.ingredientes = [];
+        this.pasos = [];
+        this.tags = [];
+      }
     });
   }
 
@@ -98,12 +93,12 @@ export class EditRecipeComponent implements OnInit {
   deletePaso(index) {
     this.pasos.splice(index, 1);
   }
-  
+
   private catchError(err) {
     this.loaderService.stopLoader();
 
     this.alertService.create(
-      "La receta no se ha modificado correctamente."+err.message,
+      "La receta no se ha modificado correctamente." + err.message,
       "danger",
       2500
     );
@@ -143,7 +138,7 @@ export class EditRecipeComponent implements OnInit {
     );
     this.recipesService
       .editRecipe$(recipe, this.recipeId)
-      .subscribe(this.isOk.bind(this),this.catchError.bind(this));
+      .subscribe(this.isOk.bind(this), this.catchError.bind(this));
   }
   private isOk() {
     this.alertService.create(

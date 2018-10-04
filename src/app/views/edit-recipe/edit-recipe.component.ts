@@ -15,6 +15,8 @@ import { Alert } from "../../lib/components/alert/alert";
   styles: []
 })
 export class EditRecipeComponent implements OnInit {
+
+  
   public recipe: RecipeModel;
   public message: String;
   public editRecipeForm: FormGroup;
@@ -64,7 +66,6 @@ export class EditRecipeComponent implements OnInit {
           tags: ["", Validators.required],
           imagen: [""]
         });
-        this.editRecipeForm.
         this.ingredientes = [];
         this.pasos = [];
         this.tags = [];
@@ -148,4 +149,6 @@ export class EditRecipeComponent implements OnInit {
     );
     this.router.navigate(["listrecipe"]);
   }
+
+ 
 }

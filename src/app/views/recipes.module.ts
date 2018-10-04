@@ -1,3 +1,4 @@
+import { DynamicFormModule } from './../dynamic-form/dynamic-form.module';
 import { RecipeResolverService } from '../services/recipe-resolver.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -21,7 +22,7 @@ import { TmFormatPipe } from '../lib/components/pipes/tm.format.pipe';
 
 @NgModule({
   imports: [
-    CommonModule, AppRoutingModule, ComponentsModule, ReactiveFormsModule
+    CommonModule, AppRoutingModule, ComponentsModule, ReactiveFormsModule,DynamicFormModule
   ],
   declarations: [TodayComponent,RecipeComponent,PlanningComponent,ListRecipeComponent,AddRecipeComponent, LoginComponent, EditRecipeComponent],
   exports: [TodayComponent,PlanningComponent,RecipeComponent,ListRecipeComponent,AddRecipeComponent,TmFormatPipe],

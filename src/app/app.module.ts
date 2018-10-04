@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RecipesModule } from './views/recipes.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatePipe } from '@angular/common';
+import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
 
 
 
@@ -24,9 +25,16 @@ import { DatePipe } from '@angular/common';
     ReactiveFormsModule,
     RecipesModule,
     HttpClientModule,
-    BrowserAnimationsModule  ],
+    BrowserAnimationsModule ,
+    DynamicFormModule ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
   exports: []
 })
-export class AppModule { }
+export class AppModule { 
+
+  
+  
+  
+
+}

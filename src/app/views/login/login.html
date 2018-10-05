@@ -1,8 +1,11 @@
 
-    
-            <button type="submit" (click)="login()">
-                <i>Sign In with Facebook</i>
-            </button>   
+<div>
+    <mr-dynamic-form 
+      [config]="config"
+      (submitted)="formSubmitted($event)"
+      class="dynamicForm">
+    </mr-dynamic-form>
+  </div>  
           
 
     

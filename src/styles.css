@@ -112,7 +112,6 @@ div.header {
   width: 14%;
   padding: 3px;
   margin: 1px;
-
   background-color: lightgrey;
 }
 #week {
@@ -133,4 +132,32 @@ a.alertBtn {
   text-align: center;
   background-color: lightslategray;
   margin-left: 24px;
+}
+/************* Dynamic form **********/
+form.dynamicForm{
+  width: 100%;
+}
+div.leftIntputText{
+  margin-left: 1%;
+  width: 48%;
+}
+
+div.threeIntputText{
+  margin-left: 3%;
+  width: 29%;
+  display: block;
+  float: left;
+}
+div.oneIntputText{
+  margin-left: 3%;
+  width: 94%;
+  display: block;
+  float: left;
+}
+button.bigButton{
+  width: 100%;
+}
+
+button.smallButton{
+  width: 30%;
 }

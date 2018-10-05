@@ -5,13 +5,15 @@ import { FormGroup } from '@angular/forms';
   selector: 'mr-form-input-component',
   template: 
   `
-  <div 
+  <div [class]= "config.divClass"
     [formGroup]="group">
     <label>{{ config.label }}</label>
     <input
-      type="text"
+      [attr.type]="config.inputType"
+      [class] ="config.class"
       [attr.placeholder]="config.placeholder"
-      [formControlName]="config.name" />
+      [formControlName]="config.name"
+      />
   </div>
   `,
   styles: []

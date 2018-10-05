@@ -4,7 +4,7 @@ import { FormGroup } from "@angular/forms";
 @Component({
   selector: "mr-form-select-component",
   template: `
-  <div 
+  <div [class]= "config.divClass"
   [formGroup]="group">
   <label>{{ config.label }}</label>
   <select [formControlName]="config.name">

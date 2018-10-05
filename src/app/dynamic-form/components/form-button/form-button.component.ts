@@ -1,13 +1,12 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 
 @Component({
   selector: "mr-form-button-component",
   template: `
-  <div 
-      class="dynamic-field form-button"
+  <div [class]= "config.divClass"
       [formGroup]="group">
-      <button type="submit">
+      <button [type]="config.buttonType" [class]="config.class" [attr.Click]="config.click">
         {{ config.label }}
       </button>
     </div>
@@ -15,6 +14,8 @@ import { FormGroup } from "@angular/forms";
   styles: []
 })
 export class FormButtonComponent implements OnInit {
+@Input()
+click;
   config;
   group: FormGroup;
   constructor() {}

@@ -13,6 +13,8 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
   styles: []
 })
 export class AddRecipeComponent implements OnInit {
+  
+
   addRecipeForm: FormGroup;
   lista: Array<IngredienteModel>;
   pasos: Array<String>;
@@ -105,4 +107,6 @@ export class AddRecipeComponent implements OnInit {
     this.filestring =
       "data:" + this.files[0].type + ";base64," + btoa(binaryString); // Converting binary string data.
   }
+
+ 
 }

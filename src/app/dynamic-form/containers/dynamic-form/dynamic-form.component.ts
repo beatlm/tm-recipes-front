@@ -18,7 +18,7 @@ import { FormGroup, FormBuilder } from "@angular/forms";
 export class DynamicFormComponent implements OnInit {
   @Input()
   config: any[] = [];
-
+  @Input()
   form: FormGroup;
 
   @Output()
@@ -32,7 +32,7 @@ export class DynamicFormComponent implements OnInit {
   createGroup() {
     const group = this.fb.group({});
     this.config.forEach(control =>
-      group.addControl(control.name, this.fb.control({value: 'my val', disabled: true}))
+      group.addControl(control.name, this.fb.control({value: '', disabled: false}))
     );
     return group;
   }

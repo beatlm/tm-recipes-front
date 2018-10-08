@@ -83,7 +83,9 @@ export class LoginComponent implements OnInit {
       type: 'button',
       buttonType: 'button',
       class: 'smallButton',
-      click:'this.test()'
+      click: () => {
+        this.test()
+      }
     },
   
     {

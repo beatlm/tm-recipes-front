@@ -1,3 +1,6 @@
+import { FormImageLoadComponent } from './../form-image-load/form-image-load.component';
+import { FormTablePasosComponent } from './../form-table-pasos/form-table-pasos.component';
+import { FormTableComponent } from './../form-table/form-table.component';
 import { Directive, Input, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormButtonComponent } from '../form-button/form-button.component';
@@ -7,7 +10,10 @@ import { FormSelectComponent } from '../form-select/form-select.component';
 const components = {
     button: FormButtonComponent,
     input: FormInputComponent,
-    select: FormSelectComponent
+    select: FormSelectComponent,
+    table: FormTableComponent,
+    tablePasos: FormTablePasosComponent,
+    image:FormImageLoadComponent
   };
 
 @Directive({

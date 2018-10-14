@@ -23,7 +23,7 @@ const routes: Routes = [
   },
   {
     path: "addrecipe",
-    component: EditRecipeComponent,
+    component: AddRecipeComponent,
     resolve: {
       recipe : RecipeResolverService
      }

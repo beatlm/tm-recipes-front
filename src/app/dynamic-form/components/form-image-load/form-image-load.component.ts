@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
   [formGroup]="group">
       <div class="btn">
           <span>{{config.name}}</span>
-          <input  [formControlName]="config.name" type="file" (change)="config.change()" >
+          <input  [formControlName]="config.name" type="file" (change)="config.change($event)" >
       </div>
       <img class="preview" [src]="config.src">
   </div>

@@ -7,7 +7,7 @@ import { FormGroup } from '@angular/forms';
   <div [class]= "config.divClass"
   [formGroup]="group">
   <table class="collection">
-            <tr *ngFor="let pasoAdded of config.lista;let i = index">
+            <tr *ngFor="let pasoAdded of config.list;let i = index">
                 <td class="collection-item">{{pasoAdded}}</td>
                 <td>
                     <a class="btn-small" (click)="config.click(i)">

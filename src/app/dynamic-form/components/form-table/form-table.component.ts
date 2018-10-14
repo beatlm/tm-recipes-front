@@ -7,7 +7,7 @@ import { FormGroup } from '@angular/forms';
   <div [class]= "config.divClass"
   [formGroup]="group">
   <table [class] ="config.class">
-  <tr *ngFor="let data of config.lista;let i = index">
+  <tr *ngFor="let data of config.list;let i = index">
       <td>{{data.name}}</td>
       <td>{{data.amount}}</td>
       <td>

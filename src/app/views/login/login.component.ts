@@ -1,6 +1,6 @@
 import { AlertService } from "./../../services/alert.service";
 import { LoginService } from "./../../services/login.service";
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild, AfterViewInit } from "@angular/core";
 import { IngredienteModel } from "../../services/model/IngredienteModel";
 import { DynamicFormComponent } from "../../dynamic-form/containers/dynamic-form/dynamic-form.component";
 import { RecipeModel } from "../../services/model/RecipeModel";
@@ -13,13 +13,12 @@ import { LoaderService } from "../../services/loader.service";
   templateUrl: "./login.html",
   styles: []
 })
-export class LoginComponent implements OnInit {
-  //fileString:string;//TODO revisar si es necesario
-  currentRecipe: RecipeModel;
-  files = []; //TODO revisar si es necesario
+export class LoginComponent implements AfterViewInit {
+  public currentRecipe: RecipeModel;
+  private files = []; //TODO revisar si es necesario
   @ViewChild(DynamicFormComponent)
-  recipeForm: DynamicFormComponent;
-  config = [
+  public recipeForm: DynamicFormComponent;
+  public config = [
     {
       name: "title",
       type: "input",
@@ -141,12 +140,21 @@ export class LoginComponent implements OnInit {
     public loaderService: LoaderService
   ) {}
 
-  ngOnInit() {
+  //ngOnInit() {
+    ngAfterViewInit(){
+    
+    //TODO esto pasa antes de tener el recipeForm creado :()
     this.activatedRoute.data.subscribe((data: { recipe: RecipeModel }) => {
       if (data.recipe) {
         console.log("Es editar" + data.recipe);
         this.currentRecipe = data.recipe;
-        this.recipeForm.config[9].list = data.recipe.ingredients;
+        console.log("this.recipeForm.config"+this.recipeForm.config);
+        this.recipeForm.form.controls.title.setValue(data.recipe.name);
+        this.recipeForm.form.controls.stepsList.setValue(data.recipe.ingredients);
+        this.recipeForm.form.controls.people.setValue(data.recipe.amount);
+        this.recipeForm.form.controls.preparation.setValue(data.recipe.preparation)
+        this.recipeForm.form.controls.total.setValue(data.recipe.total);
+        this.recipeForm.form.controls.tags.setValue(data.recipe.tags);
       } else {
         console.log("Es añadir");
       }

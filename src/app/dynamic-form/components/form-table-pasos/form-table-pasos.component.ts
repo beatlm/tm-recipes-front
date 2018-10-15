@@ -23,6 +23,7 @@ import { FormGroup } from '@angular/forms';
 export class FormTablePasosComponent implements OnInit {
   config;
   group: FormGroup;
+ // list:any;
   constructor() { }
 
   ngOnInit() {

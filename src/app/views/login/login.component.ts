@@ -13,7 +13,7 @@ import { LoaderService } from "../../services/loader.service";
   templateUrl: "./login.html",
   styles: []
 })
-export class LoginComponent implements AfterViewInit {
+export class LoginComponent implements OnInit {
   public currentRecipe: RecipeModel;
   private files = []; //TODO revisar si es necesario
   @ViewChild(DynamicFormComponent)
@@ -128,7 +128,10 @@ export class LoginComponent implements AfterViewInit {
       label: "Guardar",
       type: "button",
       class: "bigButton",
-      buttonType: "submit"
+      buttonType: "button",
+      click:(form) => {
+        this.formSubmitted(form);
+      }
     }
   ];
 
@@ -140,36 +143,33 @@ export class LoginComponent implements AfterViewInit {
     public loaderService: LoaderService
   ) {}
 
-  //ngOnInit() {
-    ngAfterViewInit(){
-    
-    //TODO esto pasa antes de tener el recipeForm creado :()
-    this.activatedRoute.data.subscribe((data: { recipe: RecipeModel }) => {
-      if (data.recipe) {
-        console.log("Es editar" + data.recipe);
-        this.currentRecipe = data.recipe;
-        console.log("this.recipeForm.config"+this.recipeForm.config);
-        this.recipeForm.form.controls.title.setValue(data.recipe.name);
-        this.recipeForm.form.controls.stepsList.setValue(data.recipe.ingredients);
-        this.recipeForm.form.controls.people.setValue(data.recipe.amount);
-        this.recipeForm.form.controls.preparation.setValue(data.recipe.preparation)
-        this.recipeForm.form.controls.total.setValue(data.recipe.total);
-        this.recipeForm.form.controls.tags.setValue(data.recipe.tags);
-      } else {
+  ngOnInit() {
+    this.currentRecipe = this.activatedRoute.snapshot.data.recipe;
+    if(this.currentRecipe){
+      console.log("Es editar" );
+   
+      console.log("this.recipeForm.config"+this.recipeForm.config);
+      this.recipeForm.form.controls.title.setValue(this.currentRecipe.name);
+      this.recipeForm.form.controls.stepsList.setValue(this.currentRecipe.ingredients);
+      this.recipeForm.form.controls.people.setValue(this.currentRecipe.amount);
+      this.recipeForm.form.controls.preparation.setValue(this.currentRecipe.preparation)
+      this.recipeForm.form.controls.total.setValue(this.currentRecipe.total);
+      this.recipeForm.form.controls.tags.setValue(this.currentRecipe.tags);
+    } else {
         console.log("Es añadir");
       }
-    });
   }
 
-  formSubmitted(value) {
-    console.log(value);
+  formSubmitted(form) {//en form llega nombre=valor
+    //TODO crear clase con el modelo del formulario y que el RecipeModel tenga un constructor a partir del nuevo modelo
+    console.log();
     if (this.currentRecipe != undefined) {
       console.log("Edit Recipe is called");
-      this.editRecipe(value);
+      this.editRecipe();
     } else {
       console.log("Save Recipe is called");
 
-      this.saveRecipe(value);
+      this.saveRecipe();
     }
   }
 
@@ -213,7 +213,7 @@ export class LoginComponent implements AfterViewInit {
 
   /********EDIT  */
 
-  editRecipe(value) {
+  editRecipe() {
     var recipe: RecipeModel = new RecipeModel(
       value.title,
       value.people,
@@ -248,17 +248,10 @@ export class LoginComponent implements AfterViewInit {
   }
 
   /******* ADD   */
-  saveRecipe(value) {
+  saveRecipe() {
     var recipe: RecipeModel = new RecipeModel(
-      value.title,
-      value.people,
-      value.total,
-      value.preparation,
-      this.recipeForm.config[9].list,
-      this.recipeForm.config[12].list,
-      value.tags.split(","),
-      //   value.image == undefined ? null : value.image
-      this.recipeForm.config[1].src
+      this.recipeForm.values
+
     );
     this.recipesService.saveRecipe$(recipe).subscribe(this.isOkAdd.bind(this));
   }

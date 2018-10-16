@@ -13,7 +13,7 @@ import { FormGroup } from '@angular/forms';
       [class] ="config.class"
       [attr.placeholder]="config.placeholder"
       [formControlName]="config.name"
-      [value]?="config.value"
+      [value]="config.value"
       />
   </div>
   `,

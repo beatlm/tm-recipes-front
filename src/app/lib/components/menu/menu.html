@@ -1,6 +1,7 @@
 <nav>
   <div class="nav-wrapper">
-
+     
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       <li>
         <a routerLink="today"> <i class="material-icons left">help
@@ -25,19 +26,26 @@
             <i class="material-icons left">remove_red_eye</i>Login</a>
         </li>
     </ul>
-
-
-  </div>
-
-
-</nav>
-
-<!--  <div class="col s4">
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control" type="search" placeholder="Buscar" aria-label="Buscar">
-        <button class="btn" type="submit">Buscar</button>
-      </form>
     </div>
-  </div>
-</nav>
--->
+  </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li>
+            <a routerLink="today"> ¿Ideas para hoy?</a>
+          </li>
+          <li>
+            <a routerLink="planning">Planificador</a>
+          </li>
+          <li>
+            <a routerLink="addrecipe">
+              Nueva receta</a>
+          </li>
+          <li>
+            <a routerLink="/listrecipe">
+             Ver recetas</a>
+          </li>
+          <li>
+              <a routerLink="login">
+               Login</a>
+            </li>
+      </ul>

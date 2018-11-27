@@ -13,124 +13,13 @@ import { LoaderService } from "../../services/loader.service";
   templateUrl: "./login.html",
   styles: []
 })
-export class LoginComponent implements AfterViewInit {
+export class LoginComponent implements OnInit {
   public currentRecipe: RecipeModel;
   private files = []; //TODO revisar si es necesario
   @ViewChild(DynamicFormComponent)
   public recipeForm: DynamicFormComponent;
-  public config = [
-    {
-      name: "title",
-      type: "input",
-      placeholder: "Título de la receta",
-      divClass: "leftIntputText"
-    },
-    {
-      name: "image",
-      type: "image",
-      divClass: "file-field input-field",
-      change: event => {
-        this.getFiles(event);
-      },
-      src: "../../assets/images/default.png" //this.fileString  || '../../assets/images/default.png'
-    },
-    {
-      name: "tags",
-      type: "input",
-      placeholder: "Tags",
-      divClass: "leftIntputText"
-    },
-    {
-      name: "people",
-      label: "raciones",
-      inputType: "number",
-      type: "input",
-      divClass: "threeIntputText"
-    },
-    {
-      name: "preparation",
-      label: "Tiempo preparacion",
-      type: "input",
-      inputType: "number",
-      placeholder: "minutos",
-      divClass: "threeIntputText"
-    },
-    {
-      name: "total",
-      label: "Tiempo total",
-      type: "input",
-      inputType: "number",
-      placeholder: "minutos",
-      divClass: "threeIntputText"
-    },
-
-    {
-      name: "ingredient",
-      label: "Añadir ingrediente",
-      type: "input",
-      placeholder: "Ingrediente",
-      divClass: "threeIntputText"
-    },
-    {
-      name: "amount",
-      type: "input",
-      inputType: "number",
-      placeholder: "gramos",
-      divClass: "threeIntputText"
-    },
-    {
-      name: "addIngredientButton",
-      label: "Añadir ingrediente",
-      type: "button",
-      buttonType: "button",
-      class: "smallButton",
-      click: () => {
-        this.anadirIngrediente();
-      }
-    },
-    {
-      name: "ingredientsList",
-      type: "table",
-      class: "col4 s3",
-      list: [],
-      click: i => {
-        this.deleteIngredient(i);
-      }
-    },
-    {
-      name: "step",
-      type: "input",
-      placeholder: "Paso",
-      divClass: "oneIntputText"
-    },
-    {
-      name: "addStepButton",
-      label: "Añadir paso",
-      type: "button",
-      buttonType: "button",
-      class: "smallButton",
-      click: () => {
-        this.anadirPaso();
-      }
-    },
-    {
-      name: "stepsList",
-      type: "tablePasos",
-      class: "col4 s3",
-      list: [],
-      click: i => {
-        this.deletePaso(i);
-      }
-    },
-
-    {
-      name: "saveButton",
-      label: "Guardar",
-      type: "button",
-      class: "bigButton",
-      buttonType: "submit"
-    }
-  ];
+  public config=[];
+  
 
   constructor(
     private alertService: AlertService,
@@ -140,36 +29,157 @@ export class LoginComponent implements AfterViewInit {
     public loaderService: LoaderService
   ) {}
 
-  //ngOnInit() {
-    ngAfterViewInit(){
+  ngOnInit() {
+    this.currentRecipe = this.activatedRoute.snapshot.data.recipe;
+    if(this.currentRecipe){
+
+
+      this.config = [
+        {
+          name: "title",
+          type: "input",
+          placeholder: "Título de la receta",
+          divClass: "leftIntputText",
+          value:this.currentRecipe.name
+        },
+        {
+          name: "image",
+          type: "image",
+          divClass: "file-field input-field",
+          change: event => {
+            this.getFiles(event);
+          },
+          src: "../../assets/images/default.png" //this.fileString  || '../../assets/images/default.png'
+        },
+        {
+          name: "tags",
+          type: "input",
+          placeholder: "Tags",
+          divClass: "leftIntputText"
+        },
+        {
+          name: "people",
+          label: "raciones",
+          inputType: "number",
+          type: "input",
+          divClass: "threeIntputText"
+        },
+        {
+          name: "preparation",
+          label: "Tiempo preparacion",
+          type: "input",
+          inputType: "number",
+          placeholder: "minutos",
+          divClass: "threeIntputText"
+        },
+        {
+          name: "total",
+          label: "Tiempo total",
+          type: "input",
+          inputType: "number",
+          placeholder: "minutos",
+          divClass: "threeIntputText"
+        },
     
-    //TODO esto pasa antes de tener el recipeForm creado :()
-    this.activatedRoute.data.subscribe((data: { recipe: RecipeModel }) => {
-      if (data.recipe) {
-        console.log("Es editar" + data.recipe);
-        this.currentRecipe = data.recipe;
-        console.log("this.recipeForm.config"+this.recipeForm.config);
-        this.recipeForm.form.controls.title.setValue(data.recipe.name);
-        this.recipeForm.form.controls.stepsList.setValue(data.recipe.ingredients);
-        this.recipeForm.form.controls.people.setValue(data.recipe.amount);
-        this.recipeForm.form.controls.preparation.setValue(data.recipe.preparation)
-        this.recipeForm.form.controls.total.setValue(data.recipe.total);
-        this.recipeForm.form.controls.tags.setValue(data.recipe.tags);
-      } else {
+        {
+          name: "ingredient",
+          label: "Añadir ingrediente",
+          type: "input",
+          placeholder: "Ingrediente",
+          divClass: "threeIntputText"
+        },
+        {
+          name: "amount",
+          type: "input",
+          inputType: "number",
+          placeholder: "gramos",
+          divClass: "threeIntputText"
+        },
+        {
+          name: "addIngredientButton",
+          label: "Añadir ingrediente",
+          type: "button",
+          buttonType: "button",
+          class: "smallButton",
+          click: () => {
+            this.anadirIngrediente();
+          }
+        },
+        {
+          name: "ingredientsList",
+          type: "table",
+          class: "col4 s3",
+          list: [],
+          click: i => {
+            this.deleteIngredient(i);
+          }
+        },
+        {
+          name: "step",
+          type: "input",
+          placeholder: "Paso",
+          divClass: "oneIntputText"
+        },
+        {
+          name: "addStepButton",
+          label: "Añadir paso",
+          type: "button",
+          buttonType: "button",
+          class: "smallButton",
+          click: () => {
+            this.anadirPaso();
+          }
+        },
+        {
+          name: "stepsList",
+          type: "tablePasos",
+          class: "col4 s3",
+          list: [],
+          click: i => {
+            this.deletePaso(i);
+          }
+        },
+    
+        {
+          name: "saveButton",
+          label: "Guardar",
+          type: "button",
+          class: "bigButton",
+          buttonType: "button",
+          click:(form) => {
+            this.formSubmitted(form);
+          }
+        }
+      ];
+
+
+      console.log("Es editar" );
+   
+    /*  console.log("this.recipeForm.config"+this.recipeForm.config);
+     
+      this.recipeForm.form.controls.title.setValue(this.currentRecipe.name);
+      this.recipeForm.form.controls.stepsList.setValue(this.currentRecipe.ingredients);
+      this.recipeForm.form.controls.people.setValue(this.currentRecipe.amount);
+      this.recipeForm.form.controls.preparation.setValue(this.currentRecipe.preparation)
+      this.recipeForm.form.controls.total.setValue(this.currentRecipe.total);
+      this.recipeForm.form.controls.tags.setValue(this.currentRecipe.tags);*/
+    } else {
         console.log("Es añadir");
       }
-    });
   }
 
-  formSubmitted(value) {
-    console.log(value);
+  formSubmitted(form) {//en form llega nombre=valor
+    //TODO crear clase con el modelo del formulario y que el RecipeModel tenga un constructor a partir del nuevo modelo
+    console.log();
+    const editRecipeModel = RecipeModel.fromData(form);
     if (this.currentRecipe != undefined) {
       console.log("Edit Recipe is called");
-      this.editRecipe(value);
+     
+      this.editRecipe(editRecipeModel);
     } else {
       console.log("Save Recipe is called");
 
-      this.saveRecipe(value);
+      this.saveRecipe(editRecipeModel);
     }
   }
 
@@ -213,17 +223,8 @@ export class LoginComponent implements AfterViewInit {
 
   /********EDIT  */
 
-  editRecipe(value) {
-    var recipe: RecipeModel = new RecipeModel(
-      value.title,
-      value.people,
-      value.total,
-      value.preparation,
-      this.recipeForm.config[9].list,
-      this.recipeForm.config[12].list,
-      value.tags.split(","),
-      this.recipeForm.config[1].src
-    );
+  editRecipe(recipe:RecipeModel) {
+
     this.recipesService
       .editRecipe$(recipe, this.currentRecipe.id)
       .subscribe(this.isOk.bind(this), this.catchError.bind(this));
@@ -248,19 +249,8 @@ export class LoginComponent implements AfterViewInit {
   }
 
   /******* ADD   */
-  saveRecipe(value) {
-    var recipe: RecipeModel = new RecipeModel(
-      value.title,
-      value.people,
-      value.total,
-      value.preparation,
-      this.recipeForm.config[9].list,
-      this.recipeForm.config[12].list,
-      value.tags.split(","),
-      //   value.image == undefined ? null : value.image
-      this.recipeForm.config[1].src
-    );
-    this.recipesService.saveRecipe$(recipe).subscribe(this.isOkAdd.bind(this));
+  saveRecipe(recipe:RecipeModel) {
+     this.recipesService.saveRecipe$(recipe).subscribe(this.isOkAdd.bind(this));
   }
   private isOkAdd(value) {
     this.recipeForm.form.reset();

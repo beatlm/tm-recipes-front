@@ -1,4 +1,5 @@
 import { IngredienteModel } from "./IngredienteModel";
+import { RecipeFormModel } from "./RecipeFormModel";
 
 export class RecipeModel {
   public id: string;
@@ -10,7 +11,14 @@ export class RecipeModel {
   public pasos: Array<String> = [];
   public tags: Array<String> = [];
   public imagen: String;
+ 
 
+  static fromData(data: RecipeFormModel) {
+    let { id, name, amount, total, preparation,ingredients, pasos, tags, imagen } = data 
+    return new this(name,amount, total, preparation,ingredients, pasos, tags, imagen);
+    
+}
+ 
   constructor(
     name: string,
     amount: number,
@@ -30,5 +38,5 @@ export class RecipeModel {
     this.tags=tags;
     this.imagen = imagen;
   }
-
+  
 }

@@ -9,7 +9,7 @@ import {
 import { RecipesService } from "./recipes.service";
 
 @Injectable()
-export class RecipeResolverService implements Resolve<RecipeModel> {
+export class RecipeResolverService implements Resolve<Observable<RecipeModel>> {
   constructor(private recipesService: RecipesService) {}
 
   resolve(

@@ -1,5 +1,4 @@
 import { RecipeResolverService } from "./services/recipe-resolver.service";
-import { EditRecipeComponent } from "./views/edit-recipe/edit-recipe.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { RecipeComponent } from "./views/recipe/recipe.component";

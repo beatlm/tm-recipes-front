@@ -16,7 +16,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from '../services/login.service';
 import { PlannerService } from '../services/planner.service';
-import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { TmFormatPipe } from '../lib/components/pipes/tm.format.pipe';
 
 
@@ -24,7 +23,7 @@ import { TmFormatPipe } from '../lib/components/pipes/tm.format.pipe';
   imports: [
     CommonModule, AppRoutingModule, ComponentsModule, ReactiveFormsModule,DynamicFormModule
   ],
-  declarations: [TodayComponent,RecipeComponent,PlanningComponent,ListRecipeComponent,AddRecipeComponent, LoginComponent, EditRecipeComponent],
+  declarations: [TodayComponent,RecipeComponent,PlanningComponent,ListRecipeComponent,AddRecipeComponent, LoginComponent],
   exports: [TodayComponent,PlanningComponent,RecipeComponent,ListRecipeComponent,AddRecipeComponent,TmFormatPipe],
   providers:[RecipesService,LoaderService, AlertService,LoginService, PlannerService, TmFormatPipe, RecipeResolverService], 
 })

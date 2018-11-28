@@ -3,15 +3,17 @@ import { IngredienteModel } from "./IngredienteModel";
 export class RecipeFormModel {
   public id: string;
   public name: string = "";
+  public image: String;
+  public tags: Array<String> = [];
   public amount: number = 0;
-  public total: number = 0;
   public preparation: number = 0;
+  public total: number = 0;
   public ingredients: Array<IngredienteModel> = [];
   public pasos: Array<String> = [];
-  public tags: Array<String> = [];
-  public imagen: String;
-  public pasoActual: string;
-  public ingredienteActual: String;
+
+
+ // public pasoActual: string;
+  //public ingredienteActual: String;
 
   constructor(
     name: string,
@@ -21,7 +23,7 @@ export class RecipeFormModel {
     ingredients: Array<IngredienteModel>,
     pasos: Array<String>,
     tags: Array<String>,
-    imagen?: String,
+    image?: String,
   ) {
     this.name = name;
     this.amount = amount;
@@ -30,6 +32,6 @@ export class RecipeFormModel {
     this.ingredients = ingredients;
     this.pasos = pasos;
     this.tags=tags;
-    this.imagen = imagen;
+    this.image = image;
   }
 }

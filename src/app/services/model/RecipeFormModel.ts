@@ -4,7 +4,7 @@ export class RecipeFormModel {
   public id: string;
   public name: string = "";
   public image: String;
-  public tags: Array<String> = [];
+  public tags: String;
   public amount: number = 0;
   public preparation: number = 0;
   public total: number = 0;
@@ -22,7 +22,7 @@ export class RecipeFormModel {
     preparation: number,
     ingredients: Array<IngredienteModel>,
     pasos: Array<String>,
-    tags: Array<String>,
+    tags: String,
     image?: String,
   ) {
     this.name = name;

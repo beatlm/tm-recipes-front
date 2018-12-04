@@ -12,38 +12,58 @@ export class RecipeModel {
   public ingredients: Array<IngredienteModel> = [];
   public pasos: Array<String> = [];
 
+  static mixData(data: RecipeFormModel, originalData: RecipeModel) {
+    let mixData: RecipeModel = originalData;
+    if (data.amount) {
+      mixData.name = data.name;
+    }
+    if (data.total) {
+      mixData.total = data.total;
+    }
+    if (data.preparation) {
+      mixData.preparation = data.preparation;
+    }
 
-static mixData(data:RecipeFormModel, originalData:RecipeModel){
-  let mixData: RecipeModel= originalData;
-  if(data.amount){
-    mixData.name=data.name;
-  }
-  if(data.total){
-    mixData.total=data.total;
-  }
-  if(data.preparation){
-    mixData.preparation=data.preparation;
+    if (data.image) {
+      mixData.image = data.image;
+    }
+    if (data.name) {
+      mixData.name = data.name;
+    }
+    if (data.tags) {
+      mixData.tags = data.tags.split(",");
+      //mixData.tags=data.tags;
+    }
+    return mixData;
   }
 
-if(data.image){
-  mixData.image= data.image;
-}
-if(data.name){
-  mixData.name= data.name;
-}
-if(data.tags){
-  mixData.tags=data.tags;
-}
-  return mixData;
-}
+  static fromData(data: RecipeFormModel) {
+    console.log("fromData " + data);
+    let {
+      id,
+      name,
+      amount,
+      total,
+      preparation,
+      ingredients,
+      pasos,
+      tags,
+      image
+    } = data;
+    //Gestionamos el array de tags
+    var newTags = data.tags.split(",");
+    return new this(
+      name,
+      amount,
+      total,
+      preparation,
+      ingredients,
+      pasos,
+      newTags,
+      image
+    );
+  }
 
-static fromData(data: RecipeFormModel) {
-  console.log("fromData "+data);
-  let { id, name, amount, total, preparation,ingredients, pasos, tags, image } = data 
-  return new this(name,amount, total, preparation,ingredients, pasos, tags, image);
-  
-}
- 
   constructor(
     name: string,
     amount: number,
@@ -60,8 +80,7 @@ static fromData(data: RecipeFormModel) {
     this.preparation = preparation;
     this.ingredients = ingredients;
     this.pasos = pasos;
-    this.tags=tags;
+    this.tags = tags;
     this.image = image;
   }
-  
 }

@@ -1,5 +1,5 @@
-import { PlannerModel } from './../../services/model/plannerModel';
-import { PlannerService } from './../../services/planner.service';
+import { PlannerModel } from '../../services/model/plannerModel';
+import { PlannerService } from '../../services/planner.service';
 
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
@@ -13,10 +13,10 @@ import { RecipeModel } from '../../services/model/RecipeModel';
 
 @Component({
   selector: 'mr-recipe',
-  templateUrl: './recipe.html',
+  templateUrl: './show-recipe.html',
   styles: []
 })
-export class RecipeComponent implements OnInit {
+export class ShowRecipeComponent implements OnInit {
   public recipe: RecipeModel ;
   public planner: PlannerModel;
   public message:String;

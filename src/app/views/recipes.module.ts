@@ -4,13 +4,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TodayComponent } from './today/today.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { RecipeComponent } from './recipe/recipe.component';
+import { ShowRecipeComponent } from './show-recipe/show-recipe.component';
 import { RecipesService } from '../services/recipes.service';
 import { PlanningComponent } from './planning/planning.component';
 import { ComponentsModule } from '../lib/components/components.module';
 import { LoaderService } from '../services/loader.service';
 import { ListRecipeComponent } from './list-recipe/list-recipe.component';
-import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { AlertService } from '../services/alert.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
@@ -23,8 +22,8 @@ import { TmFormatPipe } from '../lib/components/pipes/tm.format.pipe';
   imports: [
     CommonModule, AppRoutingModule, ComponentsModule, ReactiveFormsModule,DynamicFormModule
   ],
-  declarations: [TodayComponent,RecipeComponent,PlanningComponent,ListRecipeComponent,AddRecipeComponent, LoginComponent],
-  exports: [TodayComponent,PlanningComponent,RecipeComponent,ListRecipeComponent,AddRecipeComponent,TmFormatPipe],
+  declarations: [TodayComponent,ShowRecipeComponent,PlanningComponent,ListRecipeComponent, LoginComponent],
+  exports: [TodayComponent,PlanningComponent,ShowRecipeComponent,ListRecipeComponent,TmFormatPipe],
   providers:[RecipesService,LoaderService, AlertService,LoginService, PlannerService, TmFormatPipe, RecipeResolverService], 
 })
 export class RecipesModule { }

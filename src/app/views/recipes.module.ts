@@ -12,7 +12,7 @@ import { LoaderService } from '../services/loader.service';
 import { ListRecipeComponent } from './list-recipe/list-recipe.component';
 import { AlertService } from '../services/alert.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
+import { RecipeComponent } from './recipe/recipe.component';
 import { LoginService } from '../services/login.service';
 import { PlannerService } from '../services/planner.service';
 import { TmFormatPipe } from '../lib/components/pipes/tm.format.pipe';
@@ -22,7 +22,7 @@ import { TmFormatPipe } from '../lib/components/pipes/tm.format.pipe';
   imports: [
     CommonModule, AppRoutingModule, ComponentsModule, ReactiveFormsModule,DynamicFormModule
   ],
-  declarations: [TodayComponent,ShowRecipeComponent,PlanningComponent,ListRecipeComponent, LoginComponent],
+  declarations: [TodayComponent,ShowRecipeComponent,PlanningComponent,ListRecipeComponent, RecipeComponent],
   exports: [TodayComponent,PlanningComponent,ShowRecipeComponent,ListRecipeComponent,TmFormatPipe],
   providers:[RecipesService,LoaderService, AlertService,LoginService, PlannerService, TmFormatPipe, RecipeResolverService], 
 })

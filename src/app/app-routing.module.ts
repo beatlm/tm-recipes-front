@@ -5,7 +5,7 @@ import { ShowRecipeComponent } from "./views/show-recipe/show-recipe.component";
 import { PlanningComponent } from "./views/planning/planning.component";
 import { TodayComponent } from "./views/today/today.component";
 import { ListRecipeComponent } from "./views/list-recipe/list-recipe.component";
-import { LoginComponent } from "./views/login/login.component";
+import { RecipeComponent } from "./views/recipe/recipe.component";
 
 const routes: Routes = [
   {
@@ -14,14 +14,14 @@ const routes: Routes = [
   },
   {
     path: "editrecipe/:id",
-    component: LoginComponent,
+    component: RecipeComponent,
     resolve: {
       recipe: RecipeResolverService
     }
   },
   {
     path: "addrecipe",
-    component: LoginComponent,
+    component: RecipeComponent,
     resolve: {
       recipe: RecipeResolverService
     }
@@ -40,7 +40,7 @@ const routes: Routes = [
   },
   {
     path: "login",
-    component: LoginComponent
+    component: RecipeComponent
   }
 ];
 

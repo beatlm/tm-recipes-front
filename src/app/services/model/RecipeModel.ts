@@ -4,7 +4,7 @@ import { RecipeFormModel } from "./RecipeFormModel";
 export class RecipeModel {
   public id: string;
   public name: string = "";
-  public image: String;
+  public imagen: String;
   public tags: Array<String> = [];
   public amount: number = 0;
   public preparation: number = 0;
@@ -15,7 +15,7 @@ export class RecipeModel {
   static mixData(data: RecipeFormModel, originalData: RecipeModel) {
     let mixData: RecipeModel = originalData;
     if (data.amount) {
-      mixData.name = data.name;
+      mixData.amount = data.amount;
     }
     if (data.total) {
       mixData.total = data.total;
@@ -25,7 +25,8 @@ export class RecipeModel {
     }
 
     if (data.image) {
-      mixData.image = data.image;
+      mixData.imagen = data.image;
+      // editRecipeModel.imagen= this.recipeForm.config[1].src ;
     }
     if (data.name) {
       mixData.name = data.name;
@@ -81,6 +82,6 @@ export class RecipeModel {
     this.ingredients = ingredients;
     this.pasos = pasos;
     this.tags = tags;
-    this.image = image;
+    this.imagen = image;
   }
 }

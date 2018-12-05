@@ -10,7 +10,6 @@ import { RecipesModule } from './views/recipes.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatePipe } from '@angular/common';
 import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
-import { MaterializeModule } from "angular2-materialize";
 
 
 
@@ -27,8 +26,7 @@ import { MaterializeModule } from "angular2-materialize";
     RecipesModule,
     HttpClientModule,
     BrowserAnimationsModule ,
-    DynamicFormModule,
-    MaterializeModule ],
+    DynamicFormModule ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
   exports: []

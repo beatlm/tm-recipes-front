@@ -10,7 +10,7 @@
             <p>{{text}}</p>
         </div>
         <div class="row">
-            <button *ngIf="firstButtonText!=null" class="alertBtn col s2 ">{{firstButtonText}}</button>
+            <button *ngIf="firstButtonText!=null" class="alertBtn col s2 " (click)="firstButtonFunction">{{firstButtonText}}</button>
             <button *ngIf="secondButtonText!=null" class=" col s2 alertBtn">{{secondButtonText}}</button>
         </div>
 

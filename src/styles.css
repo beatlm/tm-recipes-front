@@ -1,332 +1,342 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 /* You can add global styles to this file, and also import other style files */
 
-
 /* iphoneX*/
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
-    
-.main-image {
-  padding: 0 0 2% 0;
-  width: 20%;
-}
-.title {
-  vertical-align: middle;
-  font-size: 2em;
-}
-.menu {
-  margin-bottom: 3%;
-  background-color: #009a3d52;
-  color: gray;
-}
-div.error {
-  color: red;
-  font-style: italic;
-}
-.menu {
-  text-decoration: none;
-}
-.title-icon {
-  padding-top: 7px;
-  background-color: #91c7ba;
-  color: white;
-  text-align: center;
-  margin-bottom: 1px;
-}
-.title-text {
-  background-color: #d0cccc;
-  color: white;
-  text-align: center;
-  margin-bottom: 1px;
-}
+  .main-image {
+    padding: 0 0 2% 0;
+    width: 20%;
+  }
+  .title {
+    vertical-align: middle;
+    font-size: 2em;
+  }
+  .menu {
+    margin-bottom: 3%;
+    background-color: #009a3d52;
+    color: gray;
+  }
+  div.error {
+    color: red;
+    font-style: italic;
+  }
+  .menu {
+    text-decoration: none;
+  }
+  .title-icon {
+    padding-top: 7px;
+    background-color: #91c7ba;
+    color: white;
+    text-align: center;
+    margin-bottom: 1px;
+  }
+  .title-text {
+    background-color: #d0cccc;
+    color: white;
+    text-align: center;
+    margin-bottom: 1px;
+  }
 
-div.spinner {
-  margin-left: 46%;
-  margin-top: 10%;
-}
+  div.spinner {
+    margin-left: 46%;
+    margin-top: 10%;
+  }
 
-div.grid {
-  display: flex;
-  flex-wrap: wrap;
-}
-img.preview {
-  width: 150px;
-  height: 150px;
-}
+  div.grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  img.preview {
+    width: 150px;
+    height: 150px;
+  }
 
-div.recipe-title {
-  color: #57988d;
-  font-family: monospace;
-  font-weight: bold;
-  padding-top: 10px;
-  font-size: xx-large;
-  margin-bottom: 0px;
-  background-color: #d4d3d269;
-  border: 0px solid darkgray;
-}
+  div.recipe-title {
+    color: #57988d;
+    font-family: monospace;
+    font-weight: bold;
+    padding-top: 10px;
+    font-size: xx-large;
+    margin-bottom: 0px;
+    background-color: #d4d3d269;
+    border: 0px solid darkgray;
+  }
 
-div.recipe-subtitle {
-  color: #57988d;
-  font-family: monospace;
-  font-weight: bold;
-  font-size: xx-large;
-  margin-bottom: 0px;
-}
-img.imagen {
-  width: 250px;
-}
-table.ingredientes {
-  padding: 32px;
-  margin: 0px 16px;
-  border: solid 1px lightgray;
-}
+  div.recipe-subtitle {
+    color: #57988d;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: xx-large;
+    margin-bottom: 0px;
+  }
+  img.imagen {
+    width: 250px;
+  }
+  table.ingredientes {
+    padding: 32px;
+    margin: 0px 16px;
+    border: solid 1px lightgray;
+  }
 
-/* Modal Content/Box */
-.modal-content {
-  /* display: block;*/
-  position: fixed; /* Stay in place */
-  z-index: 1031; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 25%; /* Full width */
- /* height: 21%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: #fefefe;
-  margin: 5px 0 0px 66%; /* 15% from the top and centered */
-  padding: 0px;
+  /* Modal Content/Box */
+  .modal-content {
+    /* display: block;*/
+    position: fixed; /* Stay in place */
+    z-index: 1031; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 25%; /* Full width */
+    /* height: 21%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #fefefe;
+    margin: 5px 0 0px 66%; /* 15% from the top and centered */
+    padding: 0px;
 
-  /*width: 30%; */ /* Could be more or less, depending on screen size */
-}
+    /*width: 30%; */ /* Could be more or less, depending on screen size */
+  }
 
-.close {
-  background-color: gray;
-  color: white;
-  text-align: right;
-  font-size: 28px;
-  font-weight: bold;
-  padding-right: 0.5rem;
-}
-div.header {
-  color: white;
-  padding: 10px;
-  text-align: center;
-}
+  .close {
+    background-color: gray;
+    color: white;
+    text-align: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding-right: 0.5rem;
+  }
+  div.header {
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
 
-.day {
-  border: solid 1px;
-  width: 14%;
-  padding: 3px;
-  margin: 1px;
-  background-color: lightgrey;
-}
-#week {
-  margin: 10px 0px 0px 1px;
-}
+  .day {
+    border: solid 1px;
+    width: 14%;
+    padding: 3px;
+    margin: 1px;
+    background-color: lightgrey;
+  }
+  #week {
+    margin: 10px 0px 0px 1px;
+  }
 
-.inputButton {
-  background-color: #39c4ac;
-  color:white;
-  font-size: large;
-  width: 92px;
-  height: 30px;
-  text-align: center;
-}
+  .inputButton {
+    background-color: #39c4ac;
+    color: white;
+    font-size: large;
+    width: 92px;
+    height: 30px;
+    text-align: center;
+  }
 
-a.alertBtn {
-  color:white;
-  text-align: center;
-  background-color: lightslategray;
-  margin-left: 24px;
-}
-/************* Dynamic form **********/
-form.dynamicForm{
-  width: 100%;
-}
-div.leftIntputText{
-  margin-left: 1%;
-  width: 48%;
-}
+  a.alertBtn {
+    color: white;
+    text-align: center;
+    background-color: lightslategray;
+    margin-left: 24px;
+  }
+  /************* Dynamic form **********/
+  form.dynamicForm {
+    width: 100%;
+  }
+  div.leftIntputText {
+    margin-left: 1%;
+    width: 48%;
+  }
 
-div.threeIntputText{
-  margin-left: 3%;
-  width: 29%;
-  display: block;
-  float: left;
-}
-div.oneIntputText{
-  margin-left: 3%;
-  width: 94%;
-  display: block;
-  float: left;
-}
-button.bigButton{
-  width: 100%;
-}
+  div.threeIntputText {
+    margin-left: 3%;
+    width: 29%;
+    display: block;
+    float: left;
+  }
+  div.oneIntputText {
+    margin-left: 3%;
+    width: 94%;
+    display: block;
+    float: left;
+  }
+  button.bigButton {
+    width: 100%;
+  }
 
-button.smallButton{
-  width: 30%;
-}
+  button.smallButton {
+    width: 30%;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up)*/
 @media only screen and (min-device-width: 812px) {
-.main-image {
-  padding: 0 0 2% 0;
-  width: 20%;
-}
-.title {
-  vertical-align: middle;
-  font-size: 2em;
-}
-.menu {
-  margin-bottom: 3%;
-  background-color: #009a3d52;
-  color: gray;
-}
-div.error {
-  color: red;
-  font-style: italic;
-}
-.menu {
-  text-decoration: none;
-}
-.title-icon {
-  padding-top: 7px;
-  background-color: #91c7ba;
-  color: white;
-  text-align: center;
-  margin-bottom: 1px;
-}
-.title-text {
-  background-color: #d0cccc;
-  color: white;
-  text-align: center;
-  margin-bottom: 1px;
-}
+  .main-image {
+    padding: 0 0 2% 0;
+    width: 20%;
+  }
+  .title {
+    vertical-align: middle;
+    font-size: 2em;
+  }
+  .menu {
+    margin-bottom: 3%;
+    background-color: #009a3d52;
+    color: gray;
+  }
+  div.error {
+    color: red;
+    font-style: italic;
+  }
+  .menu {
+    text-decoration: none;
+  }
+  .title-icon {
+    padding-top: 7px;
+    background-color: #91c7ba;
+    color: white;
+    text-align: center;
+    margin-bottom: 1px;
+  }
+  .title-text {
+    background-color: #d0cccc;
+    color: white;
+    text-align: center;
+    margin-bottom: 1px;
+  }
 
-div.spinner {
-  margin-left: 46%;
-  margin-top: 10%;
-}
+  div.spinner {
+    margin-left: 46%;
+    margin-top: 10%;
+  }
+  div.spinner-background {
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    background-color: rgba(71, 70, 70, 0.082);
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* IE < 9.0 */
+  }
+  .btn-main{
+    margin-left: 10%;
+    width: 80%;
+  }
 
-div.grid {
-  display: flex;
-  flex-wrap: wrap;
-}
-img.preview {
-  width: 150px;
-  height: 150px;
-}
+  div.grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  img.preview {
+    width: 150px;
+    height: 150px;
+  }
 
-div.recipe-title {
-  color: #57988d;
-  font-family: monospace;
-  font-weight: bold;
-  padding-top: 10px;
-  font-size: xx-large;
-  margin-bottom: 0px;
-  background-color: #d4d3d269;
-  border: 0px solid darkgray;
-}
+  div.recipe-title {
+    color: #57988d;
+    font-family: monospace;
+    font-weight: bold;
+    padding-top: 10px;
+    font-size: xx-large;
+    margin-bottom: 0px;
+    background-color: #d4d3d269;
+    border: 0px solid darkgray;
+  }
 
-div.recipe-subtitle {
-  color: #57988d;
-  font-family: monospace;
-  font-weight: bold;
-  font-size: xx-large;
-  margin-bottom: 0px;
-}
-img.imagen {
-  width: 250px;
-}
-table.ingredientes {
-  padding: 32px;
-  margin: 0px 16px;
-  border: solid 1px lightgray;
-}
+  div.recipe-subtitle {
+    color: #57988d;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: xx-large;
+    margin-bottom: 0px;
+  }
+  img.imagen {
+    width: 250px;
+  }
+  table.ingredientes {
+    padding: 32px;
+    margin: 0px 16px;
+    border: solid 1px lightgray;
+  }
 
-/* Modal Content/Box */
-.modal-content {
-  /* display: block;*/
-  position: fixed; /* Stay in place */
-  z-index: 1031; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 25%; /* Full width */
- /* height: 21%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: #fefefe;
-  margin: 5px 0 0px 66%; /* 15% from the top and centered */
-  padding: 0px;
+  /* Modal Content/Box */
+  .modal-content {
+    /* display: block;*/
+    position: fixed; /* Stay in place */
+    z-index: 1031; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 25%; /* Full width */
+    /* height: 21%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #fefefe;
+    margin: 5px 0 0px 66%; /* 15% from the top and centered */
+    padding: 0px;
 
-  /*width: 30%; */ /* Could be more or less, depending on screen size */
-}
+    /*width: 30%; */ /* Could be more or less, depending on screen size */
+  }
 
-.close {
-  background-color: gray;
-  color: white;
-  text-align: right;
-  font-size: 28px;
-  font-weight: bold;
-  padding-right: 0.5rem;
-}
-div.header {
-  color: white;
-  padding: 10px;
-  text-align: center;
-}
+  .close {
+    background-color: gray;
+    color: white;
+    text-align: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding-right: 0.5rem;
+  }
+  div.header {
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
 
-.day {
-  border: solid 1px;
-  width: 14%;
-  padding: 3px;
-  margin: 1px;
-  background-color: lightgrey;
-}
-#week {
-  margin: 10px 0px 0px 1px;
-}
+  .day {
+    border: solid 1px;
+    width: 14%;
+    padding: 3px;
+    margin: 1px;
+    background-color: lightgrey;
+  }
+  #week {
+    margin: 10px 0px 0px 1px;
+  }
 
-.inputButton {
-  background-color: #39c4ac;
-  color:white;
-  font-size: large;
-  width: 92px;
-  height: 30px;
-  text-align: center;
-}
+  .inputButton {
+    background-color: #39c4ac;
+    color: white;
+    font-size: large;
+    width: 92px;
+    height: 30px;
+    text-align: center;
+  }
 
-a.alertBtn {
-  color:white;
-  text-align: center;
-  background-color: lightslategray;
-  margin-left: 24px;
-}
-/************* Dynamic form **********/
-form.dynamicForm{
-  width: 100%;
-}
-div.leftIntputText{
-  margin-left: 1%;
-  width: 48%;
-}
+  a.alertBtn {
+    color: white;
+    text-align: center;
+    background-color: lightslategray;
+    margin-left: 24px;
+  }
+  /************* Dynamic form **********/
+  form.dynamicForm {
+    width: 100%;
+  }
+  div.leftIntputText {
+    margin-left: 1%;
+    width: 48%;
+  }
 
-div.threeIntputText{
-  margin-left: 3%;
-  width: 29%;
-  display: block;
-  float: left;
-}
-div.oneIntputText{
-  margin-left: 3%;
-  width: 94%;
-  display: block;
-  float: left;
-}
-button.bigButton{
-  width: 100%;
-}
+  div.threeIntputText {
+    margin-left: 3%;
+    width: 29%;
+    display: block;
+    float: left;
+  }
+  div.oneIntputText {
+    margin-left: 3%;
+    width: 94%;
+    display: block;
+    float: left;
+  }
+  button.bigButton {
+    width: 100%;
+  }
 
-button.smallButton{
-  width: 30%;
-}
+  button.smallButton {
+    width: 30%;
+  }
 }

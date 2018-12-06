@@ -2,23 +2,17 @@ import { AlertService } from "./../../../services/alert.service";
 import {
   Component,
   OnInit,
-  OnDestroy,
-  Input,
-  Output,
-  EventEmitter,
-  ViewChild,
-  TemplateRef,
-  AfterViewChecked,
-  NgZone
+  NgZone,
+  Input
 } from "@angular/core";
 import { Subscription } from "rxjs/Subscription";
 import {
   trigger,
   transition,
   style,
-  state,
   animate
 } from "@angular/animations";
+import { JsonpClientBackend } from "@angular/common/http";
 @Component({
   selector: "mr-alert",
   templateUrl: "./alert.component.html",
@@ -44,10 +38,13 @@ export class AlertComponent implements OnInit {
   time: number;
   firstButtonText: string;
   secondButtonText: string;
+  @Input() JsonpClientBackend;
+  firstButtonFunction;
+  secondButtonFunction:Function;
   //default settings
   color: string;
   backColor: string;
-  showCloseButton:boolean;
+  showCloseButton: boolean;
 
   private alertSubscription: Subscription;
 
@@ -61,6 +58,8 @@ export class AlertComponent implements OnInit {
       this.time = data.time;
       this.firstButtonText = data.firstButtonText;
       this.secondButtonText = data.secondButtonText;
+      this.firstButtonFunction = data.firstButtonFunction;
+      this.secondButtonFunction = data.secondButtonFunction;
       if (this.type == "danger") {
         this.backColor = "#dc3545";
       }
@@ -70,10 +69,10 @@ export class AlertComponent implements OnInit {
       if (this.type == "success") {
         this.backColor = "#39c4ac";
       }
-      if(data.showCloseButton==false){
-        this.showCloseButton=false;
-      }else{
-        this.showCloseButton=true;
+      if (data.showCloseButton == false) {
+        this.showCloseButton = false;
+      } else {
+        this.showCloseButton = true;
       }
       //show alert
       this.modalStatus = true;

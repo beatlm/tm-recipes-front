@@ -1,4 +1,3 @@
-
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import { Router } from "@angular/router";
@@ -10,16 +9,27 @@ import { Alert } from "../lib/components/alert/alert";
 export class AlertService {
   alertSettings$ = new Subject<Alert>();
   constructor() {}
-  create(text: string, type: string, time: number,showCloseButton?:boolean, firstButtonText?:string, secondButtonText?:string) {
-    console.log("alert.service create "+text)
+  create(
+    text: string,
+    type: string,
+    time: number,
+    showCloseButton?: boolean,
+    firstButtonText?: string,
+    secondButtonText?: string,
+    firstButtonFunction?,
+    secondButtonFunction?:Function
+  ) {
+    console.log("alert.service create " + text);
     this.alertSettings$.next({
       text,
       type,
       time,
       showCloseButton,
       firstButtonText,
-      secondButtonText
+      secondButtonText,
+      firstButtonFunction,
+      secondButtonFunction
     });
-    console.log("alert service create end")
+    console.log("alert service create end");
   }
 }

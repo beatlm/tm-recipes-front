@@ -1,5 +1,4 @@
 import { AlertService } from "./../../services/alert.service";
-import { LoginService } from "./../../services/login.service";
 import { Component, OnInit, ViewChild, AfterViewInit } from "@angular/core";
 import { IngredienteModel } from "../../services/model/IngredienteModel";
 import { DynamicFormComponent } from "../../dynamic-form/containers/dynamic-form/dynamic-form.component";
@@ -40,13 +39,16 @@ export class RecipeComponent implements OnInit {
         value: this.currentRecipe ? this.currentRecipe.name : ""
       },
       {
-        name: "imagen",
+        name: "Seleccionar imagen",
         type: "image",
         divClass: "file-field input-field",
         change: event => {
           this.getFiles(event);
         },
-        src: this.currentRecipe && this.currentRecipe.imagen?this.currentRecipe.imagen:"../../assets/images/default.png" //this.fileString  || '../../assets/images/default.png'
+        src:
+          this.currentRecipe && this.currentRecipe.imagen
+            ? this.currentRecipe.imagen
+            : "../../assets/images/default.png" //this.fileString  || '../../assets/images/default.png'
       },
       {
         name: "tags",
@@ -102,7 +104,7 @@ export class RecipeComponent implements OnInit {
         label: "Añadir ingrediente",
         type: "button",
         buttonType: "button",
-        class: "smallButton",
+        class: "btn",
         click: () => {
           this.anadirIngrediente();
         }
@@ -128,7 +130,7 @@ export class RecipeComponent implements OnInit {
         label: "Añadir paso",
         type: "button",
         buttonType: "button",
-        class: "smallButton",
+        class: "btn",
         click: () => {
           this.anadirPaso();
         }
@@ -137,7 +139,7 @@ export class RecipeComponent implements OnInit {
         name: "pasos",
         type: "tablePasos",
         class: "col4 s3",
-        list: this.currentRecipe?this.currentRecipe.pasos:[],
+        list: this.currentRecipe ? this.currentRecipe.pasos : [],
         click: i => {
           this.deletePaso(i);
         }
@@ -147,8 +149,9 @@ export class RecipeComponent implements OnInit {
         name: "saveButton",
         label: "Guardar",
         type: "button",
-        class: "bigButton",
+        class: "btn btn-main",
         buttonType: "submit",
+        icon: "add",
         click: form => {
           //this.formSubmitted(form);
         }
@@ -159,7 +162,7 @@ export class RecipeComponent implements OnInit {
   formSubmitted(data) {
     this.loaderService.fireLoader();
 
-    console.log("Form" + data);
+    console.log("Form" + data.image);
 
     var editRecipeModel: RecipeModel;
     if (this.currentRecipe) {
@@ -167,13 +170,13 @@ export class RecipeComponent implements OnInit {
     } else {
       editRecipeModel = RecipeModel.fromData(data);
     }
-  
+
     //  const editRecipeModel =RecipeModel.mixData(data,this.currentRecipe);
     editRecipeModel.ingredients = this.recipeForm.config[9].list;
     editRecipeModel.pasos = this.recipeForm.config[12].list;
-if(this.recipeForm.config[1].src ){
-  editRecipeModel.imagen= this.recipeForm.config[1].src ;
-}
+    if (this.recipeForm.config[1].src) {
+      editRecipeModel.imagen = this.recipeForm.config[1].src;
+    }
     if (this.currentRecipe != undefined) {
       console.log("Edit Recipe is called");
 

@@ -41,7 +41,9 @@ export class ListRecipeComponent implements OnInit {
       0,
       false,
       "Aceptar",
-      "Cancelar"
+      "Cancelar",
+
+      alert("prueba")
     );
 
     /* this.recipesService

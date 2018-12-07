@@ -1,0 +1,31 @@
+<div
+  *ngIf="message"
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  style="display:block!important"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div *ngIf="message?.type == 'confirm'" class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="text-center">{{ message.text }}</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <p class="text-center">
+              <a (click)="message.siFn()">
+                <button class="btn btn-sc">SI</button>
+              </a>
+              <a (click)="message.noFn()">
+                <button class="btn btn-pm">No</button>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

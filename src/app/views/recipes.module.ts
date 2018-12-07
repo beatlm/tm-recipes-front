@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RecipeComponent } from './recipe/recipe.component';
 import { PlannerService } from '../services/planner.service';
 import { TmFormatPipe } from '../lib/components/pipes/tm.format.pipe';
+import { ConfirmService } from '../services/confirm.service';
 
 
 @NgModule({
@@ -23,6 +24,6 @@ import { TmFormatPipe } from '../lib/components/pipes/tm.format.pipe';
   ],
   declarations: [TodayComponent,ShowRecipeComponent,PlanningComponent,ListRecipeComponent, RecipeComponent],
   exports: [TodayComponent,PlanningComponent,ShowRecipeComponent,ListRecipeComponent,TmFormatPipe],
-  providers:[RecipesService,LoaderService, AlertService, PlannerService, TmFormatPipe, RecipeResolverService], 
+  providers:[RecipesService,LoaderService, AlertService, ConfirmService,PlannerService, TmFormatPipe, RecipeResolverService], 
 })
 export class RecipesModule { }

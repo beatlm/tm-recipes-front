@@ -5,7 +5,8 @@ import { Component, OnInit } from "@angular/core";
 
 import { LoaderService } from "./../../services/loader.service";
 import { Router } from "@angular/router";
-import { AlertService } from "./../../services/alert.service";
+import { ConfirmService } from "../../services/confirm.service";
+import { AlertService } from "../../services/alert.service";
 
 @Component({
   selector: "mr-list-recipe",
@@ -21,7 +22,8 @@ export class ListRecipeComponent implements OnInit {
     private recipesService: RecipesService,
     public loaderService: LoaderService,
     private router: Router,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private confirmService: ConfirmService
   ) {}
 
   ngOnInit() {
@@ -34,23 +36,21 @@ export class ListRecipeComponent implements OnInit {
       .getRecipesList$()
       .subscribe(this.showRecipes.bind(this), this.catchError.bind(this));
   }
-  private deleteRecipe(id: string) {
-    this.alertService.create(
-      "¿Estás seguro de que quieres borrar la receta?",
-      "info",
-      0,
-      false,
-      "Aceptar",
-      "Cancelar",
-
-      alert("prueba")
+  public deleteRecipe(id: string, name: string) {
+    let that = this;
+    that.confirmService.confirm(
+      "¿Estas seguro que quieres borrar la receta '" + name + "'?",
+      function() {
+        that.recipesService
+          .deleteRecipe$(id)
+          .subscribe(that.showDelete.bind(that), that.catchError.bind(that));
+      },
+      function() {
+        console.log("Ha dicho no");
+      }
     );
-
-    /* this.recipesService
-      .deleteRecipe$(id)
-      .subscribe(this.showDelete.bind(this), this.catchError.bind(this));*/
   }
-  private editRecipe(id: string) {
+  public editRecipe(id: string) {
     this.router.navigate(["editrecipe/" + id]);
   }
   private showDelete() {
@@ -81,5 +81,11 @@ export class ListRecipeComponent implements OnInit {
   }
   private seeRecipe(id): void {
     this.router.navigate(["recipe/" + id]);
+  }
+
+  public clickMethod(name: string) {
+    if (confirm("Are you sure to delete " + name)) {
+      console.log("Implement delete functionality here");
+    }
   }
 }

@@ -1,3 +1,4 @@
+import { ConfirmComponent } from './confirmation/confirm.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
@@ -15,8 +16,8 @@ import { TmFormatPipe } from './pipes/tm.format.pipe';
   imports: [
     CommonModule, AppRoutingModule
   ],
-  declarations: [ HeaderComponent, MenuComponent, LoaderComponent, AlertComponent, TmFormatPipe],
-  exports: [HeaderComponent, MenuComponent, LoaderComponent,AlertComponent, TmFormatPipe],
+  declarations: [ HeaderComponent, MenuComponent, LoaderComponent, AlertComponent,ConfirmComponent, TmFormatPipe],
+  exports: [HeaderComponent, MenuComponent, LoaderComponent,AlertComponent,ConfirmComponent, TmFormatPipe],
   providers: [AlertService]
 })
 export class ComponentsModule { }

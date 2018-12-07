@@ -36,11 +36,7 @@ export class AlertComponent implements OnInit {
   text: string;
   type: string;
   time: number;
-  firstButtonText: string;
-  secondButtonText: string;
   @Input() JsonpClientBackend;
-  firstButtonFunction;
-  secondButtonFunction:Function;
   //default settings
   color: string;
   backColor: string;
@@ -56,10 +52,6 @@ export class AlertComponent implements OnInit {
       this.text = data.text;
       this.type = data.type;
       this.time = data.time;
-      this.firstButtonText = data.firstButtonText;
-      this.secondButtonText = data.secondButtonText;
-      this.firstButtonFunction = data.firstButtonFunction;
-      this.secondButtonFunction = data.secondButtonFunction;
       if (this.type == "danger") {
         this.backColor = "#dc3545";
       }

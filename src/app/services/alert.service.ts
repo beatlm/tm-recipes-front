@@ -14,21 +14,13 @@ export class AlertService {
     type: string,
     time: number,
     showCloseButton?: boolean,
-    firstButtonText?: string,
-    secondButtonText?: string,
-    firstButtonFunction?,
-    secondButtonFunction?:Function
   ) {
     console.log("alert.service create " + text);
     this.alertSettings$.next({
       text,
       type,
       time,
-      showCloseButton,
-      firstButtonText,
-      secondButtonText,
-      firstButtonFunction,
-      secondButtonFunction
+      showCloseButton
     });
     console.log("alert service create end");
   }

@@ -79,7 +79,7 @@
   }
 
   /* Modal Content/Box */
-  .modal-content {
+  .modal-content-alert {
     /* display: block;*/
     position: fixed; /* Stay in place */
     z-index: 1031; /* Sit on top */
@@ -213,7 +213,7 @@
     opacity: 0.5;
     filter: alpha(opacity=50); /* IE < 9.0 */
   }
-  .btn-main{
+  .btn-main {
     margin-left: 10%;
     width: 80%;
   }
@@ -255,7 +255,7 @@
   }
 
   /* Modal Content/Box */
-  .modal-content {
+  .modal-content-alert {
     /* display: block;*/
     position: fixed; /* Stay in place */
     z-index: 1031; /* Sit on top */
@@ -338,5 +338,24 @@
 
   button.smallButton {
     width: 30%;
+  }
+
+  .modal-content {
+    position: static;
+    width: 100%;
+    margin: 0;
+    z-index: 1031;
+    overflow: auto;
+    background-color: #fefefe;
+  }
+  .modal{
+    width: 30%;
+    max-height: 27%;
+  }
+  h3, .h3 {
+    font-size: 1.2em;
+  }
+  .modal-dialog {
+    margin: 0;
   }
 }

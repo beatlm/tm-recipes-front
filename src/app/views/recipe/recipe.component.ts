@@ -109,11 +109,11 @@ export class RecipeComponent implements OnInit {
           this.anadirIngrediente();
         }
       },
-      {
-        name: "ingredients",
+      {prueba: "nombrePrueba",
+        name: "ingredientsList",
         type: "table",
         class: "col4 s3",
-        click: i => {
+        clickDelete: i => {
           this.deleteIngredient(i);
         },
         list: this.currentRecipe ? this.currentRecipe.ingredients : []
@@ -160,6 +160,7 @@ export class RecipeComponent implements OnInit {
   }
 
   formSubmitted(data) {
+    console.log("formSubmitted "+this.recipeForm.form.value);
     this.loaderService.fireLoader();
 
     console.log("Form" + data.image);
@@ -202,6 +203,7 @@ export class RecipeComponent implements OnInit {
   deleteIngredient(index) {
     this.recipeForm.config[9].list.splice(index, 1);
   }
+
   anadirPaso() {
     this.recipeForm.config[12].list.push(
       this.recipeForm.form.controls.step.value

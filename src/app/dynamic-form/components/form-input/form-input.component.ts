@@ -7,14 +7,13 @@ import { FormGroup } from '@angular/forms';
   `
   <div [class]= "config.divClass"
     [formGroup]="group">
-    <label>{{ config.label }}</label>
-    <input
-      [attr.type]="config.inputType"
-      [class] ="config.class"
-      [attr.placeholder]="config.placeholder"
-      [formControlName]="config.name"
-      [value]="config.value"
-      />
+      <label>{{ config.label }}</label>
+      <input
+        [attr.type]="config.inputType"
+        [class] ="config.class"
+        [attr.placeholder]="config.placeholder"
+        [formControlName]="config.name"
+        [value]="config.value"/>
   </div>
   `,
   styles: []

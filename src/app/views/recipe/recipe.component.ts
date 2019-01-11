@@ -9,7 +9,11 @@ import { LoaderService } from "../../services/loader.service";
 
 @Component({
   selector: "mr-recipe",
-  templateUrl: "./recipe.html",
+  template: `  
+  <div class="container">    
+    <mr-dynamic-form [config]="config" (submitted)="formSubmitted($event)" class="dynamicForm">    
+    </mr-dynamic-form>  
+  </div>  `,
   styles: []
 })
 export class RecipeComponent implements OnInit {
@@ -32,11 +36,11 @@ export class RecipeComponent implements OnInit {
 
     this.config = [
       {
-        name: "name",
+        name: "title",
         type: "input",
         placeholder: "Título de la receta",
         divClass: "leftIntputText",
-        value: this.currentRecipe ? this.currentRecipe.name : ""
+        value: this.currentRecipe? this.currentRecipe.title: "" 
       },
       {
         name: "Seleccionar imagen",
@@ -109,7 +113,7 @@ export class RecipeComponent implements OnInit {
           this.anadirIngrediente();
         }
       },
-      {prueba: "nombrePrueba",
+      {
         name: "ingredientsList",
         type: "table",
         class: "col4 s3",
@@ -144,7 +148,6 @@ export class RecipeComponent implements OnInit {
           this.deletePaso(i);
         }
       },
-
       {
         name: "saveButton",
         label: "Guardar",
@@ -153,16 +156,14 @@ export class RecipeComponent implements OnInit {
         buttonType: "submit",
         icon: "add",
         click: form => {
-          //this.formSubmitted(form);
         }
       }
     ];
   }
 
   formSubmitted(data) {
-    console.log("formSubmitted "+this.recipeForm.form.value);
+    console.log("formSubmitted "+this.recipeForm.form);
     this.loaderService.fireLoader();
-
     console.log("Form" + data.image);
 
     var editRecipeModel: RecipeModel;
@@ -172,19 +173,14 @@ export class RecipeComponent implements OnInit {
       editRecipeModel = RecipeModel.fromData(data);
     }
 
-    //  const editRecipeModel =RecipeModel.mixData(data,this.currentRecipe);
-    editRecipeModel.ingredients = this.recipeForm.config[9].list;
-    editRecipeModel.pasos = this.recipeForm.config[12].list;
     if (this.recipeForm.config[1].src) {
       editRecipeModel.imagen = this.recipeForm.config[1].src;
     }
     if (this.currentRecipe != undefined) {
       console.log("Edit Recipe is called");
-
       this.editRecipe(editRecipeModel);
     } else {
       console.log("Save Recipe is called");
-
       this.saveRecipe(editRecipeModel);
     }
   }
@@ -198,7 +194,6 @@ export class RecipeComponent implements OnInit {
     );
     this.recipeForm.form.controls.ingredients.reset();
     this.recipeForm.form.controls.amount.reset();
-    //  this.editRecipeForm.form.imagen.reset();
   }
   deleteIngredient(index) {
     this.recipeForm.config[9].list.splice(index, 1);
@@ -247,7 +242,6 @@ export class RecipeComponent implements OnInit {
 
   private catchError(err) {
     this.loaderService.stopLoader();
-
     this.alertService.create(
       "La receta no se ha modificado correctamente." + err.message,
       "danger",

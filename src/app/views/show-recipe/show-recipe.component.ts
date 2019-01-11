@@ -25,10 +25,9 @@ export class ShowRecipeComponent implements OnInit {
     public loaderService: LoaderService,
     private router: Router,
     private recipesService: RecipesService,
-  private plannerService:PlannerService,
-  public datepipe: DatePipe,
-  public tmFormat: TmFormatPipe) {
-    
+    private plannerService:PlannerService,
+    public datepipe: DatePipe,
+    public tmFormat: TmFormatPipe) {
    }
 
   ngOnInit() {
@@ -37,11 +36,9 @@ export class ShowRecipeComponent implements OnInit {
     this.refreshData(id);
   }
   private refreshData(id) {
-  
     this.recipesService
     .getRecipeDetail$(id)
     .subscribe(this.showRecipe.bind(this), this.catchError.bind(this));
-
   }
 
   private showRecipe(resultado: RecipeModel) {
@@ -56,7 +53,6 @@ export class ShowRecipeComponent implements OnInit {
     } else {
       this.message = `Unknown error, text: ${err.message}`;
     }
-   // this.fullError = err;
   }
   public deleteRecipe(id: string) {
     this.recipesService
@@ -74,5 +70,8 @@ export class ShowRecipeComponent implements OnInit {
   }
   private okPlanner(){
     alert("ok planner");
+  }
+  public clickEditRecipe(id: string) {
+    this.router.navigate(["editrecipe/" + id]);
   }
 }

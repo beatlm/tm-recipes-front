@@ -55,11 +55,13 @@
     <div class="row">
         <table class=" ingredientes striped">
             <tr *ngFor="let paso of recipe?.pasos;index as i;">
-                <td>{{i+1}}. {{paso | tmFormat}}</td>
+              <!--  <td>{{i+1}}. {{paso | tmFormat}}</td>-->
+                <td>{{i+1}}. {{paso}}</td>
             </tr>
         </table>
     </div>
     <button class="btn btn-secondary" type="button" (click)="deleteRecipe(recipe.id)">Borrar</button>
+    <button class="btn btn-secondary" type="button" (click)="clickEditRecipe(recipe.id)">Editar</button>
     <button class="btn btn-secondary" type="button" (click)="addPlanner(recipe.id)">Añadir al planificador</button>
 
 </div>

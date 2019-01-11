@@ -8,7 +8,9 @@ import { FormGroup } from '@angular/forms';
   [formGroup]="group">
   <table class="collection">
             <tr *ngFor="let pasoAdded of config.list;let i = index">
-                <td class="collection-item">{{pasoAdded}}</td>
+                <td>
+                    <input type="text" value="{{pasoAdded}}" formControlName="pasos"/>
+                </td>
                 <td>
                     <a class="btn-small" (click)="config.click(i)">
                         <i class="material-icons left">delete</i>

@@ -33,7 +33,7 @@ export class DynamicFormComponent implements OnInit {
     const group = this.fb.group({});
     this.config.forEach(control => {
      
-      if(control.name == "ingredientsList" && control.list){
+      if(control.name == "ingredientsList" ){
         let oAux: any = [];
         for (var i=0; i< control.list.length; i++) {
           oAux.push(this.fb.group({
@@ -45,7 +45,7 @@ export class DynamicFormComponent implements OnInit {
         console.log({oAux});
         group.addControl(control.name, this.fb.array(oAux));
 
-     }else if(control.name =="pasos" && control.list){
+     }else if(control.name =="pasos" ){
         let oAux: any = [];
         for (var i=0; i< control.list.length; i++) {
           oAux.push(this.fb.control(control.list[i].name));

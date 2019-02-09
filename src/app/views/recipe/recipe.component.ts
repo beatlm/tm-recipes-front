@@ -1,4 +1,3 @@
-import { FormBuilder } from '@angular/forms';
 import { AlertService } from "./../../services/alert.service";
 import { Component, OnInit, ViewChild, AfterViewInit } from "@angular/core";
 import { IngredienteModel } from "../../services/model/IngredienteModel";
@@ -29,8 +28,7 @@ export class RecipeComponent implements OnInit {
     private recipesService: RecipesService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    public loaderService: LoaderService,
-    private fb: FormBuilder
+    public loaderService: LoaderService
   ) {}
 
   ngOnInit() {
@@ -38,11 +36,11 @@ export class RecipeComponent implements OnInit {
 
     this.config = [
       {
-        name: "name",
+        name: "title",
         type: "input",
         placeholder: "Título de la receta",
         divClass: "leftIntputText",
-        value: this.currentRecipe? this.currentRecipe.name: "" 
+        value: this.currentRecipe? this.currentRecipe.title: "" 
       },
       {
         name: "Seleccionar imagen",
@@ -188,39 +186,23 @@ export class RecipeComponent implements OnInit {
   }
 
   anadirIngrediente() {
-   /* this.recipeForm.config[9].list.push(
+    this.recipeForm.config[9].list.push(
       new IngredienteModel(
         this.recipeForm.form.controls.ingredients.value,
         this.recipeForm.form.controls.amount.value
       )
-    );*/
-    let oAux= this.recipeForm.form.controls.ingredientsList.value;//any = [];
-    oAux.push(this.fb.group({
-      'name': this.recipeForm.form.controls.ingredients.value ,
-      'amount':this.recipeForm.form.controls.amount.value 
-     }));
-     
-     this.recipeForm.form.setControl('ingredientsList',this.fb.array(oAux));
-        //TODO generar aqui el formControl
+    );
     this.recipeForm.form.controls.ingredients.reset();
     this.recipeForm.form.controls.amount.reset();
   }
   deleteIngredient(index) {
-    //Todo eliminar aqui el formControl
     this.recipeForm.config[9].list.splice(index, 1);
   }
 
   anadirPaso() {
-    /*this.recipeForm.config[12].list.push(
+    this.recipeForm.config[12].list.push(
       this.recipeForm.form.controls.step.value
-    );*/
-    let oAux= this.recipeForm.form.controls.pasos.value;//any = [];
-    oAux.push(this.fb.control(this.recipeForm.form.controls.step.value));
-
-     
-     this.recipeForm.form.setControl('pasos',this.fb.array(oAux));
-        //TODO generar aqui el formControl¿Porque no se muestrqn??
-  
+    );
     this.recipeForm.form.controls.step.reset();
   }
 

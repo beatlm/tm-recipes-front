@@ -36,11 +36,11 @@ export class RecipeComponent implements OnInit {
 
     this.config = [
       {
-        name: "title",
+        name: "name",
         type: "input",
         placeholder: "Título de la receta",
         divClass: "leftIntputText",
-        value: this.currentRecipe? this.currentRecipe.title: "" 
+        value: this.currentRecipe? this.currentRecipe.name: "" 
       },
       {
         name: "Seleccionar imagen",
@@ -162,6 +162,7 @@ export class RecipeComponent implements OnInit {
   }
 
   formSubmitted(data) {
+    console.log("formSubmitted data:"+data.form);
     console.log("formSubmitted "+this.recipeForm.form);
     this.loaderService.fireLoader();
     console.log("Form" + data.image);

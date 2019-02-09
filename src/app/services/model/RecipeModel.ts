@@ -3,7 +3,7 @@ import { RecipeFormModel } from "./RecipeFormModel";
 
 export class RecipeModel {
   public id: string;
-  public title: string = "";
+  public name: string = "";
   public imagen: String;
   public tags: Array<String> = [];
   public amount: number = 0;
@@ -26,8 +26,8 @@ export class RecipeModel {
     if (data.image) {
       mixData.imagen = data.image;
     }
-    if (data.title) {
-      mixData.title = data.title;
+    if (data.name) {
+      mixData.name = data.name;
     }
     if (data.tags) {
       mixData.tags = data.tags.split(",");
@@ -45,7 +45,7 @@ export class RecipeModel {
     console.log("fromData " + data);
     let {
       id,
-      title,
+      name,
       amount,
       total,
       preparation,
@@ -57,7 +57,7 @@ export class RecipeModel {
     //Gestionamos el array de tags
     var newTags = data.tags.split(",");
     return new this(
-      title,
+      name,
       amount,
       total,
       preparation,
@@ -69,7 +69,7 @@ export class RecipeModel {
   }
 
   constructor(
-    title: string,
+    name: string,
     amount: number,
     total: number,
     preparation: number,
@@ -78,7 +78,7 @@ export class RecipeModel {
     tags: Array<String>,
     image?: String
   ) {
-    this.title = title;
+    this.name = name;
     this.amount = amount;
     this.total = total;
     this.preparation = preparation;

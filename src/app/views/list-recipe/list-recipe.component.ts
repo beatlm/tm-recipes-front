@@ -55,7 +55,7 @@ export class ListRecipeComponent implements OnInit {
   }
   private showDelete() {
     this.alertService.create(
-      "La receta se ha borrado correctamente.", //title
+      "La receta se ha borrado correctamente.", //name
       "success", //type
       2500 // time
     );
@@ -74,7 +74,7 @@ export class ListRecipeComponent implements OnInit {
   private catchError(err) {
     this.loaderService.stopLoader();
     this.alertService.create(
-      "Ha ocurrido un error", //title
+      "Ha ocurrido un error", //name
       "danger", //type
       2500 // time
     );

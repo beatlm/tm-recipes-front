@@ -2,7 +2,7 @@ import { IngredienteModel } from "./IngredienteModel";
 
 export class RecipeFormModel {
   public id: string;
-  public title: string = "";
+  public name: string = "";
   public image: String;
   public tags: String;
   public amount: number = 0;
@@ -12,7 +12,7 @@ export class RecipeFormModel {
   public pasos: Array<String> = [];
 
   constructor(
-    title: string,
+    name: string,
     amount: number,
     total: number,
     preparation: number,
@@ -21,7 +21,7 @@ export class RecipeFormModel {
     tags: String,
     image?: String,
   ) {
-    this.title = title;
+    this.name = name;
     this.amount = amount;
     this.total = total;
     this.preparation = preparation;

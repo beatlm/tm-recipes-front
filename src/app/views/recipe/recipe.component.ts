@@ -6,6 +6,7 @@ import { RecipeModel } from "../../services/model/RecipeModel";
 import { RecipesService } from "../../services/recipes.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { LoaderService } from "../../services/loader.service";
+import { FormArray } from "@angular/forms";
 
 @Component({
   selector: "mr-recipe",
@@ -201,10 +202,15 @@ export class RecipeComponent implements OnInit {
   }
 
   anadirPaso() {
-    this.recipeForm.config[12].list.push(
+    //TODO Revisar este error
+var pasosArray= this.recipeForm.form.controls.pasos as FormArray;
+pasosArray.push(this.recipeForm.form.controls.step.value);
+   /* this.recipeForm.config[12].list.push(
       this.recipeForm.form.controls.step.value
-    );
+    );*/
     this.recipeForm.form.controls.step.reset();
+
+
   }
 
   deletePaso(index) {

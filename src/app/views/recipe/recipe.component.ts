@@ -203,7 +203,7 @@ export class RecipeComponent implements OnInit {
 
   anadirPaso() {
     //TODO Revisar este error
-var pasosArray= this.recipeForm.form.controls.pasos as FormArray;
+var pasosArray= <FormArray>this.recipeForm.form.controls.pasos;
 pasosArray.push(this.recipeForm.form.controls.step.value);
    /* this.recipeForm.config[12].list.push(
       this.recipeForm.form.controls.step.value

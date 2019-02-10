@@ -4,18 +4,21 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 0.0.0.0 --poll=500",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^5.2.0",
     "@angular/cdk": "^6.2.1",
+    "@angular/cli": "~1.7.1",
     "@angular/common": "^5.2.11",
     "@angular/compiler": "^5.2.0",
+    "@angular/compiler-cli": "^5.2.0",
     "@angular/core": "^5.2.0",
     "@angular/forms": "^5.2.0",
     "@angular/http": "^5.2.0",

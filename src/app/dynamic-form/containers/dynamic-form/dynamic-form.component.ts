@@ -48,7 +48,7 @@ export class DynamicFormComponent implements OnInit {
      }else if(control.name =="pasos" ){
         let oAux: any = [];
         for (var i=0; i< control.list.length; i++) {
-          oAux.push(this.fb.control(control.list[i].name));
+          oAux.push(this.fb.control(control.list[i]));
         }     
         console.log("Pasos:")
         console.log({oAux});

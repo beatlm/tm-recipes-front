@@ -6,7 +6,7 @@ import { RecipeModel } from "../../services/model/RecipeModel";
 import { RecipesService } from "../../services/recipes.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { LoaderService } from "../../services/loader.service";
-import { FormArray } from "@angular/forms";
+import { FormArray, FormBuilder } from "@angular/forms";
 
 @Component({
   selector: "mr-recipe",
@@ -29,7 +29,8 @@ export class RecipeComponent implements OnInit {
     private recipesService: RecipesService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    public loaderService: LoaderService
+    public loaderService: LoaderService,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit() {
@@ -203,8 +204,9 @@ export class RecipeComponent implements OnInit {
 
   anadirPaso() {
     //TODO Revisar este error
-var pasosArray= <FormArray>this.recipeForm.form.controls.pasos;
-pasosArray.push(this.recipeForm.form.controls.step.value);
+
+let control = this.fb.control(this.recipeForm.form.controls.step.value);
+(<FormArray>this.recipeForm.form.controls.pasos).push(control);
    /* this.recipeForm.config[12].list.push(
       this.recipeForm.form.controls.step.value
     );*/

@@ -1,40 +1,20 @@
-#FROM alpine/git as clone
-#ARG url
-#RUN git clone ${url}
-#WORKDIR /app
-
-### STAGE 1: Build ###  https://vocon-it.com/2018/07/22/angular-docker-example/
-
-# We label our stage as 'builder'
-FROM node:8-alpine as builder
-
-COPY /package*.json ./
-
-RUN npm set progress=false && npm config set depth 0 && npm cache clean --force
-
-## Storing node modules on a separate layer will prevent unnecessary npm installs at each build
-RUN npm i && mkdir /ng-app && cp -R ./node_modules ./ng-app
-
-WORKDIR /ng-app
-
-COPY . .
-
-## Build the angular app in production mode and store the artifacts in dist folder
-RUN $(npm bin)/ng build --prod --build-optimizer
+FROM alpine/git as clone-stage
+ARG url
+WORKDIR /app
+RUN git clone ${url}
 
 
-### STAGE 2: Setup ###
+# Stage 0, "build-stage", based on Node.js, to build and compile Angular
+FROM node:10 as build-stage
+WORKDIR /app
+COPY --from=clone-stage /app/tm-recipes-front/package*.json /app/
+RUN npm install
+COPY ./ /app/
+ARG configuration=production
+RUN npm run build -- --output-path=./dist/out --configuration $configuration
+COPY ./nginx-custom.conf /nginx.conf
 
+# Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
 FROM nginx:1.15
-
-## Copy our default nginx config
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-## Remove default nginx website
-RUN rm -rf /usr/share/nginx/html/*
-
-## From 'builder' stage copy over the artifacts in dist folder to default nginx public folder
-COPY --from=builder /ng-app/dist /usr/share/nginx/html
-#COPY --from=build-stage /app/dist/out/ /usr/share/nginx/html
-#COPY --from=build-stage /nginx.conf /etc/nginx/conf.d/default.conf
-CMD ["nginx", "-g", "daemon off;"]
+COPY --from=build-stage /app/dist/out/ /usr/share/nginx/html
+COPY --from=build-stage /nginx.conf /etc/nginx/nginx.conf

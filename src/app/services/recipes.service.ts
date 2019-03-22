@@ -5,8 +5,8 @@ import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class RecipesService {
-  private url = "https://tm-recipes-api.herokuapp.com/recipes";
-  //private url = "http://51.15.227.239:8080/recipes";
+  //private url = "https://tm-recipes-api.herokuapp.com/recipes";
+  private url = "http://51.15.227.239:8080/recipes";
 
   private find="/search/buscarPorTag?tag="
 

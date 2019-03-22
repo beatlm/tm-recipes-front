@@ -6,8 +6,9 @@ RUN git clone ${url}
 
 # Stage 0, "build-stage", based on Node.js, to build and compile Angular
 FROM node:10 as build-stage
+ARG project
 WORKDIR /app
-COPY --from=clone-stage /app/tm-recipes-front/package*.json /app/
+COPY --from=clone-stage /app/${project}/package*.json /app/
 RUN npm install
 COPY ./ /app/
 ARG configuration=production

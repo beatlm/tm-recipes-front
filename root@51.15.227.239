@@ -1,0 +1,15 @@
+version: '3.1'
+services: 
+  angular:
+    build:
+      context: ./
+      args:
+        url: https://github.com/beatlm/tm-recipes-front.git
+        project: tm-recipes-front
+    volumes:
+      - '.:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    container_name: tm-recipes-front
+    ports:
+      - 4200:4200
+    image: tm-recipes-front

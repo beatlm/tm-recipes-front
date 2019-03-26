@@ -11,7 +11,7 @@ ARG project
 WORKDIR /app
 COPY --from=clone-stage /app/${project}/package*.json /app/
 #RUN npm install -g @angular/cli@latest
-RUN npm install npm@6.5.0 -g
+#RUN npm install npm@6.5.0 -g
 RUN npm install
 COPY ./ /app/
 ARG configuration=production
